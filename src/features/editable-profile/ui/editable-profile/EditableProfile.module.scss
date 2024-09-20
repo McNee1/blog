@@ -1,0 +1,20 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.form {
+  flex: 2 1 auto;
+  height: fit-content;
+}
+
+.form_actions {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+  button + button {
+    margin-left: 15px;
+  }
+}

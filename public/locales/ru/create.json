@@ -1,0 +1,31 @@
+{
+  "CODE": "код",
+  "IMAGE": "картинка",
+  "TEXT": "текст",
+  "TITLE": "заголовок",
+
+  "ALL": "все",
+  "ECONOMICS": "экономика",
+  "IT": "it",
+  "SCIENCE": "наука",
+  "TECHNOLOGY": "технологии",
+
+  "Title": "Заголовок",
+  "Image link": "Ссылка на изображение",
+  "Description": "Описание",
+  "Code": "Код",
+
+  "Text": "Текст",
+  "Create article": "Создать статью",
+  "Edit article": "Редактировать статью",
+  "Add article": "Добавить статью",
+  "Article blocs": "Блоки статей",
+  "Article setting": "Настройка статьи",
+  "Select types for article": "Выберите типы для статьи...",
+  "Heading": "Заголовок",
+  "Subtitle": "Подзаголовок",
+  "Cover": "Обложка",
+
+  "Article added successfully": "Статья успешно добавлена",
+  "Article changed successfully": "Статья успешно изменена"
+}

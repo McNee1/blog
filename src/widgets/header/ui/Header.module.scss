@@ -1,0 +1,29 @@
+.navbar {
+  // position: sticky;
+  z-index: var(--navbar-z-index);
+  // top: 0;
+
+  width: 100%;
+  height: var(--navbar-height);
+  padding: 10px 0;
+
+  background-color: var(--header-bg-color);
+  box-shadow: 0px 1px 10px 3px var(--navbar-shadow-color);
+}
+
+.navbar_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn_group {
+  display: inline-flex;
+  flex: auto;
+  gap: 0 20px;
+  align-items: center;
+}
+
+.new_article:hover svg {
+  fill: var(--hover-color);
+}

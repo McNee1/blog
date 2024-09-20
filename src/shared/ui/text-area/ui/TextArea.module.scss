@@ -1,0 +1,61 @@
+.label {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.textarea {
+  resize: none;
+
+  width: 100%;
+
+  min-height: 100%;
+
+  color: var(--primary-color);
+
+  background-color: inherit;
+
+  overflow: hidden;
+
+  &:focus {
+    outline: 1px solid #42cf7f;
+  }
+}
+
+::placeholder {
+  color: rgb(160, 160, 160);
+}
+
+.not_editable {
+  pointer-events: none;
+}
+
+.xl {
+  font: var(--font-xl);
+  ::placeholder {
+    font-size: var(--font-size-xl);
+  }
+}
+
+.md {
+  font: var(--font-l);
+  ::placeholder {
+    font-size: var(--font-size-l);
+  }
+}
+
+.sm {
+  font: var(--font-m);
+  ::placeholder {
+    font-size: var(--font-size-m);
+  }
+}
+
+.not_border {
+  outline: none;
+  border: none;
+}

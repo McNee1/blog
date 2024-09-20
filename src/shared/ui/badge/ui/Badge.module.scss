@@ -1,0 +1,26 @@
+.badge {
+  height: fit-content;
+  padding: 4px 8px;
+
+  font-size: 12px;
+  line-height: 1;
+  color: #f7f7f7;
+
+  border-radius: 16px;
+}
+
+.primary {
+  background-color: #0065fe;
+}
+
+.success {
+  background-color: #6cc070;
+}
+
+.warning {
+  background-color: #ffcc00;
+}
+
+.info {
+  background-color: #309fff;
+}

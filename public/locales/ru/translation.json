@@ -1,0 +1,20 @@
+{
+  "lang": "rus",
+  "Log in": "Войти",
+  "main": "Главная",
+  "about": "О нас",
+  "articles": "Статьи",
+  "profile": "Профиль",
+  "users": "Пользователи",
+  "Password": "Пароль",
+  "Email": "Почта",
+  "Log out": "Выйти",
+  "Username": "Имя",
+  "Login form": "Форма входа",
+  "Wrong login or password": "Неверный логин или пароль",
+  "Welcome to the main page": "Добро пожаловать на главную страницу",
+  "Select country": "Выберите страну",
+  "Comments": "Комментарии",
+  "No comments": "Нету комментариев",
+  "article_detail": "Статья"
+}

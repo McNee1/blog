@@ -1,0 +1,83 @@
+.select_container {
+  position: relative;
+}
+
+.selected_values {
+  cursor: pointer;
+
+  overflow: hidden;
+
+  padding: 5px 10px;
+
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  background-color: color-mix(in oklab, var(--bg-select) 100%, #000000 5%);
+  border-radius: 7px;
+  box-shadow: 0 0 4px 0 var(--select-shadow);
+
+  &.placeholder_color {
+    color: color-mix(in oklab, var(--secondary-color) 50%, var(--bg-select) 50%);
+  }
+}
+
+.options_list {
+  position: absolute;
+  z-index: 1;
+
+  overflow-y: auto;
+
+  width: 100%;
+  max-height: 200px;
+  padding: 0;
+
+  font-size: 16px;
+  color: var(--select-color);
+  list-style: none;
+
+  background-color: color-mix(in oklab, var(--bg-select) 100%, #ffffff 1%);
+  border-radius: 7px;
+  box-shadow: 0 1px 9px 0 var(--select-shadow);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.options_list li {
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 8px 10px;
+
+  transition: background var(--hover-transition);
+
+  &::after {
+    content: '\2713';
+    color: var(--primary-color);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &:hover {
+    background: var(--hover-color-primary);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.selected::after {
+    opacity: 1;
+  }
+}
+
+.focused {
+  background: var(--hover-color-primary);
+}
+.disabled {
+  pointer-events: none;
+}

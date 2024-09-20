@@ -1,0 +1,28 @@
+.form_title {
+  margin-bottom: 7px;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.input_wrap {
+  margin-bottom: 10px;
+}
+
+.input_wrap:last-of-type {
+  margin-bottom: 15px;
+}
+
+.inputForm {
+  background-color: var(--secondary-color);
+}
+
+.btn_form {
+  // flex-basis: 100%;
+  // width: 100%;
+  flex: auto;
+  padding: 10px 0;
+}

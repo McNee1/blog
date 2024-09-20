@@ -1,0 +1,1 @@
+export { ArticleDetailRecommendation } from './ArticleDetailRecommendation';

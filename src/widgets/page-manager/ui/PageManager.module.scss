@@ -1,0 +1,22 @@
+.Page {
+  width: 100%;
+  margin: var(--gap-top) auto 10px;
+  padding: 0 1rem;
+}
+
+.sm {
+  max-width: 640px;
+}
+
+.md {
+  max-width: 960px;
+}
+
+.xl {
+  max-width: 1280px;
+}
+
+.btn_dowland {
+  width: 150px;
+  margin: 3px auto 10px;
+}

@@ -1,0 +1,18 @@
+.header_menu {
+  background-color: var(--secondary-color);
+
+  button,
+  a {
+    color: var(--popup-color);
+    transition: all var(--hover-transition);
+  }
+
+  svg {
+    fill: var(--secondary-color);
+  }
+
+  button:hover,
+  a:hover {
+    background-color: var(--hover-color);
+  }
+}

@@ -1,0 +1,27 @@
+.input_wrap {
+  position: relative;
+}
+
+.svg_wrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+  padding-left: 10px;
+
+  svg path {
+    fill: var(--primary-color);
+  }
+}
+
+.input {
+  padding-left: 40px !important;
+  color: var(--select-color) !important;
+  background-color: var(--bg-select) !important;
+  border: none !important;
+}

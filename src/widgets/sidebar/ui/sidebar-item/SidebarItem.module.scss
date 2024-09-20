@@ -1,0 +1,29 @@
+.collapsed {
+  .link {
+    background: red;
+  }
+  .link_text {
+    display: none;
+  }
+}
+
+.link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  font-size: var(--font-size-s);
+  text-decoration: none;
+
+  svg {
+    fill: var(--primary-color);
+    transition: fill var(--hover-transition);
+
+    path {
+      fill: var(--primary-color);
+    }
+  }
+  &:hover svg {
+    fill: var(--hover-color);
+  }
+}

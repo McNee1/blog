@@ -1,0 +1,42 @@
+.dark {
+  --bg-color: #343435;
+  --primary-color: #ffff;
+  --secondary-color: #eeeeee;
+  --secondary-color-rgb: 238, 238, 238;
+
+  --header-bg-color: #1b1b1b;
+  --sidebar-bg-color: #292929;
+  --profile--header: #303030;
+  --profile--header--shadow: rgb(0, 0, 0, 0.2);
+
+  --navbar-shadow-color: rgba(0, 0, 0, 0.5);
+
+  // loader
+  --loader-color: #cccbcb;
+
+  --bg-field: #eeeeee;
+
+  // hover
+  --hover-color: #d1d1d1;
+  --hover-color-primary: rgb(22, 21, 21);
+
+  // code block
+  --bg-code: #252525;
+
+  // / skeleton
+  --bg-skeleton: #292929;
+
+  // card
+  --bg-card: #292828;
+
+  // select
+  --bg-select: #222222;
+  --select-color: #eeeeee;
+  --select-shadow: rgba(0, 0, 0, 0.5);
+
+  // tab
+  --bg-tab: #1a1919;
+
+  // popup
+  --popup-color: #000000;
+}

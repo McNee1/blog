@@ -1,0 +1,144 @@
+.btn {
+  cursor: pointer;
+
+  display: inline-block;
+
+  text-align: center;
+
+  background: none;
+  border: none;
+  outline: none;
+}
+
+button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.round-sm {
+  border-radius: 0.2rem;
+}
+
+.round-md {
+  border-radius: 0.4rem;
+}
+
+.round-lg {
+  border-radius: 999px;
+}
+
+.round-full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 999px;
+  box-shadow: 0px 0px 4px 0px var(--navbar-shadow-color);
+
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &.size-sm {
+    padding: 10px;
+  }
+  &.size-md {
+    padding: 15px;
+    font-size: 14px;
+  }
+  &.size-lg {
+    padding: 20px;
+    font-size: 14px;
+  }
+}
+
+.size-sm {
+  padding: 4px 8px;
+  font-size: var(--font-size-s);
+}
+
+.size-md {
+  padding: 6px 9px;
+  font-size: 14px;
+}
+
+.size-lg {
+  padding: 8px 12px;
+  font-size: var(--font-size-s);
+}
+
+//
+
+@mixin outline-btn($bg, $color) {
+  color: $bg;
+  border: 1px solid $bg;
+  transition: all ease-in 0.1s;
+
+  &:not([disabled]):hover {
+    color: $color;
+    background-color: $bg;
+  }
+}
+
+@mixin bg-btn($bg, $color, $hover) {
+  color: $color;
+  background-color: $bg;
+  transition: all ease-in 0.1s;
+
+  &:not([disabled]):hover {
+    background-color: $hover;
+  }
+}
+
+.outline-blue {
+  @include outline-btn(#0d2136, white);
+}
+
+.outline-green {
+  @include outline-btn(#38a169, white);
+}
+
+.outline-black {
+  @include outline-btn(black, white);
+}
+
+.outline-gray {
+  @include outline-btn(gray, white);
+}
+
+.outline-red {
+  @include outline-btn(rgb(197, 0, 0), white);
+}
+
+.outline-purple {
+  @include outline-btn(#805ad5, white);
+}
+
+.green {
+  @include bg-btn(#38a169, white, #408b63);
+}
+
+.blue {
+  @include bg-btn(#1b528d, white, #143f68);
+}
+
+.red {
+  @include bg-btn(#ff5959, white, #cf362b);
+}
+
+.gray {
+  @include bg-btn(#6c757d, white, #596168);
+}
+
+.black {
+  @include bg-btn(#0c0c0c, white, #1b1b1b);
+}
+
+.purple {
+  @include bg-btn(#805ad5, white, #5d3aa8);
+}

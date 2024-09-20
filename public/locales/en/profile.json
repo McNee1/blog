@@ -1,0 +1,12 @@
+{
+  "email": "Email",
+  "username": "Login",
+  "age": "Age",
+  "firstName": "First name",
+  "lastName": "Last name",
+  "avatar": "Image URL",
+  "city": "city",
+  "is incorrect": "is incorrect",
+  "is too short": "is too short",
+  "is too long": "is too long"
+}

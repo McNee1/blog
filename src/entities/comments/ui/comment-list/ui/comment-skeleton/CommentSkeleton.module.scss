@@ -1,0 +1,18 @@
+.skeleton_comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton_header {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.skeleton_title {
+  flex: 1 1 auto;
+  padding: 3px;
+}

@@ -1,0 +1,13 @@
+.modal_btn {
+  margin-top: 5px;
+
+  button + button {
+    margin-left: 10px;
+  }
+}
+.svg {
+  circle,
+  path {
+    stroke: green;
+  }
+}

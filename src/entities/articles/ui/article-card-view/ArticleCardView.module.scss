@@ -1,0 +1,64 @@
+.card_header {
+  .author_link {
+    font-size: 19px;
+    font-weight: 600;
+  }
+}
+
+.card_body {
+  margin-bottom: 20px;
+
+  .title {
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    margin-bottom: 15px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+
+  font-size: 16px;
+
+  .inline {
+    display: inline-flex;
+    gap: 7px;
+    align-items: center;
+  }
+}
+
+.link {
+  display: inline-block;
+
+  padding: 6px 9px;
+
+  font-size: var(--font-size-m);
+  color: #fff !important;
+
+  background-color: #1b528d;
+  border-radius: 0.2rem;
+
+  transition: background-color 0.5s;
+
+  &:hover {
+    background-color: #174577;
+  }
+}
+
+.calendar {
+  color: var(--secondary-color);
+  svg path {
+    fill: var(--secondary-color);
+  }
+}
+
+.eye {
+  color: var(--secondary-color);
+  svg g {
+    stroke: var(--secondary-color);
+  }
+}

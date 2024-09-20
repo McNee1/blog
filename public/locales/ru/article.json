@@ -1,0 +1,21 @@
+{
+  "read article": "Читать статью",
+  "the list of articles is empty": "Список статей пуст",
+
+  "article list": "Список статей",
+  "discover the world's knowledge with our collection of articles on a wide variety of topics. Here you will find in-depth analysis, inspiring stories and the latest news from the world of science, technology, culture and art. Immerse yourself in reading and expand your horizons!": "Откройте для себя мировые знания с помощью нашей коллекции статей на самые разные темы. Здесь вы найдете глубокий анализ, вдохновляющие истории и последние новости из мира науки, технологий, культуры и искусства. Погрузитесь в чтение и расширьте свой кругозор!",
+
+  "sort by": "Сортировать по",
+  "date": "дате",
+  "views": "просмотрам",
+  "title": "названию",
+
+  "asc": "возрастанию",
+  "desc": "убывание",
+
+  "ALL": "Все",
+  "ECONOMICS": "Экономика",
+  "IT": "IT",
+  "SCIENCE": "Наука",
+  "TECHNOLOGY": "Технологии"
+}

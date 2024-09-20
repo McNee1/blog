@@ -1,0 +1,12 @@
+{
+  "email": "Email",
+  "username": "Логин",
+  "age": "Возраст",
+  "firstName": "Имя",
+  "lastName": "Фамилия",
+  "avatar": "URL изображения",
+  "city": "Город",
+  "is incorrect": "не верный",
+  "is too short": "слишком короткий",
+  "is too long": "слишком длинный"
+}

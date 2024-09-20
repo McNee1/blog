@@ -1,0 +1,18 @@
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.fullRound {
+  border-radius: 100%;
+}
+
+.smRound {
+  border-radius: 4px;
+}

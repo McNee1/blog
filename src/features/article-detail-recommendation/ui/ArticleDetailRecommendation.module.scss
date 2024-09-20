@@ -1,0 +1,11 @@
+.recommended_title {
+  margin-bottom: 15px;
+}
+.recommended_list {
+  padding: 0 0 6px;
+  overflow-x: auto;
+  width: 100%;
+  scrollbar-color: orange;
+  scrollbar-width: thin;
+  flex-wrap: nowrap !important;
+}

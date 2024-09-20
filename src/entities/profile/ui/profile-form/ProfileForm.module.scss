@@ -1,0 +1,29 @@
+.row {
+  display: inline-flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.input_error {
+  margin-bottom: 2px;
+}
+
+.input_wrap {
+  margin-bottom: 10px;
+}
+
+.age_input {
+  flex: 1 1 200px;
+}
+
+.avatar_input {
+  flex: 2 1 200px;
+}
+
+.select {
+  flex: 1 1 200px;
+}
+
+.city_input {
+  flex: 2 1 200px;
+}

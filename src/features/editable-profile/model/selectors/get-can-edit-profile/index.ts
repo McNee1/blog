@@ -1,0 +1,1 @@
+export { getCanEditProfile } from './getCanEditProfile';

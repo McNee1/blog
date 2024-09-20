@@ -1,0 +1,55 @@
+.tile_card {
+  overflow: visible !important;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+
+  width: 250px;
+  max-width: 450px;
+  height: 180px;
+  padding: 10px;
+}
+
+.card_header {
+  margin-bottom: 10px;
+}
+
+.card_body {
+  .title {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.card_footer {
+  height: 40px;
+
+  .author_link {
+    font-size: var(--font-size-s);
+    font-weight: 500;
+    line-height: 1;
+  }
+  .date {
+    font-size: 13px;
+    line-height: 1;
+    color: var(--secondary-color);
+  }
+}
+
+.view_count {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-end;
+
+  svg g {
+    stroke: var(--secondary-color);
+  }
+
+  .count {
+    margin-left: 8px;
+  }
+}

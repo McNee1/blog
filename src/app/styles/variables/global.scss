@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700;800&family=Permanent+Marker&display=swap');
+
+:root {
+  --font-family-main: 'Inter', 'Open Sans', 'Permanent Marker', cursive, sans-serif;
+
+  --font-size-s: 16px;
+  --font-line-s: 22px;
+  --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
+  --font-size-m: 18px;
+  --font-line-m: 24px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+
+  --font-size-l: 20px;
+  --font-line-l: 28px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+  --font-size-xl: 24px;
+  --font-line-xl: 32px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+
+  --modal-z-index: 2;
+  //
+  --navbar-height: 50px;
+  --navbar-width: 250px;
+  --navbar-z-index: 1;
+
+  // hover
+  --hover-transition: 0.3s;
+
+  // margin for page
+  --gap-top: 20px;
+}

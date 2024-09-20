@@ -1,0 +1,38 @@
+.input {
+  width: 100%;
+  padding: 10px 10px;
+
+  font-size: 14px;
+  color: #4c4c4d;
+
+  background-color: var(--bg-field);
+  border: 1px solid #c2c2c2;
+  border-radius: 4px;
+  outline: none;
+
+  &:focus {
+    outline: 1px solid #42cf7f;
+  }
+}
+
+.error {
+  border-color: #ff3737;
+  &:focus {
+    outline: 1px solid rgba(255, 0, 0, 0.2);
+  }
+}
+
+.readonly {
+  cursor: default;
+
+  color: rgba($color: var(--secondary-color-rgb), $alpha: 0.7);
+
+  background-color: var(--bg-card);
+  border: 1px solid transparent;
+  border-bottom: 1px solid #acacac;
+  border-radius: 0;
+}
+
+.readonly:focus {
+  outline: none;
+}

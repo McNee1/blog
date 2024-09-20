@@ -1,0 +1,1 @@
+export { getCanEditArticle } from './selectors';

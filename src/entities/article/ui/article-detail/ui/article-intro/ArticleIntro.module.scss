@@ -1,0 +1,21 @@
+.intro {
+  margin-top: 20px;
+}
+
+.title_intro {
+  margin-bottom: 15px;
+}
+.intro_img {
+  margin-bottom: 15px;
+}
+.calendar {
+  margin-bottom: 7px;
+  font-size: var(--font-size-s);
+  svg path {
+    fill: var(--secondary-color);
+  }
+}
+
+.eye svg g {
+  stroke: var(--secondary-color);
+}

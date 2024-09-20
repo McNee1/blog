@@ -1,0 +1,39 @@
+.link {
+  transition: color var(--hover-transition);
+}
+
+.primary {
+  color: var(--primary-color);
+
+  &:hover {
+    color: var(--hover-color);
+  }
+  &:hover.border {
+    color: var(--hover-color-primary);
+    background-color: var(--primary-color);
+  }
+}
+
+.secondary {
+  color: var(--secondary-color);
+
+  &:hover {
+    color: var(--hover-color);
+  }
+  &:hover.border {
+    color: var(--hover-color-primary);
+    background-color: var(--secondary-color);
+  }
+}
+
+.primary.border {
+  border: 1px solid var(--primary-color);
+  padding: 1px 7px;
+  border-radius: 4px;
+}
+
+.secondary.border {
+  border: 1px solid var(--secondary-color);
+  padding: 1px 7px;
+  border-radius: 4px;
+}

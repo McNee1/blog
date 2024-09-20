@@ -1,0 +1,21 @@
+.comment_form {
+  width: 100%;
+
+  .label {
+    margin-bottom: 10px;
+    font-size: var(--font-size-m);
+    font-weight: 500;
+  }
+  .textarea {
+    margin-bottom: 7px;
+  }
+  .btn {
+    display: block;
+    margin-left: auto;
+    padding: 9px 25px;
+  }
+
+  .comment_footer {
+    display: flex;
+  }
+}

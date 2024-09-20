@@ -1,0 +1,17 @@
+.new_article {
+  margin-top: 6px;
+  svg {
+    fill: #929ca5;
+    transition: all var(--hover-transition);
+  }
+}
+.avatar {
+  img {
+    cursor: pointer;
+    padding: 1px;
+    border: 1px solid rgba($color: #000000, $alpha: 0.3);
+  }
+}
+.btn_login {
+  margin-left: auto;
+}

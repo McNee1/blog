@@ -1,0 +1,30 @@
+.delete_btn {
+  height: 100%;
+  padding: 4px 0 0;
+  visibility: hidden;
+  opacity: 0;
+
+  svg {
+    fill: red;
+  }
+}
+
+.wrap_edit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5px;
+
+  &:hover .delete_btn {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity var(--hover-transition);
+  }
+}
+
+.edit_block {
+  width: 100%;
+  div + div {
+    margin-top: 5px;
+  }
+}
