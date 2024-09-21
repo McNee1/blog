@@ -4,44 +4,39 @@
   gap: 10px;
   align-items: center;
 
-  background-color: red;
-}
-
-.svg {
-  cursor: pointer;
-}
-
-.svg g {
-  fill: rgba(68, 77, 107, 0.9);
-}
-
-.svg g:hover {
-  fill: rgb(58, 66, 94);
-}
-
-.svg.liked {
-  cursor: auto;
-  g {
-    fill: rgb(48, 77, 173);
+  background-color: rgb(201, 28, 28);
+  svg {
+    cursor: pointer;
   }
-}
 
-.svg.disliked {
-  cursor: auto;
-  g {
-    fill: rgb(161, 36, 36);
+  .svg g {
+    fill: rgba(68, 77, 107, 0.9);
   }
-}
 
-.count {
-  font-size: var(--font-size-s);
-  font-weight: 500;
-}
+  .svg g:hover {
+    fill: rgb(58, 66, 94);
+  }
 
-.count.positive {
-  color: #008000;
-}
+  .svg.liked {
+    cursor: auto;
+    g {
+      fill: rgb(48, 77, 173);
+    }
+  }
 
-.count.negative {
-  color: #ff0000;
+  .svg.disliked {
+    cursor: auto;
+    g {
+      fill: rgb(161, 36, 36);
+    }
+  }
+
+  .count {
+    font-size: var(--font-size-s);
+    font-weight: 500;
+  }
+
+  .count.positive {
+    color: #008000;
+  }
 }
