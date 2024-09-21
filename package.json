@@ -13,7 +13,7 @@
     "lint:scss": "stylelint src/**/*.scss",
     "lint:scss:fix": "stylelint src/**/*.scss --fix",
     "test": "jest",
-    "storybook": "VITE_APP_STORYBOOK=storybook storybook dev -p 6006",
+    "storybook": "env VITE_APP_STORYBOOK=storybook storybook dev -p 6006",
     "build-storybook": "storybook build",
     "postinstall": "husky install",
     "chromatic": "chromatic --exit-zero-on-changes --project-token VITE_APP_CHROMATIC_PROJECT_TOKEN"
@@ -100,7 +100,6 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   },
-  "packageManager": "yarn@3.1.0",
   "lint-staged": {
     "*.{ts,tsx}": "eslint --cache --fix",
     "*.scss": "stylelint --fix",
