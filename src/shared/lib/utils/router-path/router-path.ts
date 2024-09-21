@@ -2,7 +2,7 @@ import { PathName } from '@/shared/constants';
 
 export class RoutePath {
   private static backticks(path: keyof typeof PathName, foo: string): string {
-    return `${PathName[path]}/${foo}`;
+    return `/${PathName[path]}/${foo}`;
   }
   static getMainPath(): string {
     return '/';

@@ -1,5 +1,4 @@
-import { RoutePath } from '@/shared/lib';
-import { useAppSelector } from '@/shared/lib';
+import { RoutePath, useAppSelector } from '@/shared/lib';
 import { AppLink, FlexGroup } from '@/shared/ui';
 
 import { getCanEditArticle } from '../../model';
@@ -19,15 +18,15 @@ export const ActionButtons = ({ className, articleId }: ActionButtonsProps) => {
       direction='row'
     >
       <AppLink
-        to={RoutePath.articles}
+        to={RoutePath.getArticlesPath()}
         type='secondary'
         border
       >
         &#x2190;
       </AppLink>
-      {canEdit && (
+      {canEdit && articleId && (
         <AppLink
-          to={RoutePath.edit_article + articleId}
+          to={RoutePath.getEditArticlePath(articleId)}
           type='secondary'
           border
         >

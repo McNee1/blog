@@ -1,4 +1,5 @@
 import { render } from '@/shared/lib';
+
 import { UserSchema } from '@/entities';
 import { fireEvent, screen } from '@testing-library/react';
 

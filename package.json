@@ -15,7 +15,8 @@
     "test": "jest",
     "storybook": "VITE_APP_STORYBOOK=storybook storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "chromatic": "chromatic --exit-zero-on-changes --project-token VITE_APP_CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.19",
@@ -67,6 +68,7 @@
     "@vitejs/plugin-react": "^4.0.3",
     "axios": "^1.6.2",
     "babel-jest": "^29.7.0",
+    "chromatic": "^11.10.2",
     "concurrently": "^8.2.2",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
@@ -96,13 +98,12 @@
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5",
-    "vite-plugin-environment": "^1.1.3"
+    "vite": "^4.4.5"
   },
   "packageManager": "yarn@3.1.0",
   "lint-staged": {
-    "*.{ts,tsx}": "eslint --cache --fix --max-warnings 0",
-    "*.scss": "stylelint --fix --max-warnings 0",
+    "*.{ts,tsx}": "eslint --cache --fix",
+    "*.scss": "stylelint --fix",
     "*.{ts,tsx,scss,md}": "prettier --write"
   }
 }

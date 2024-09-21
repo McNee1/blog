@@ -7,6 +7,7 @@ import { StoreProvider, ThemeProvider, useRouter } from './providers';
 
 export const Provider = () => {
   const router = useRouter();
+
   return (
     // <React.StrictMode>
     <StoreProvider>

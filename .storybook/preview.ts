@@ -3,11 +3,12 @@ import { Preview } from '@storybook/react';
 import RouterDecorator from '../src/shared/config/storybook/RouterDecorator';
 
 import StyleDecorator from '../src/shared/config/storybook/StyleDecorator';
-import 'loki/configure-react';
+import { ThemeDecorator } from '../src/shared/config/storybook/ThemeDecorator';
+import { Theme } from '../src/shared/constants/theme';
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: {},
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -15,7 +16,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [RouterDecorator, StyleDecorator],
+  decorators: [RouterDecorator, StyleDecorator, ThemeDecorator(Theme.LIGHT)],
 };
 
 export default preview;
