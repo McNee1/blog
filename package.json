@@ -13,6 +13,7 @@
     "lint:scss": "stylelint src/**/*.scss",
     "lint:scss:fix": "stylelint src/**/*.scss --fix",
     "test": "jest",
+    "prepare": "npx husky install",
     "storybook": "env VITE_APP_STORYBOOK=storybook storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "chromatic --exit-zero-on-changes --project-token VITE_APP_CHROMATIC_PROJECT_TOKEN"
