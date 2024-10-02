@@ -13,6 +13,7 @@ export const LoginModal = ({ isOpen, onClose }: LoginFormProps) => {
   return (
     <Portal>
       <Modal
+        dataTestId='LoginModal'
         onClose={onClose}
         isOpen={isOpen}
       >

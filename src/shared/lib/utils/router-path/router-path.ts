@@ -1,34 +1,30 @@
 import { PathName } from '@/shared/constants';
 
-export class RoutePath {
-  private static backticks(path: keyof typeof PathName, foo: string): string {
-    return `/${PathName[path]}/${foo}`;
+const getPath = (pathKey: keyof typeof PathName, id?: string): string => {
+  if (id) {
+    return `/${PathName[pathKey]}/${id}`;
   }
-  static getMainPath(): string {
-    return '/';
-  }
-  static getNewArticlePath(): string {
-    return '/new';
-  }
-  static getNotFoundPath(): string {
-    return PathName.NOT_FOUND;
-  }
-  static getAboutPath(): string {
-    return PathName.ABOUT;
-  }
-  static getArticlesPath(): string {
-    return PathName.ARTICLES;
-  }
-  static getUsersPath(): string {
-    return PathName.USERS;
-  }
-  static getProfilePath(id: string): string {
-    return this.backticks('PROFILE', id);
-  }
-  static getArticleDetailPath(id: string): string {
-    return this.backticks('ARTICLE_DETAIL', id);
-  }
-  static getEditArticlePath(id: string): string {
-    return this.backticks('EDIT_ARTICLE', id);
-  }
-}
+  return `/${PathName[pathKey]}`;
+};
+
+const getMainPath = (): string => getPath('MAIN');
+const getNewArticlePath = (): string => getPath('NEW_ARTICLE');
+const getNotFoundPath = (): string => getPath('NOT_FOUND');
+const getAboutPath = (): string => getPath('ABOUT');
+const getArticlesPath = (): string => getPath('ARTICLES');
+const getUsersPath = (): string => getPath('USERS');
+const getProfilePath = (id?: string): string => getPath('PROFILE', id);
+const getArticleDetailPath = (id: string): string => getPath('ARTICLE_DETAIL', id);
+const getEditArticlePath = (id: string): string => getPath('EDIT_ARTICLE', id);
+
+export {
+  getAboutPath,
+  getArticleDetailPath,
+  getArticlesPath,
+  getEditArticlePath,
+  getMainPath,
+  getNewArticlePath,
+  getNotFoundPath,
+  getProfilePath,
+  getUsersPath,
+};

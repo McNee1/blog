@@ -154,7 +154,8 @@
       "createdAt": "1721916296917",
       "id": 11,
       "subtitle": "",
-      "changed": "1724941889843"
+      "changed": "1724941889843",
+      "reaction": 1
     },
     {
       "title": "Замыкание в Java Script для непосвященных",
@@ -339,7 +340,7 @@
       "views": 0,
       "createdAt": "1722521384508",
       "id": 4,
-      "changed": "1722688708791"
+      "changed": "1727861727160"
     },
     {
       "title": "2343Замыкание в Java Script для непосвященных",
@@ -781,7 +782,7 @@
       "id": "1",
       "username": "Homer",
       "password": "123",
-      "email": "test@t.t",
+      "email": "test@t.tt",
       "role": "admin",
       "avatar": "https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/e76d4296-43f3-493b-9d50-f8e5c142d06c/2117667014/boys-profile-picture-screenshot.png"
     },
@@ -789,7 +790,7 @@
       "id": "2",
       "username": "Mike",
       "password": "123",
-      "email": "test1@t.t",
+      "email": "test1@t.tt",
       "role": "moderator",
       "avatar": "https://avatars.mds.yandex.net/get-shedevrum/11425623/img_b741a033f00f11eeb7f0ba0d8cad0506/orig"
     },
@@ -798,7 +799,7 @@
       "username": "Bart",
       "password": "123",
       "role": "admin",
-      "email": "test2@t.t",
+      "email": "test2@t.tt",
       "avatar": "https://www.shutterstock.com/image-vector/bart-simpson-cartoon-character-isolated-600nw-2413951549.jpg"
     },
     {
@@ -807,18 +808,6 @@
     }
   ],
   "profile": [
-    {
-      "id": "1",
-      "firstName": "Homer111",
-      "lastName": "Simsdsdsds",
-      "username": "Homer1",
-      "currency": "USD",
-      "country": "USA",
-      "age": "12",
-      "city": "Spring",
-      "email": "test@t.ts",
-      "avatar": "https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/e76d4296-43f3-493b-9d50-f8e5c142d06c/2117667014/boys-profile-picture-screenshot.png"
-    },
     {
       "id": "2",
       "firstName": "One1",
@@ -829,7 +818,7 @@
       "city": "Moscow",
       "username": "admin",
       "avatar": "https://avatars.mds.yandex.net/get-shedevrum/11425623/img_b741a033f00f11eeb7f0ba0d8cad0506/orig",
-      "email": "test@t.t"
+      "email": "test@t.tt"
     },
     {
       "id": "3",
@@ -840,52 +829,16 @@
       "age": 10,
       "username": "Bart",
       "password": "12324",
-      "email": "tes1t@t.t",
+      "email": "tes1tt@t.tt",
       "avatar": "https://www.shutterstock.com/image-vector/bart-simpson-cartoon-character-isolated-600nw-2413951549.jpg"
     }
   ],
   "reactions": [
     {
-      "articleId": "3",
+      "articleId": "11",
       "userId": "1",
-      "isDislike": true,
-      "isLike": false,
+      "reaction": "like",
       "id": 1
-    },
-    {
-      "articleId": "3",
-      "userId": "2",
-      "isDislike": true,
-      "isLike": false,
-      "id": 2
-    },
-    {
-      "articleId": "8",
-      "userId": "3",
-      "isDislike": true,
-      "isLike": false,
-      "id": 3
-    },
-    {
-      "articleId": "8",
-      "userId": "3",
-      "isDislike": false,
-      "isLike": true,
-      "id": 4
-    },
-    {
-      "articleId": "8",
-      "userId": "3",
-      "isDislike": true,
-      "isLike": false,
-      "id": 5
-    },
-    {
-      "articleId": "8",
-      "userId": "3",
-      "isDislike": false,
-      "isLike": true,
-      "id": 6
     }
   ]
 }

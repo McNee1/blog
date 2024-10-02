@@ -6,7 +6,7 @@ import SVG from 'react-inlinesvg';
 import styles from './ArticleTileView.module.scss';
 
 import eye from '@/shared/assets/icons/eye.svg';
-import { formatDate, RoutePath } from '@/shared/lib';
+import { formatDate, getArticleDetailPath, getProfilePath } from '@/shared/lib';
 import { AppLink, Card, FlexGroup, Typography } from '@/shared/ui';
 
 import { BadgeList, UserCard } from '@/entities';
@@ -25,7 +25,7 @@ export const ArticleTileView = memo(function ArticleTileView({
       </div>
       <div className={styles.card_body}>
         <AppLink
-          to={RoutePath.getArticleDetailPath(article.id)}
+          to={getArticleDetailPath(article.id)}
           className={styles.title}
         >
           {article.title}
@@ -48,7 +48,7 @@ export const ArticleTileView = memo(function ArticleTileView({
           gap='gap6'
         >
           <AppLink
-            to={RoutePath.getProfilePath(article.userId)}
+            to={getProfilePath(article.userId)}
             className={styles.author_link}
             type='primary'
           >

@@ -3,6 +3,7 @@ import { ButtonHTMLAttributes, memo } from 'react';
 import styles from './AppButton.module.scss';
 
 import { classNames } from '@/shared/lib';
+import { TestProps } from '@/shared/types';
 
 export enum ThemeButton {
   GREEN = 'green',
@@ -20,7 +21,7 @@ export enum ThemeButton {
   OUTLINE_PURPLE = 'outline-purple',
 }
 
-interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, TestProps {
   bgColor?: string;
   className?: string;
   round?: 'sm' | 'md' | 'lg' | 'full';
@@ -34,7 +35,8 @@ export const AppButton = memo(function AppButton({
   className,
   round,
   bgColor,
-  size = 'md',
+  size,
+  dataTestId,
   ...otherProps
 }: AppButtonProps) {
   return (
@@ -47,6 +49,7 @@ export const AppButton = memo(function AppButton({
         className
       )}
       style={{ backgroundColor: bgColor }}
+      data-testid={dataTestId}
       {...otherProps}
     >
       {children}

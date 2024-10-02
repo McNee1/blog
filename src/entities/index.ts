@@ -1,6 +1,13 @@
-export { getUserData, getUserRole, UserCard, userReducer } from './user';
+export {
+  allowedRolesForPage,
+  getUserData,
+  getUserRole,
+  userAction,
+  UserCard,
+  userReducer,
+  userRole,
+} from './user';
 export type { Role, User, UserSchema } from './user';
-export { allowedRolesForPage, userAction, userRole } from './user';
 
 export {
   ArticleDetail,

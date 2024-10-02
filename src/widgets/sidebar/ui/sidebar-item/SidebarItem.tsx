@@ -3,7 +3,7 @@ import SVG from 'react-inlinesvg';
 
 import styles from './SidebarItem.module.scss';
 
-import { classNames, isAccessToPage, RoutePath, useAppSelector } from '@/shared/lib';
+import { classNames, isAccessToPage, useAppSelector } from '@/shared/lib';
 import { AppLink } from '@/shared/ui';
 
 import { getUserData, getUserRole } from '@/entities';
@@ -33,8 +33,9 @@ export const SidebarItem = ({ item, collapsed }: SidebarItemProps) => {
   return (
     <>
       <AppLink
-        to={item.name === 'profile' ? RoutePath.getProfilePath(auth!.id) : item.path}
         className={classNames(styles.link, collapsed && styles.collapsed)}
+        dataTestId={`SidebarItem.Link_${item.name}`}
+        to={item.path(auth?.id)}
         type='primary'
       >
         <SVG

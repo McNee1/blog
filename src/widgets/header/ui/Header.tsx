@@ -26,7 +26,10 @@ const HeaderComponent = ({ className }: HeaderProps) => {
 
   return (
     <>
-      <header className={classNames(styles.navbar, className)}>
+      <header
+        className={classNames(styles.navbar, className)}
+        data-testid='Header'
+      >
         <div className={classNames('container', styles.navbar_wrap)}>
           <FlexGroup
             className={styles.btn_group}

@@ -10,42 +10,49 @@ import { classNames } from '@/shared/lib';
 interface ReactionProps {
   className?: string;
   countReaction?: number;
-  isDisliked?: boolean;
-  isLiked?: boolean;
-  onRatingChange: (type: { isDislike: boolean; isLike: boolean }) => void;
+  disabled?: boolean;
+  onRatingChange: (type: 'dislike' | 'like') => void;
+  reaction?: 'dislike' | 'like';
   size?: number;
 }
+
+const LIKE = 'like';
+const DISLIKE = 'dislike';
 
 export const Reaction = memo(function Reaction({
   size = 40,
   className,
-  isDisliked = false,
+  reaction,
   onRatingChange,
-  isLiked = false,
   countReaction,
+  disabled,
 }: ReactionProps) {
-  const [isLike, setIsLike] = useState(isLiked);
-  const [isDislike, setIsDislike] = useState(isDisliked);
+  const [isLike, setIsLike] = useState(reaction === 'like');
+  const [isDislike, setIsDislike] = useState(reaction === 'dislike');
 
   const handleLike = () => {
     if (isLike) {
+      setIsLike(false);
+      onRatingChange(DISLIKE);
       return;
     }
     setIsLike(true);
     setIsDislike(false);
-    onRatingChange({ isLike: true, isDislike: false });
+    onRatingChange(LIKE);
   };
   const handleDislike = () => {
     if (isDislike) {
+      setIsDislike(false);
+      onRatingChange(LIKE);
       return;
     }
     setIsDislike(true);
     setIsLike(false);
-    onRatingChange({ isLike: false, isDislike: true });
+    onRatingChange(DISLIKE);
   };
 
   const handleRatingChange = (type: 'like' | 'dislike') => {
-    if (type === 'like') {
+    if (type === LIKE) {
       handleLike();
     } else {
       handleDislike();
@@ -56,7 +63,9 @@ export const Reaction = memo(function Reaction({
   const sign = countClass === 'positive' ? '+' : '';
 
   return (
-    <div className={classNames(styles.like_rating, className)}>
+    <div
+      className={classNames(styles.like_rating, disabled && styles.disabled, className)}
+    >
       <SVG
         className={classNames(styles.svg, isLike && styles.liked)}
         onClick={() => handleRatingChange('like')}

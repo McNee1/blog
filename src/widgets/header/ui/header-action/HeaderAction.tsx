@@ -4,7 +4,7 @@ import SVG from 'react-inlinesvg';
 import styles from './HeaderAction.module.scss';
 
 import pencilIcon from '@/shared/assets/icons/pencil.svg';
-import { RoutePath, useAppSelector } from '@/shared/lib';
+import { getNewArticlePath, useAppSelector } from '@/shared/lib';
 import { AppButton, AppImage, AppLink, FlexGroup, ThemeButton } from '@/shared/ui';
 
 import { getUserData } from '@/entities';
@@ -17,13 +17,14 @@ interface HeaderActionProps {
 
 export const HeaderAction = ({ onOpenModal }: HeaderActionProps) => {
   const authData = useAppSelector(getUserData);
-  console.log(authData);
+
   const { t } = useTranslation();
 
   return (
     <>
       {!authData ? (
         <AppButton
+          dataTestId='HeaderAction.btn_login'
           className={styles.btn_login}
           theme={ThemeButton.BLUE}
           onClick={onOpenModal}
@@ -40,8 +41,8 @@ export const HeaderAction = ({ onOpenModal }: HeaderActionProps) => {
           gap='gap20'
         >
           <AppLink
-            to={RoutePath.getNewArticlePath()}
             className={styles.new_article}
+            to={getNewArticlePath()}
           >
             <SVG
               src={pencilIcon}
@@ -50,12 +51,16 @@ export const HeaderAction = ({ onOpenModal }: HeaderActionProps) => {
           </AppLink>
           <HeaderMenu
             reference={
-              <AppImage
-                className={styles.avatar}
-                src={authData.avatar}
+              <AppButton
+                dataTestId='HeaderAction.btn_avatar'
+                className={styles.btn_avatar}
                 round='full'
-                size={40}
-              />
+              >
+                <AppImage
+                  src={authData.avatar}
+                  round='full'
+                />
+              </AppButton>
             }
             profileId={authData.id}
           />

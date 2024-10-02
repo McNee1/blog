@@ -12,6 +12,7 @@ interface UserCardProps
   avatar?: string;
   children: ReactNode;
   className?: string;
+  dataTestId?: string;
 }
 
 export const UserCard = ({
@@ -20,10 +21,12 @@ export const UserCard = ({
   round = 'sm',
   size = 50,
   className,
+  dataTestId,
   ...flexProps
 }: UserCardProps) => {
   return (
     <FlexGroup
+      dataTestId={dataTestId}
       className={className}
       direction='row'
       {...flexProps}

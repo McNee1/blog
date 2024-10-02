@@ -3,8 +3,9 @@ import { ReactNode } from 'react';
 import styles from './Card.module.scss';
 
 import { classNames } from '@/shared/lib';
+import { TestProps } from '@/shared/types';
 
-interface CardProps {
+interface CardProps extends TestProps {
   children: ReactNode;
   className?: string;
   overflow?: 'visible' | 'hidden';
@@ -19,6 +20,7 @@ export const Card = ({
   tagName: Tag = 'div',
   padding = true,
   shadow = true,
+  dataTestId,
 }: CardProps) => {
   return (
     <Tag
@@ -29,6 +31,7 @@ export const Card = ({
         shadow && styles.shadow,
         className
       )}
+      data-testid={dataTestId}
     >
       {children}
     </Tag>

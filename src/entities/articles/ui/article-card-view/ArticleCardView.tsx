@@ -8,7 +8,12 @@ import styles from './ArticleCardView.module.scss';
 
 import calendar from '@/shared/assets/icons/calendar.svg';
 import eye from '@/shared/assets/icons/eye.svg';
-import { classNames, formatDate, RoutePath } from '@/shared/lib';
+import {
+  classNames,
+  formatDate,
+  getArticleDetailPath,
+  getProfilePath,
+} from '@/shared/lib';
 import { AppImage, AppLink, Card, FlexGroup, Typography } from '@/shared/ui';
 
 import { BadgeList, UserCard } from '@/entities';
@@ -38,7 +43,7 @@ export const ArticleCardView = memo(function ArticleCardView({
           size={40}
         >
           <AppLink
-            to={RoutePath.getProfilePath(article.userId)}
+            to={getProfilePath(article.userId)}
             className={styles.author_link}
             type='secondary'
           >
@@ -90,7 +95,7 @@ export const ArticleCardView = memo(function ArticleCardView({
       </div>
 
       <AppLink
-        to={RoutePath.getArticleDetailPath(article.id)}
+        to={getArticleDetailPath(article.id)}
         className={styles.link}
       >
         {t('read article')} &rarr;

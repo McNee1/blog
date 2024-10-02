@@ -3,8 +3,7 @@ import SVG from 'react-inlinesvg';
 import styles from './SuccessfullyAdded.module.scss';
 
 import successIcon from '@/shared/assets/icons/success.svg';
-import { Card, FlexGroup , Typography } from '@/shared/ui';
-
+import { Card, FlexGroup, Typography } from '@/shared/ui';
 
 export const SuccessfullyAdded = ({ text }: { text: string }) => {
   return (

@@ -12,6 +12,8 @@ import {
 } from '@/shared/lib';
 import { AppButton, TextField, ThemeButton, Typography } from '@/shared/ui';
 
+import { userAction } from '@/entities';
+
 import {
   getLoginEmail,
   getLoginError,
@@ -26,7 +28,7 @@ export interface LoginFormProps {
   className?: string;
   onClose: () => void;
 }
-const initialReducer = loginReducer;
+const initialReducer = { loginForm: loginReducer };
 
 const LoginForm = ({ className, onClose }: LoginFormProps) => {
   const { t } = useTranslation();
@@ -52,26 +54,19 @@ const LoginForm = ({ className, onClose }: LoginFormProps) => {
     [dispatch]
   );
 
-  // const handleUserName = useCallback(
-  //   (e: ChangeEvent<HTMLInputElement>) => {
-  //     dispatch(loginAction.setUserName(e.target.value));
-  //   },
-  //   [dispatch]
-  // );
-
   const handleLoginUser = () => {
-    void dispatch(loginByEmail({ email, password })).then((e) => {
-      if (e.meta.requestStatus === 'fulfilled') {
-        onClose();
-      }
-    });
+    void dispatch(loginByEmail({ email, password }))
+      .unwrap()
+      .then((data) => {
+        if (data.id) {
+          dispatch(userAction.setAuthUser(data));
+          onClose();
+        }
+      });
   };
 
   return (
-    <AsyncSliceManager
-      reducer={initialReducer}
-      name='loginForm'
-    >
+    <AsyncSliceManager reducers={initialReducer}>
       <div className={classNames(style.login_form, className)}>
         <Typography
           titleClass={style.form_title}
@@ -87,14 +82,7 @@ const LoginForm = ({ className, onClose }: LoginFormProps) => {
             autoFocus
           />
         </div>
-        {/* <div className={style.input_wrap}>
-          <TextField
-            label={t('Username')}
-            value={username}
-            type='text'
-            onChange={handleUserName}
-          />
-        </div> */}
+
         <div className={classNames(!error && style.input_wrap)}>
           <TextField
             onChange={handlePassword}

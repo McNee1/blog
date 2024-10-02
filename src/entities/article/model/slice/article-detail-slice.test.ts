@@ -1,6 +1,6 @@
 import { fetchArticleDetail } from '../service';
 import { ArticleDetailSchema, ArticleType } from '../types';
-import { articleDetailReducer } from './article-detail-slice';
+import { articleDetailAction, articleDetailReducer } from './article-detail-slice';
 
 const MOCK_DATA = {
   id: '1',
@@ -14,12 +14,52 @@ const MOCK_DATA = {
 } as unknown as ArticleType;
 
 describe('article-detail-slice.test', () => {
+  test('should set like reaction', () => {
+    const state: DeepPartial<ArticleDetailSchema> = { data: { reaction: 0 } };
+
+    expect(
+      articleDetailReducer(
+        state as ArticleDetailSchema,
+        articleDetailAction.setReaction({ type: 'like' })
+      )
+    ).toEqual({
+      data: { reaction: 1 },
+    } as ArticleDetailSchema);
+  });
+
+  test('should set dislike reaction', () => {
+    const state: DeepPartial<ArticleDetailSchema> = { data: { reaction: 0 } };
+
+    expect(
+      articleDetailReducer(
+        state as ArticleDetailSchema,
+        articleDetailAction.setReaction({ type: 'dislike' })
+      )
+    ).toEqual({
+      data: { reaction: -1 },
+    } as ArticleDetailSchema);
+  });
+
+  test('should set like with empty data', () => {
+    const state: DeepPartial<ArticleDetailSchema> = { data: {} };
+
+    expect(
+      articleDetailReducer(
+        state as ArticleDetailSchema,
+        articleDetailAction.setReaction({ type: 'like' })
+      )
+    ).toEqual({
+      data: { reaction: 1 },
+    } as ArticleDetailSchema);
+  });
+
   test('test article detail service pending', () => {
     const state: DeepPartial<ArticleDetailSchema> = {
       isLoading: true,
       error: null,
       data: null,
     };
+
     expect(
       articleDetailReducer(
         state as ArticleDetailSchema,

@@ -1,7 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import { PathName } from '@/shared/constants';
-import { RoutePath } from '@/shared/lib';
+import {
+  getAboutPath,
+  getArticleDetailPath,
+  getArticlesPath,
+  getEditArticlePath,
+  getMainPath,
+  getNewArticlePath,
+  getNotFoundPath,
+  getProfilePath,
+} from '@/shared/lib';
 
 import { allowedRolesForPage } from '@/entities';
 import {
@@ -26,11 +35,11 @@ export const useRouter = () => {
 
       children: [
         {
-          path: RoutePath.getMainPath(),
+          path: getMainPath(),
           element: <MainPage />,
         },
         {
-          path: RoutePath.getProfilePath(':id'),
+          path: getProfilePath(':id'),
 
           element: (
             <PrivateRoute>
@@ -39,20 +48,20 @@ export const useRouter = () => {
           ),
         },
         {
-          path: RoutePath.getArticlesPath(),
+          path: getArticlesPath(),
           element: <ArticlesPage />,
         },
         {
-          path: RoutePath.getArticleDetailPath(':id'),
+          path: getArticleDetailPath(':id'),
           element: <ArticleDetailPage />,
         },
         {
-          path: RoutePath.getAboutPath(),
+          path: getAboutPath(),
           element: <AboutPage />,
         },
 
         {
-          path: RoutePath.getEditArticlePath(':id'),
+          path: getEditArticlePath(':id'),
           element: (
             <PrivateRoute>
               <EditArticlePage />
@@ -60,7 +69,7 @@ export const useRouter = () => {
           ),
         },
         {
-          path: RoutePath.getNewArticlePath(),
+          path: getNewArticlePath(),
           element: (
             <PrivateRoute>
               <CreateArticlePage />
@@ -78,7 +87,7 @@ export const useRouter = () => {
       ],
     },
     {
-      path: RoutePath.getNotFoundPath(),
+      path: getNotFoundPath(),
       element: <NotFound />,
     },
   ]);

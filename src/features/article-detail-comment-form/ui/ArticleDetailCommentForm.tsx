@@ -14,7 +14,7 @@ import {
   postComment,
 } from '../model';
 
-const initialReducer = articleDetailCommentFormReducer;
+const initialReducer = { articleCommentForm: articleDetailCommentFormReducer };
 
 export interface ArticleDetailCommentFormProps {
   articleId: string | undefined;
@@ -57,10 +57,7 @@ const ArticleDetailCommentForm = ({ articleId }: ArticleDetailCommentFormProps) 
   }, [articleId, authId, dispatch, handleChangeField, text]);
 
   return (
-    <AsyncSliceManager
-      name='articleCommentForm'
-      reducer={initialReducer}
-    >
+    <AsyncSliceManager reducers={initialReducer}>
       <CommentForm
         onChangeField={handleChangeField}
         onSendComment={handlePostComment}

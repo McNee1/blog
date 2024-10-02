@@ -5,3 +5,4 @@ export interface LoginSchema {
   password: string;
   username: string;
 }
+export type loginByEmailType = Pick<LoginSchema, 'email' | 'password'>;

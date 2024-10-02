@@ -10,27 +10,28 @@ const MOCK_DATA = {
   views: 1022,
   createdAt: '26.02.2022',
   type: [],
+  reaction: 1,
   blocks: [],
 };
 
-describe('articleDetail.test', () => {
-  test('should return article data', () => {
+describe('getArticleDetailReaction', () => {
+  test('should return reaction count', () => {
     const state: DeepPartial<StateSchema> = {
       articleDetail: {
         data: MOCK_DATA,
       },
     };
-    expect(getArticleDetailReaction(state as StateSchema)).toEqual(MOCK_DATA);
+    expect(getArticleDetailReaction(state as StateSchema)).toEqual(1);
   });
 
-  test('should work empty article detail', () => {
+  test('should work with empty article detail', () => {
     const state: DeepPartial<StateSchema> = {
       articleDetail: {},
     };
     expect(getArticleDetailReaction(state as StateSchema)).toEqual(0);
   });
 
-  test('should work empty state', () => {
+  test('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {};
     expect(getArticleDetailReaction(state as StateSchema)).toEqual(0);
   });

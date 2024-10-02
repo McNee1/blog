@@ -15,6 +15,25 @@ const MOCK_DATA: ProfileType = {
   email: 'j1ohn.doe@example.com',
 };
 
+jest.mock('@/entities', () => ({
+  userReducer: () => ({ type: 'MOCK_USER_REDUCER' }),
+  getUserData: () => ({
+    id: '1',
+    username: 'Homer',
+    password: '123',
+    email: 'test@t.t',
+    role: 'admin',
+  }),
+
+  userRole: {
+    ADMIN: 'admin',
+    MODERATOR: 'moderator',
+    USER: 'user',
+  },
+
+  allowedRolesForPage: () => ['ADMIN', 'MODERATOR'],
+}));
+
 describe('profile-slice.test', () => {
   test('test set readonly', () => {
     const state: DeepPartial<ProfileSchema> = { readonly: true };
@@ -71,9 +90,7 @@ describe('profile-slice.test', () => {
   });
 
   test('test update profile service success', () => {
-    const state: DeepPartial<ProfileSchema> = {
-      isLoading: true,
-    };
+    const state: DeepPartial<ProfileSchema> = {};
 
     expect(
       profileReducer(state as ProfileSchema, updateProfile.fulfilled(MOCK_DATA, ''))

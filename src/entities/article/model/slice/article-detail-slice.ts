@@ -13,11 +13,11 @@ export const articleDetailSlice = createSlice({
   name: 'article',
   initialState,
   reducers: {
-    setReaction: (state, action: PayloadAction<{ isLike: boolean }>) => {
+    setReaction: (state, action: PayloadAction<{ type: 'like' | 'dislike' }>) => {
       let reaction = state.data?.reaction ?? 0;
+
       if (state.data) {
-        console.log(action.payload.isLike);
-        state.data.reaction = action.payload.isLike ? ++reaction : --reaction;
+        state.data.reaction = action.payload.type === 'like' ? ++reaction : --reaction;
       }
     },
   },

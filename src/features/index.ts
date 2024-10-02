@@ -1,5 +1,5 @@
 export { LoginModal, loginReducer } from './auth-by-username';
-export type { LoginSchema } from './auth-by-username';
+export type { loginByEmailType, LoginSchema } from './auth-by-username';
 export { LangSwitcher } from './lang-switcher';
 export { ThemeSwitcher } from './theme-switcher';
 export { DeleteArticleBlock } from './delete-article-block';

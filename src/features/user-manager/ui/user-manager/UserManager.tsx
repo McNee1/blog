@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { AsyncSliceManager, useAppDispatch, useAppSelector } from '@/shared/lib';
+import { FlexGroup } from '@/shared/ui';
 
 import { Role } from '@/entities';
 
@@ -28,7 +29,7 @@ const initialModalState: ModalState = {
   action: ModalAction.INFO,
 };
 
-const initialReducer = usersSliceReducer;
+const initialReducer = { users: usersSliceReducer };
 
 export const UserManager = () => {
   const [modalState, setModalState] = useState(initialModalState);
@@ -39,9 +40,9 @@ export const UserManager = () => {
   const error = useAppSelector(getUsersError);
   const isLoading = useAppSelector(getUsersIsLoading);
 
-  const handleOpenModal = (action: ModalAction) => {
+  const handleOpenModal = useCallback((action: ModalAction) => {
     setModalState({ isOpen: true, action });
-  };
+  }, []);
 
   const handleCloseModal = () => {
     setModalState({ isOpen: false, action: modalState.action });
@@ -52,31 +53,38 @@ export const UserManager = () => {
     handleCloseModal();
   };
 
-  const handleChangeRole = (id: string, role: Role) => {
-    dispatch(usersSliceAction.setSelectedId(id));
+  const handleChangeRole = useCallback(
+    (id: string, role: Role) => {
+      dispatch(usersSliceAction.setSelectedId(id));
 
-    void dispatch(updateUser({ role, id })).then((e) => {
-      if (e.meta.requestStatus === 'fulfilled') {
-        handleOpenModal(ModalAction.INFO);
-      }
-    });
-  };
+      void dispatch(updateUser({ role, id })).then((e) => {
+        if (e.meta.requestStatus === 'fulfilled') {
+          handleOpenModal(ModalAction.INFO);
+        }
+      });
+    },
+    [dispatch, handleOpenModal]
+  );
 
-  const handleOpenDeleteModal = (id: string) => {
-    console.log(id);
-    dispatch(usersSliceAction.setSelectedId(id));
-    handleOpenModal(ModalAction.DELETE);
-  };
+  const handleOpenDeleteModal = useCallback(
+    (id: string) => {
+      dispatch(usersSliceAction.setSelectedId(id));
+      handleOpenModal(ModalAction.DELETE);
+    },
+    [dispatch, handleOpenModal]
+  );
 
   useEffect(() => {
-    void dispatch(fetchUsers());
+    if (process.env.NODE_ENV !== 'test') {
+      void dispatch(fetchUsers());
+    }
   }, [dispatch]);
 
   return (
-    <>
-      <AsyncSliceManager
-        reducer={initialReducer}
-        name='users'
+    <AsyncSliceManager reducers={initialReducer}>
+      <FlexGroup
+        dataTestId='UserManager'
+        direction='col'
       >
         <UsersList
           onOpenDeleteModal={handleOpenDeleteModal}
@@ -92,7 +100,7 @@ export const UserManager = () => {
           action={modalState.action}
           isOpen={modalState.isOpen}
         />
-      </AsyncSliceManager>
-    </>
+      </FlexGroup>
+    </AsyncSliceManager>
   );
 };

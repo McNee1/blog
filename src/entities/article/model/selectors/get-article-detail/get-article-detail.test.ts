@@ -23,14 +23,14 @@ describe('articleDetail.test', () => {
     expect(getArticleDetail(state as StateSchema)).toEqual(MOCK_DATA);
   });
 
-  test('should work empty article detail', () => {
+  test('should work with empty article detail', () => {
     const state: DeepPartial<StateSchema> = {
       articleDetail: {},
     };
     expect(getArticleDetail(state as StateSchema)).toEqual(null);
   });
 
-  test('should work empty state', () => {
+  test('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {};
     expect(getArticleDetail(state as StateSchema)).toEqual(null);
   });

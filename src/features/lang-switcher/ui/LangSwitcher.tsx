@@ -14,6 +14,7 @@ export const LangSwitcher = () => {
       theme={ThemeButton.GRAY}
       onClick={toggleLang}
       round='sm'
+      size='md'
     >
       {t('lang')}
     </AppButton>

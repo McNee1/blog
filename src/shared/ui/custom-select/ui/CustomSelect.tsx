@@ -3,6 +3,7 @@ import { memo, useEffect, useRef, useState } from 'react';
 import cls from './CustomSelect.module.scss';
 
 import { classNames } from '@/shared/lib';
+import { TestProps } from '@/shared/types';
 
 import {
   flip,
@@ -22,7 +23,7 @@ export interface Option<T, R> {
   name: R;
   value: T;
 }
-interface CustomSelectProps<T> {
+interface CustomSelectProps<T> extends TestProps {
   className?: string;
   disabled?: boolean;
   multiple?: boolean;
@@ -46,6 +47,7 @@ const CustomSelectComponent = <T,>(props: CustomSelectProps<T>) => {
     className,
     value,
     disabled,
+    dataTestId,
   } = props;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -191,6 +193,7 @@ const CustomSelectComponent = <T,>(props: CustomSelectProps<T>) => {
       tabIndex={-1}
     >
       <div
+        data-testid={dataTestId}
         ref={refs.setReference}
         {...getReferenceProps()}
         className={classNames(
@@ -208,6 +211,7 @@ const CustomSelectComponent = <T,>(props: CustomSelectProps<T>) => {
         >
           <ul
             style={{ ...styles, ...floatingStyles }}
+            data-testid='CustomSelect.Dropdown'
             ref={refs.setFloating}
             {...getFloatingProps()}
             className={cls.options_list}

@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+
 import { useAppDispatch, useAppSelector } from '@/shared/lib';
 import { Card, Reaction } from '@/shared/ui';
 
@@ -22,45 +24,53 @@ export const ArticleDetailReaction = ({ articleId }: ArticleDetailReactionProps)
 
   const reaction = data?.[0];
 
+  const reactionIdRef = useRef<number | undefined>(reaction?.id);
+
   const reactionArticle = useAppSelector(getArticleDetailReaction);
 
-  console.log(reactionArticle, reaction);
+  const [updateArticle, { isLoading: postIsLoading }] =
+    useUpdateReactionByArticleIdMutation();
 
-  const [updateArticle] = useUpdateReactionByArticleIdMutation();
   const [postReaction] = usePostReactionMutation();
 
-  const handleRatingChange = (type: { isDislike: boolean; isLike: boolean }) => {
-    dispatch(articleDetailAction.setReaction({ isLike: type.isLike }));
-    console.log(type);
+  const handleRatingChange = (type: 'like' | 'dislike') => {
+    if (!articleId || !userId) {
+      return;
+    }
+    dispatch(articleDetailAction.setReaction({ type }));
 
     void updateArticle({
       articleId,
-      reaction: type.isLike ? reactionArticle + 1 : reactionArticle - 1,
+      reaction: type === 'like' ? reactionArticle + 1 : reactionArticle - 1,
     });
 
     void postReaction({
-      id: reaction?.id,
+      id: reactionIdRef.current,
       articleId,
       userId,
-      isDislike: type.isDislike,
-      isLike: type.isLike,
+      reaction: type,
+    }).then((e) => {
+      if (e.data?.id) {
+        reactionIdRef.current ??= e.data?.id;
+      }
     });
   };
-  // console.log(reactionCount);
 
   if (isLoading) {
-    return '';
+    return 'loading...';
   }
 
   return (
     <Card>
-      <Reaction
-        onRatingChange={handleRatingChange}
-        isDisliked={reaction?.isDislike}
-        countReaction={reactionArticle}
-        isLiked={reaction?.isLike}
-        size={27}
-      />
+      <div data-testid='ArticleDetailReaction'>
+        <Reaction
+          onRatingChange={handleRatingChange}
+          countReaction={reactionArticle}
+          reaction={reaction?.reaction}
+          disabled={postIsLoading}
+          size={27}
+        />
+      </div>
     </Card>
   );
 };

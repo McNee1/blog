@@ -2,7 +2,7 @@ import { SelectorTestSuite } from '@/shared/lib/tests/selector-test-suite';
 
 import { getProfileData } from './get-profile-data';
 
-const profileDataTest = new SelectorTestSuite(getProfileData, 'get-profile-data.test');
+const profileTestProps = new SelectorTestSuite(getProfileData, 'get-profile-data.test');
 
 const MOCK_DATA = {
   age: 22,
@@ -15,7 +15,7 @@ const MOCK_DATA = {
   username: '222',
 };
 
-profileDataTest.runTests([
+profileTestProps.runTests([
   {
     state: {
       profile: {

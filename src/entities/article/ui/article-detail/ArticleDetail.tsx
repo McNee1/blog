@@ -12,7 +12,7 @@ import {
 } from '../../model';
 import { ArticleIntro, ArticleSkeleton, BlockList } from './ui';
 
-const initialReducer = articleDetailReducer;
+const initialReducer = { articleDetail: articleDetailReducer };
 
 interface ArticleDetailProps {
   articleId?: string | undefined;
@@ -54,10 +54,7 @@ export const ArticleDetail = ({ articleId }: ArticleDetailProps) => {
   }
 
   return (
-    <AsyncSliceManager
-      reducer={initialReducer}
-      name='articleDetail'
-    >
+    <AsyncSliceManager reducers={initialReducer}>
       <Card tagName='article'>
         <FlexGroup
           direction='col'

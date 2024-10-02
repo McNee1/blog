@@ -17,14 +17,12 @@
   }
 
   .svg.liked {
-    cursor: auto;
     g {
       fill: rgb(48, 77, 173);
     }
   }
 
   .svg.disliked {
-    cursor: auto;
     g {
       fill: rgb(161, 36, 36);
     }
@@ -37,5 +35,9 @@
 
   .count.positive {
     color: #008000;
+  }
+
+  &.disabled svg {
+    pointer-events: none;
   }
 }

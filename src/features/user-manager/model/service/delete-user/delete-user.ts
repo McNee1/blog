@@ -21,7 +21,7 @@ export const deleteUser = createAsyncThunk<void, void, { rejectValue: string }>(
         throw Error('no user id!');
       }
 
-      const deleteUser = userService.deleteUser({
+      await userService.deleteUser({
         params: {
           id: selectedId,
           isDeleted: true,
@@ -31,7 +31,7 @@ export const deleteUser = createAsyncThunk<void, void, { rejectValue: string }>(
         },
       });
 
-      const deleteProfile = profileService.deleteProfile({
+      await profileService.deleteProfile({
         params: {
           id: selectedId,
         },
@@ -39,8 +39,6 @@ export const deleteUser = createAsyncThunk<void, void, { rejectValue: string }>(
           headers: { Authorization: 'foo' },
         },
       });
-
-      await Promise.all([deleteUser, deleteProfile]);
     } catch (error) {
       const err = error as AxiosError<CustomErrorResponse>;
       return thunkAPI.rejectWithValue(err.message);

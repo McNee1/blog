@@ -3,10 +3,11 @@ import { Link, LinkProps } from 'react-router-dom';
 import styles from './AppLink.module.scss';
 
 import { classNames } from '@/shared/lib';
+import { TestProps } from '@/shared/types';
 
 type AppLinkType = 'primary' | 'secondary';
 
-interface AppLinkProps extends LinkProps {
+interface AppLinkProps extends LinkProps, TestProps {
   border?: boolean;
   className?: string;
   type?: AppLinkType;
@@ -17,6 +18,7 @@ export const AppLink = ({
   className,
   type = 'primary',
   border,
+  dataTestId,
   children,
 }: AppLinkProps) => {
   return (
@@ -27,6 +29,7 @@ export const AppLink = ({
         border && styles.border,
         className
       )}
+      data-testid={dataTestId}
       to={to}
     >
       {children}

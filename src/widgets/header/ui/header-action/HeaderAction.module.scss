@@ -5,13 +5,16 @@
     transition: all var(--hover-transition);
   }
 }
-.avatar {
+
+.btn_avatar {
+  width: 41px;
+  height: 41px;
+  padding: 1px;
   img {
-    cursor: pointer;
-    padding: 1px;
     border: 1px solid rgba($color: #000000, $alpha: 0.3);
   }
 }
+
 .btn_login {
   margin-left: auto;
 }

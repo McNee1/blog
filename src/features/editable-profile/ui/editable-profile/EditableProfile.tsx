@@ -24,7 +24,7 @@ interface EditableProfileProps {
   id: string | undefined;
 }
 
-const initialReducer = profileReducer;
+const initialReducer = { profile: profileReducer };
 
 export const EditableProfile = ({ id }: EditableProfileProps) => {
   const [inputErrors, setInputError] = useState<ProfileValidationErrors | null>(null);
@@ -90,10 +90,7 @@ export const EditableProfile = ({ id }: EditableProfileProps) => {
   };
 
   return (
-    <AsyncSliceManager
-      reducer={initialReducer}
-      name='profile'
-    >
+    <AsyncSliceManager reducers={initialReducer}>
       <ProfileCard
         editProfile={() => (
           <EditButtons

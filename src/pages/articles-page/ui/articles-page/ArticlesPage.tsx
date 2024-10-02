@@ -6,7 +6,7 @@ import { AsyncSliceManager, useAppDispatch } from '@/shared/lib';
 import { articlesReducer, initPage } from '../../model';
 import { Articles } from '../articles';
 
-const initialReducer = articlesReducer;
+const initialReducer = { articles: articlesReducer };
 
 const ArticlesPage = () => {
   const dispatch = useAppDispatch();
@@ -20,8 +20,7 @@ const ArticlesPage = () => {
   return (
     <AsyncSliceManager
       removeAfterUnmount={false}
-      reducer={initialReducer}
-      name='articles'
+      reducers={initialReducer}
     >
       <Articles />
     </AsyncSliceManager>

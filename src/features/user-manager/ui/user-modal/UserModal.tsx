@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import SVG from 'react-inlinesvg';
 
@@ -17,12 +18,12 @@ interface UserModalProps {
   onDeleteUser: () => void;
 }
 
-export const UserModal = ({
+export const UserModal = memo(function UserModal({
   isOpen,
   onCloseModal,
   onDeleteUser,
   action,
-}: UserModalProps) => {
+}: UserModalProps) {
   const { t } = useTranslation();
 
   const selectedUser = useAppSelector(getSelectedUser);
@@ -43,6 +44,7 @@ export const UserModal = ({
               Удалить пользователя?
               <div className={styles.modal_btn}>
                 <AppButton
+                  dataTestId='UserModal.Accept'
                   theme={ThemeButton.RED}
                   onClick={onDeleteUser}
                   round='sm'
@@ -62,6 +64,7 @@ export const UserModal = ({
             </FlexGroup>
           ) : (
             <FlexGroup
+              dataTestId='UserModal.Success_content'
               alignItems='center'
               direction='row'
               gap='gap10'
@@ -80,4 +83,4 @@ export const UserModal = ({
       </Portal>
     </>
   );
-};
+});

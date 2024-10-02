@@ -1,6 +1,8 @@
+import { memo } from 'react';
+
 import styles from './UsersList.module.scss';
 
-import { useAppSelector } from '@/shared/lib';
+import { getProfilePath, useAppSelector } from '@/shared/lib';
 import {
   AppButton,
   AppLink,
@@ -24,13 +26,13 @@ interface UsersListProps {
   users: User[] | null;
 }
 
-export const UsersList = ({
+export const UsersList = memo(function UsersList({
   users,
   onChangeRole,
   onOpenDeleteModal,
   error,
   isLoading,
-}: UsersListProps) => {
+}: UsersListProps) {
   const disabled = useAppSelector(getUsersDisabled);
 
   if (isLoading) {
@@ -87,7 +89,7 @@ export const UsersList = ({
               spaceLeft='space10'
               direction='col'
             >
-              <AppLink to={'/profile/' + user.id}>{user.username}</AppLink>
+              <AppLink to={getProfilePath(user.id)}>{user.username}</AppLink>
               <span>{user.email}</span>
             </FlexGroup>
 
@@ -98,9 +100,11 @@ export const UsersList = ({
             />
             <AppButton
               onClick={() => onOpenDeleteModal(user.id)}
+              dataTestId='UsersList.Btn_modal'
               theme={ThemeButton.RED}
               disabled={disabled}
               round='sm'
+              size='md'
             >
               Delete account
             </AppButton>
@@ -109,4 +113,4 @@ export const UsersList = ({
       ))}
     </>
   );
-};
+});

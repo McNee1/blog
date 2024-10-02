@@ -23,7 +23,7 @@ import { ArticleBlocksList } from '../article-blocks-list';
 import { ArticleIntro } from '../article-intro';
 import { SuccessfullyAdded } from '../successfully-added';
 
-const initialReducer = articleManagerReducers;
+const initialReducer = { articleManager: articleManagerReducers };
 
 interface ArticleManagerProps {
   pageType: PageType;
@@ -119,11 +119,8 @@ export const ArticleManager = ({ pageType }: ArticleManagerProps) => {
   };
 
   return (
-    <AsyncSliceManager
-      reducer={initialReducer}
-      name='articleManager'
-    >
-      {isLoading ? <Preloader /> : renderContent()}
+    <AsyncSliceManager reducers={initialReducer}>
+      {isLoading ? <Preloader height='full' /> : renderContent()}
     </AsyncSliceManager>
   );
 };

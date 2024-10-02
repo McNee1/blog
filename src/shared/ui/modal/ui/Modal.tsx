@@ -4,15 +4,22 @@ import { CSSTransition } from 'react-transition-group';
 import styles from './Modal.module.scss';
 
 import { classNames } from '@/shared/lib';
+import { TestProps } from '@/shared/types';
 
-interface ModalProps {
+interface ModalProps extends TestProps {
   children: ReactNode;
   className?: string;
   isOpen: boolean;
   onClose?: () => void;
 }
 
-export const Modal = ({ children, onClose, isOpen, className }: ModalProps) => {
+export const Modal = ({
+  children,
+  onClose,
+  isOpen,
+  className,
+  dataTestId,
+}: ModalProps) => {
   const modalRef = useRef(null);
 
   const handleCloseModal = useCallback(() => {
@@ -60,6 +67,7 @@ export const Modal = ({ children, onClose, isOpen, className }: ModalProps) => {
       <div
         className={classNames(styles.modal, className)}
         onClick={handleCloseModal}
+        data-testid={dataTestId}
         ref={modalRef}
       >
         <div className={styles.overlay}>

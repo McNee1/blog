@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { isAccessToPage, RoutePath, useAppSelector } from '@/shared/lib';
+import { getMainPath, isAccessToPage, useAppSelector } from '@/shared/lib';
 
 import { getUserRole, Role } from '@/entities';
 
@@ -27,7 +27,7 @@ export const RoleGuard = ({ children, requiredRole }: RoleGuardProps) => {
     }
 
     if (!isAllowed) {
-      return navigate(RoutePath.getMainPath());
+      return navigate(getMainPath());
     }
   }, [userRole, navigate, requiredRole, isAllowedAccess, isAllowed]);
 

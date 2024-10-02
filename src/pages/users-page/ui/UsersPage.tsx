@@ -3,7 +3,7 @@ import { PageManager } from '@/widgets';
 
 const UsersPage = () => {
   return (
-    <PageManager direction='col'>
+    <PageManager>
       <UserManager />
     </PageManager>
   );

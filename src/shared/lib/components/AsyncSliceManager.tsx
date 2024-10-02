@@ -1,29 +1,24 @@
 import React, { useEffect } from 'react';
 import { useStore } from 'react-redux';
 
-import { ReduxStoreWithManager, StateSchemaKey } from '@/app/providers';
+import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from '@/app/providers';
 
 import { Reducer } from '@reduxjs/toolkit';
 
 import { useAppDispatch } from '../hooks';
 
-// Типы для TypeScript
-
-// type ReducersList = {
-//   [name in StateSchemaKey]?: Reducer;
-// };
-// type ReducersListEntry = [StateSchemaKey, Reducer];
+type ReducersList = {
+  [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
+};
 
 interface AsyncSliceManagerProps {
   children: React.ReactNode;
-  name: StateSchemaKey;
-  reducer: Reducer;
+  reducers: ReducersList;
   removeAfterUnmount?: boolean;
 }
 
 export const AsyncSliceManager = ({
-  name,
-  reducer,
+  reducers,
   removeAfterUnmount = true,
   children,
 }: AsyncSliceManagerProps) => {
@@ -33,17 +28,22 @@ export const AsyncSliceManager = ({
 
   useEffect(() => {
     const initdReducers = Object.keys(store.reducerManager.getReducerMap());
+    console.log(initdReducers);
 
-    if (!initdReducers.includes(name)) {
-      store.reducerManager.add(name, reducer);
+    Object.entries(reducers).forEach(([name, reducer]) => {
+      if (!initdReducers.includes(name)) {
+        store.reducerManager.add(name as StateSchemaKey, reducer);
 
-      dispatch({ type: `@INIT ${name} reducer` });
-    }
+        dispatch({ type: `@INIT ${name} reducer` });
+      }
+    });
 
     return () => {
       if (removeAfterUnmount) {
-        store.reducerManager.remove(name);
-        dispatch({ type: `@DESTROY ${name} reducer` });
+        Object.entries(reducers).forEach(([name]) => {
+          store.reducerManager.remove(name as StateSchemaKey);
+          dispatch({ type: `@DESTROY ${name} reducer` });
+        });
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps

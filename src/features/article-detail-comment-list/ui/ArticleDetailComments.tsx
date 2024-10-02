@@ -12,7 +12,7 @@ import {
   getArticleDetailCommentsIsLoading,
 } from '../model';
 
-const initialReducer = articleDetailCommentListReducer;
+const initialReducer = { commentsList: articleDetailCommentListReducer };
 
 interface ArticleDetailCommentsProps {
   articleId: string | undefined;
@@ -30,10 +30,7 @@ export const ArticleDetailComments = ({ articleId }: ArticleDetailCommentsProps)
   }, [dispatch, articleId]);
 
   return (
-    <AsyncSliceManager
-      reducer={initialReducer}
-      name='commentsList'
-    >
+    <AsyncSliceManager reducers={initialReducer}>
       <CommentList
         comments={commentList}
         isLoading={isLoading}

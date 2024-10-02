@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import cls from './AppPopup.module.scss';
 
 import { classNames } from '@/shared/lib';
+import { TestProps } from '@/shared/types';
 
 import {
   arrow,
@@ -27,7 +28,7 @@ export interface PopupItems {
   src?: string;
 }
 
-interface AppPopupProps {
+interface AppPopupProps extends TestProps {
   bgColor?: string;
   isArrow?: boolean;
   itemClass?: string;
@@ -41,15 +42,18 @@ const ARROW_HEIGHT = 7;
 const GAP = 2;
 const ARROW_WIDTH = 14;
 
-export const AppPopup = ({
-  items,
-  reference,
-  popupClass,
-  referenceClass,
-  isArrow = true,
-  itemClass,
-  bgColor,
-}: AppPopupProps) => {
+export const AppPopup = (props: AppPopupProps) => {
+  const {
+    items,
+    reference,
+    popupClass,
+    referenceClass,
+    isArrow = true,
+    itemClass,
+    bgColor,
+    dataTestId,
+  } = props;
+
   const [isOpenPopup, setPopup] = useState(false);
   const arrowRef = useRef(null);
 
@@ -108,6 +112,7 @@ export const AppPopup = ({
         <>
           <div
             style={{ ...floatingStyles }}
+            data-testid={dataTestId}
             ref={refs.setFloating}
             {...getFloatingProps()}
           >

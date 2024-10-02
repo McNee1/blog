@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import styles from './FlexGroup.module.scss';
 
 import { classNames } from '@/shared/lib';
+import { TestProps } from '@/shared/types';
 
 type Numbers = 2 | 4 | 6 | 8 | 10 | 12 | 14 | 16 | 18 | 20 | 22;
 
@@ -85,7 +86,7 @@ const gapClasses: Record<Gap, string> = {
   gap22: styles.gap22,
 };
 
-interface FlexGroupProps {
+interface FlexGroupProps extends TestProps {
   alignItems?: AlignItems;
   children: ReactNode;
   className?: string;
@@ -116,6 +117,7 @@ export const FlexGroup = (props: FlexGroupProps) => {
     maxHeight,
     spaceLeft,
     tagName: Tag = 'div',
+    dataTestId,
   } = props;
   const flexClasses = [
     justify && justifyClasses[justify],
@@ -139,8 +141,10 @@ export const FlexGroup = (props: FlexGroupProps) => {
         maxHeight && styles.maxHeight,
         ...flexClasses,
         ...spaceClasses,
+
         className
       )}
+      data-testid={dataTestId}
     >
       {children}
     </Tag>

@@ -10,6 +10,7 @@ module.exports = {
   },
   globals: {
     _TEST_: 'jest',
+    __API_URL__: 'http://localhost:8000',
     'ts-jest': {
       diagnostics: false,
     },
@@ -25,7 +26,7 @@ module.exports = {
       {
         publicPath: './html-report',
         filename: 'report.html',
-        openReport: true,
+        // openReport: true,
         inlineSource: true,
       },
     ],

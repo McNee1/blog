@@ -7,4 +7,4 @@ export {
 } from './selectors';
 export { loginByEmail } from './services';
 export { loginAction, loginReducer, loginSlice } from './slice';
-export type { LoginSchema } from './types';
+export type { loginByEmailType, LoginSchema } from './types';

@@ -1,2 +1,2 @@
-export { sidebarItems } from './sidebar-items';
-export type { SidebarItemsType } from './sidebar-items';
+export { sidebarItems } from './constant';
+export type { SidebarItemsType } from './constant';

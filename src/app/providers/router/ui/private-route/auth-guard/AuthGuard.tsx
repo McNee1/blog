@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { RoutePath, useAppSelector } from '@/shared/lib';
+import { getMainPath, useAppSelector } from '@/shared/lib';
 
 import { getUserData } from '@/entities';
 
@@ -24,7 +24,7 @@ export const AuthGuard = ({ children }: PrivateRoute) => {
     }
 
     if (!isAllowed) {
-      return navigate(RoutePath.getMainPath());
+      return navigate(getMainPath());
     }
   }, [authData?.username, isAllowed, navigate]);
 

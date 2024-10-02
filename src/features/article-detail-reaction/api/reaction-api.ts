@@ -13,10 +13,8 @@ interface ReactionRtkArticleType extends Omit<ReactionRtkGetType, 'userId'> {
   reaction: number;
 }
 
-interface ReactionRtkPostType extends ReactionRtkGetType {
+interface PostRtkType extends Omit<ReactionArticleType, 'id'> {
   id?: number;
-  isDislike: boolean;
-  isLike: boolean;
 }
 
 export const reactionRtk = rtkApi.injectEndpoints({
@@ -30,6 +28,7 @@ export const reactionRtk = rtkApi.injectEndpoints({
         },
       }),
     }),
+
     updateReactionByArticleId: build.mutation<ArticleType, ReactionRtkArticleType>({
       query: ({ articleId, ...reaction }) => ({
         url: `articles/${articleId}`,
@@ -39,14 +38,15 @@ export const reactionRtk = rtkApi.injectEndpoints({
         },
       }),
     }),
-    postReaction: build.mutation<ReactionArticleType, ReactionRtkPostType>({
-      query: ({ id, articleId, userId, ...reaction }) => {
+
+    postReaction: build.mutation<ReactionArticleType, PostRtkType>({
+      query: ({ id, articleId, userId, reaction }) => {
         const url = `reactions`;
         const params = {
           userId,
           articleId,
         };
-
+        console.log(id);
         if (id) {
           // Reaction already exists, update it
           return {
@@ -54,9 +54,9 @@ export const reactionRtk = rtkApi.injectEndpoints({
             params,
             method: 'PATCH',
             body: {
-              articleId: articleId,
-              userId: userId,
-              ...reaction,
+              articleId,
+              userId,
+              reaction: reaction,
             },
           };
         } else {
@@ -66,9 +66,9 @@ export const reactionRtk = rtkApi.injectEndpoints({
             params,
             method: 'POST',
             body: {
-              articleId: articleId,
-              userId: userId,
-              ...reaction,
+              articleId,
+              userId,
+              reaction: reaction,
             },
           };
         }

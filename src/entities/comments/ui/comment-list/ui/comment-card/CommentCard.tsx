@@ -3,7 +3,7 @@ import { memo } from 'react';
 import styles from './CommentCard.module.scss';
 
 import { FORMAT_DATE_OPT } from '@/shared/constants';
-import { formatDate, RoutePath } from '@/shared/lib';
+import { formatDate, getProfilePath } from '@/shared/lib';
 import { AppImage, AppLink, Typography } from '@/shared/ui';
 
 import { Comment } from '../../../../model';
@@ -16,7 +16,7 @@ export const CommentCard = memo(function CommentCard({ comment }: CommentCardPro
   return (
     <div className={styles.comment}>
       <div className={styles.comment_header}>
-        <AppLink to={RoutePath.getProfilePath(comment.userId)}>
+        <AppLink to={getProfilePath(comment.userId)}>
           <AppImage
             src={comment.user.avatar}
             round='sm'
@@ -25,7 +25,7 @@ export const CommentCard = memo(function CommentCard({ comment }: CommentCardPro
         </AppLink>
         <div className={styles.comment_name}>
           <AppLink
-            to={RoutePath.getProfilePath(comment.userId)}
+            to={getProfilePath(comment.userId)}
             type='primary'
           >
             {comment.user.username}
