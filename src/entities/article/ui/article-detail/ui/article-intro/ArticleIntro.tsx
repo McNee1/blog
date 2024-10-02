@@ -6,7 +6,7 @@ import calendar from '@/shared/assets/icons/calendar.svg';
 import eye from '@/shared/assets/icons/eye.svg';
 import { FORMAT_DATE_OPT } from '@/shared/constants';
 import { formatDate } from '@/shared/lib';
-import { AppImage, FlexGroup, Typography } from '@/shared/ui';
+import { AppImage, FlexGroup, Skeleton, Typography } from '@/shared/ui';
 
 import type { ArticleType } from '../../../../model';
 
@@ -28,6 +28,12 @@ export const ArticleIntro = ({ articleDetail }: ArticleIntroProps) => {
           />
         </div>
         <AppImage
+          fallback={
+            <Skeleton
+              margin='0 0 20px 0'
+              height='300px'
+            />
+          }
           className={styles.intro_img}
           src={articleDetail?.img}
         />

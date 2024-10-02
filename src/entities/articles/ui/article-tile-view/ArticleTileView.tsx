@@ -40,7 +40,6 @@ export const ArticleTileView = memo(function ArticleTileView({
         alignItems='center'
         spaceTop='auto'
         round='full'
-        size={40}
       >
         <FlexGroup
           spaceLeft='space10'

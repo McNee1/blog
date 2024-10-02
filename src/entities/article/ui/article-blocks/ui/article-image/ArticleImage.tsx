@@ -1,7 +1,7 @@
 import styles from './ArticleImage.module.scss';
 
 import { classNames } from '@/shared/lib';
-import { AppImage } from '@/shared/ui';
+import { AppImage, Skeleton } from '@/shared/ui';
 
 import { ImageBlock } from '../../../../model';
 
@@ -14,6 +14,12 @@ export const ArticleImage = ({ content, className }: ArticleImageProps) => {
   return (
     <div className={classNames(styles.img_wrap, className)}>
       <AppImage
+        fallback={
+          <Skeleton
+            margin='0 0 20px 0'
+            height='200px'
+          />
+        }
         styles={{ maxWidth: '800px' }}
         src={content.src}
         center

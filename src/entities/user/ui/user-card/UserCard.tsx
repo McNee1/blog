@@ -1,6 +1,6 @@
 import { ComponentProps, ReactNode } from 'react';
 
-import { AppImage, FlexGroup } from '@/shared/ui';
+import { AppImage, FlexGroup, Skeleton } from '@/shared/ui';
 
 type RoundImage = ComponentProps<typeof AppImage>;
 
@@ -32,6 +32,13 @@ export const UserCard = ({
       {...flexProps}
     >
       <AppImage
+        fallback={
+          <Skeleton
+            height='50px'
+            border='7px'
+            width='50px'
+          />
+        }
         src={avatar ?? '/src/shared/assets/img/no-user-image-icon.webp'}
         round={round}
         size={size}

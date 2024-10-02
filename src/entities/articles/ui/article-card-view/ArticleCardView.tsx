@@ -14,7 +14,7 @@ import {
   getArticleDetailPath,
   getProfilePath,
 } from '@/shared/lib';
-import { AppImage, AppLink, Card, FlexGroup, Typography } from '@/shared/ui';
+import { AppImage, AppLink, Card, FlexGroup, Skeleton, Typography } from '@/shared/ui';
 
 import { BadgeList, UserCard } from '@/entities';
 
@@ -40,7 +40,6 @@ export const ArticleCardView = memo(function ArticleCardView({
           className={styles.author}
           alignItems='center'
           gap='gap10'
-          size={40}
         >
           <AppLink
             to={getProfilePath(article.userId)}
@@ -88,6 +87,7 @@ export const ArticleCardView = memo(function ArticleCardView({
 
         {article.img && (
           <AppImage
+            fallback={<Skeleton height='200px' />}
             styles={{ maxHeight: '400px' }}
             src={article.img}
           />

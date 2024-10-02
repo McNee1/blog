@@ -1,13 +1,14 @@
 import { PathName } from '@/shared/constants';
+import { PathNameKey } from '@/shared/types';
 
-const getPath = (pathKey: keyof typeof PathName, id?: string): string => {
+const getPath = (pathKey: PathNameKey, id?: string): string => {
   if (id) {
     return `/${PathName[pathKey]}/${id}`;
   }
   return `/${PathName[pathKey]}`;
 };
 
-const getMainPath = (): string => getPath('MAIN');
+const getMainPath = (): string => '/';
 const getNewArticlePath = (): string => getPath('NEW_ARTICLE');
 const getNotFoundPath = (): string => getPath('NOT_FOUND');
 const getAboutPath = (): string => getPath('ABOUT');

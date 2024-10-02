@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import styles from './ProfileCard.module.scss';
 
-import { AppImage, Card, Preloader, Typography } from '@/shared/ui';
+import { AppImage, Card, Preloader, Skeleton, Typography } from '@/shared/ui';
 
 import { inputNames, ProfileType, ProfileValidationErrors } from '../../model';
 import { ProfileForm } from '../profile-form';
@@ -59,7 +59,10 @@ const ProfileCardComponent = ({
         className={styles.profile_card}
         padding={false}
       >
-        <AppImage src={avatar} />
+        <AppImage
+          fallback={<Skeleton height='200px' />}
+          src={avatar}
+        />
         <div className={styles.card_body}>
           <p
             data-testid='ProfileCard.UserName'

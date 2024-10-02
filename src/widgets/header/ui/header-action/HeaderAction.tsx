@@ -5,7 +5,14 @@ import styles from './HeaderAction.module.scss';
 
 import pencilIcon from '@/shared/assets/icons/pencil.svg';
 import { getNewArticlePath, useAppSelector } from '@/shared/lib';
-import { AppButton, AppImage, AppLink, FlexGroup, ThemeButton } from '@/shared/ui';
+import {
+  AppButton,
+  AppImage,
+  AppLink,
+  FlexGroup,
+  Skeleton,
+  ThemeButton,
+} from '@/shared/ui';
 
 import { getUserData } from '@/entities';
 
@@ -57,6 +64,13 @@ export const HeaderAction = ({ onOpenModal }: HeaderActionProps) => {
                 round='full'
               >
                 <AppImage
+                  fallback={
+                    <Skeleton
+                      height='40px'
+                      border='100%'
+                      width='40px'
+                    />
+                  }
                   src={authData.avatar}
                   round='full'
                 />
