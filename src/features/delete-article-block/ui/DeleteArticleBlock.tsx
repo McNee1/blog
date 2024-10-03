@@ -1,11 +1,10 @@
 import { ReactNode } from 'react';
-import SVG from 'react-inlinesvg';
 
 import styles from './DeleteArticleBlock.module.scss';
 
 import deleteIcon from '@/shared/assets/icons/delete.svg';
 import { classNames, useAppDispatch } from '@/shared/lib';
-import { AppButton } from '@/shared/ui';
+import { AppButton, AppIcon } from '@/shared/ui';
 
 import { articleManagerActions } from '@/widgets';
 
@@ -33,9 +32,10 @@ export const DeleteArticleBlock = ({
         onClick={handleDeleteArticleBLock}
         className={styles.delete_btn}
       >
-        <SVG
+        <AppIcon
           src={deleteIcon}
-          width={20}
+          height='20px'
+          width='20px'
         />
       </AppButton>
     </div>

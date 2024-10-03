@@ -1,10 +1,8 @@
-import SVG from 'react-inlinesvg';
-
 import styles from './ArticleCode.module.scss';
 
 import copy from '@/shared/assets/icons/copy.svg';
 import { classNames } from '@/shared/lib';
-import { AppButton } from '@/shared/ui';
+import { AppButton, AppIcon } from '@/shared/ui';
 
 import type { CodeBlock } from '../../../../model';
 
@@ -28,9 +26,9 @@ export const ArticleCode = ({ content, className }: ArticleCodeProps) => {
         className={styles.copy_btn}
         onClick={handleCopy}
       >
-        <SVG
-          height='23'
-          width='23'
+        <AppIcon
+          height='23px'
+          width='23px'
           src={copy}
         />
       </AppButton>

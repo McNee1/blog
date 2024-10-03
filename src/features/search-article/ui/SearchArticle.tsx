@@ -1,11 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import SVG from 'react-inlinesvg';
 
 import styles from './SearchArticle.module.scss';
 
 import searchIcon from '@/shared/assets/icons/search.svg';
 import { classNames } from '@/shared/lib';
-import { TextField } from '@/shared/ui';
+import { AppIcon, TextField } from '@/shared/ui';
 
 interface SearchProps<T> {
   className?: string;
@@ -23,9 +22,10 @@ export const SearchArticle = <T extends string>({
   return (
     <div className={classNames(styles.input_wrap, className)}>
       <div className={styles.svg_wrap}>
-        <SVG
+        <AppIcon
           src={searchIcon}
-          width={16}
+          height='16px'
+          width='16px'
         />
       </div>
       <TextField

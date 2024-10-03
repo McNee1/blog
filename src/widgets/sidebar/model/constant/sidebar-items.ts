@@ -1,7 +1,8 @@
-import about from '@/shared/assets/icons/about.svg';
-import article from '@/shared/assets/icons/article.svg';
+import aboutIcon from '@/shared/assets/icons/about.svg';
+import articleIcon from '@/shared/assets/icons/article.svg';
 import homeIcon from '@/shared/assets/icons/home.svg';
-import profile from '@/shared/assets/icons/profile.svg';
+import profileIcon from '@/shared/assets/icons/profile.svg';
+import usersIcon from '@/shared/assets/icons/users.svg';
 import { PathName } from '@/shared/constants';
 import {
   getAboutPath,
@@ -23,19 +24,19 @@ export interface SidebarItemsType {
 
 export const sidebarItems: SidebarItemsType[] = [
   { name: 'main', path: () => getMainPath(), icon: homeIcon },
-  { name: 'articles', path: () => getArticlesPath(), icon: article },
+  { name: 'articles', path: () => getArticlesPath(), icon: articleIcon },
   {
     name: 'profile',
     path: (id) => getProfilePath(id),
-    icon: profile,
+    icon: profileIcon,
     isAuth: true,
   },
   {
     name: 'users',
     path: () => getUsersPath(),
-    icon: article,
+    icon: usersIcon,
     isAuth: true,
     requiredRole: allowedRolesForPage.USERS,
   },
-  { name: 'about', path: () => getAboutPath(), icon: about },
+  { name: 'about', path: () => getAboutPath(), icon: aboutIcon },
 ];

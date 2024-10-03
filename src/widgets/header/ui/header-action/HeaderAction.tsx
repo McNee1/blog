@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import SVG from 'react-inlinesvg';
 
 import styles from './HeaderAction.module.scss';
 
@@ -7,6 +6,7 @@ import pencilIcon from '@/shared/assets/icons/pencil.svg';
 import { getNewArticlePath, useAppSelector } from '@/shared/lib';
 import {
   AppButton,
+  AppIcon,
   AppImage,
   AppLink,
   FlexGroup,
@@ -51,8 +51,9 @@ export const HeaderAction = ({ onOpenModal }: HeaderActionProps) => {
             className={styles.new_article}
             to={getNewArticlePath()}
           >
-            <SVG
+            <AppIcon
               src={pencilIcon}
+              height='22px'
               width='22px'
             />
           </AppLink>

@@ -1,11 +1,12 @@
 import { memo, useState } from 'react';
-import SVG from 'react-inlinesvg';
 
 import styles from './Reaction.module.scss';
 
 import dislikeIcon from '@/shared/assets/icons/dislike.svg';
 import likeIcon from '@/shared/assets/icons/like.svg';
 import { classNames } from '@/shared/lib';
+
+import { AppIcon } from '../../app-icon';
 
 interface ReactionProps {
   className?: string;
@@ -66,7 +67,7 @@ export const Reaction = memo(function Reaction({
     <div
       className={classNames(styles.like_rating, disabled && styles.disabled, className)}
     >
-      <SVG
+      <AppIcon
         className={classNames(styles.svg, isLike && styles.liked)}
         onClick={() => handleRatingChange('like')}
         src={likeIcon}
@@ -78,7 +79,7 @@ export const Reaction = memo(function Reaction({
           {`${sign}${countReaction}`}
         </span>
       )}
-      <SVG
+      <AppIcon
         className={classNames(styles.svg, isDislike && styles.disliked)}
         onClick={() => handleRatingChange('dislike')}
         src={dislikeIcon}

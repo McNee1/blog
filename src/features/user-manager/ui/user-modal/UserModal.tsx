@@ -1,12 +1,11 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import SVG from 'react-inlinesvg';
 
 import styles from './UserModal.module.scss';
 
 import successIcon from '@/shared/assets/icons/success.svg';
 import { useAppSelector } from '@/shared/lib';
-import { AppButton, FlexGroup, Modal, Portal, ThemeButton } from '@/shared/ui';
+import { AppButton, AppIcon, FlexGroup, Modal, Portal, ThemeButton } from '@/shared/ui';
 
 import { getSelectedUser, getUsersPrevRole, ModalAction } from '../../model';
 
@@ -69,10 +68,10 @@ export const UserModal = memo(function UserModal({
               direction='row'
               gap='gap10'
             >
-              <SVG
+              <AppIcon
                 className={styles.svg}
                 src={successIcon}
-                width={40}
+                width='40px'
               />
               {t(
                 `You have changed ${selectedUser?.username}'s access rights from ${prevUserRole} to ${selectedUser?.role}`

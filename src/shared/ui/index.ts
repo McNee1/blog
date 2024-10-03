@@ -18,3 +18,4 @@ export { TextField } from './text-field';
 export { Typography } from './typography';
 export { Reaction } from './reaction';
 export { Label } from './label';
+export { AppIcon } from './app-icon';

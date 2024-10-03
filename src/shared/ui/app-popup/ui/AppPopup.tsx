@@ -1,5 +1,4 @@
 import { ReactNode, useRef, useState } from 'react';
-import SVG from 'react-inlinesvg';
 import { Link } from 'react-router-dom';
 
 import cls from './AppPopup.module.scss';
@@ -20,6 +19,8 @@ import {
   useInteractions,
   useTransitionStyles,
 } from '@floating-ui/react';
+
+import { AppIcon } from '../../app-icon';
 
 export interface PopupItems {
   action?: () => void;
@@ -140,9 +141,9 @@ export const AppPopup = (props: AppPopupProps) => {
                       key={id}
                     >
                       {item.src && (
-                        <SVG
+                        <AppIcon
                           src={item.src}
-                          width='21'
+                          width='21px'
                         />
                       )}
                       {item.content}

@@ -1,11 +1,9 @@
 import type { ArticleLayoutType } from '@/pages';
 
-import SVG from 'react-inlinesvg';
-
 import styles from './LayoutSwitcher.module.scss';
 
 import { classNames } from '@/shared/lib';
-import { Card } from '@/shared/ui';
+import { AppIcon, Card } from '@/shared/ui';
 
 import { switcherTypes } from '../model';
 
@@ -37,10 +35,11 @@ export const LayoutSwitcher = ({
               onClick={() => handleSwitch(type.view)}
               key={type.view}
             >
-              <SVG
+              <AppIcon
                 className={classNames(type.svgClass && styles[type.svgClass])}
                 src={type.icon}
-                width={20}
+                height='20px'
+                width='20px'
               />
             </div>
           );

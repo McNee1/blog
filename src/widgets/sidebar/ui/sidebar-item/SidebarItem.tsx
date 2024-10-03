@@ -1,10 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import SVG from 'react-inlinesvg';
 
 import styles from './SidebarItem.module.scss';
 
 import { classNames, isAccessToPage, useAppSelector } from '@/shared/lib';
-import { AppLink } from '@/shared/ui';
+import { AppIcon, AppLink } from '@/shared/ui';
 
 import { getUserData, getUserRole } from '@/entities';
 
@@ -38,7 +37,7 @@ export const SidebarItem = ({ item, collapsed }: SidebarItemProps) => {
         to={item.path(auth?.id)}
         type='primary'
       >
-        <SVG
+        <AppIcon
           src={item.icon}
           height='20px'
           width='20px'

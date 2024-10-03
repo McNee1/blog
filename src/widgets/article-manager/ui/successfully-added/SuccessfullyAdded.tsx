@@ -1,9 +1,7 @@
-import SVG from 'react-inlinesvg';
-
 import styles from './SuccessfullyAdded.module.scss';
 
 import successIcon from '@/shared/assets/icons/success.svg';
-import { Card, FlexGroup, Typography } from '@/shared/ui';
+import { AppIcon, Card, FlexGroup, Typography } from '@/shared/ui';
 
 export const SuccessfullyAdded = ({ text }: { text: string }) => {
   return (
@@ -13,10 +11,10 @@ export const SuccessfullyAdded = ({ text }: { text: string }) => {
         direction='col'
         gap='gap12'
       >
-        <SVG
+        <AppIcon
           className={styles.svg}
           src={successIcon}
-          width={75}
+          width='75px'
         />
         <Typography
           titleLevel='h2'

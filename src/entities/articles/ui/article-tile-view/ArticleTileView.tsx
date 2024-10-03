@@ -1,13 +1,12 @@
 import type { ArticleType } from '@/entities';
 
 import { memo } from 'react';
-import SVG from 'react-inlinesvg';
 
 import styles from './ArticleTileView.module.scss';
 
 import eye from '@/shared/assets/icons/eye.svg';
 import { formatDate, getArticleDetailPath, getProfilePath } from '@/shared/lib';
-import { AppLink, Card, FlexGroup, Typography } from '@/shared/ui';
+import { AppIcon, AppLink, Card, FlexGroup, Typography } from '@/shared/ui';
 
 import { BadgeList, UserCard } from '@/entities';
 
@@ -60,12 +59,13 @@ export const ArticleTileView = memo(function ArticleTileView({
         </FlexGroup>
 
         <FlexGroup
+          className={styles.view_count}
           spaceLeft='auto'
           direction='row'
           gap='gap8'
         >
-          <SVG
-            width={18}
+          <AppIcon
+            width='18px'
             src={eye}
           />
           <Typography

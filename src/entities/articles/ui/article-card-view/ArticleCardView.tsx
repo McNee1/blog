@@ -2,7 +2,6 @@ import type { ArticleType } from '@/entities';
 
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import SVG from 'react-inlinesvg';
 
 import styles from './ArticleCardView.module.scss';
 
@@ -14,7 +13,15 @@ import {
   getArticleDetailPath,
   getProfilePath,
 } from '@/shared/lib';
-import { AppImage, AppLink, Card, FlexGroup, Skeleton, Typography } from '@/shared/ui';
+import {
+  AppIcon,
+  AppImage,
+  AppLink,
+  Card,
+  FlexGroup,
+  Skeleton,
+  Typography,
+} from '@/shared/ui';
 
 import { BadgeList, UserCard } from '@/entities';
 
@@ -52,16 +59,17 @@ export const ArticleCardView = memo(function ArticleCardView({
 
         <div className={styles.info}>
           <div className={classNames(styles.inline, styles.eye)}>
-            <SVG
-              width={20}
+            <AppIcon
+              width='20px'
               src={eye}
             />
             <span>{article.views}</span>
           </div>
           <div className={classNames(styles.inline, styles.calendar)}>
-            <SVG
+            <AppIcon
               src={calendar}
-              width={20}
+              height='20px'
+              width='20px'
             />
             <time>{formatDate(article.createdAt, { dateStyle: 'medium' })}</time>
           </div>

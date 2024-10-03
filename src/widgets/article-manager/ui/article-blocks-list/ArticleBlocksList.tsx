@@ -1,5 +1,4 @@
 import { useCallback, useMemo } from 'react';
-import SVG from 'react-inlinesvg';
 
 import styles from './ArticleBlocksList.module.scss';
 
@@ -9,7 +8,7 @@ import plusIcon from '@/shared/assets/icons/plus.svg';
 import textIcon from '@/shared/assets/icons/text.svg';
 import titleIcon from '@/shared/assets/icons/title.svg';
 import { useAppDispatch, useAppSelector } from '@/shared/lib';
-import { AppButton, AppPopup, FlexGroup } from '@/shared/ui';
+import { AppButton, AppIcon, AppPopup, FlexGroup } from '@/shared/ui';
 
 import { Block } from '@/entities';
 
@@ -121,9 +120,10 @@ export const ArticleBlocksList = () => {
         <AppPopup
           reference={
             <AppButton className={styles.menu_button}>
-              <SVG
+              <AppIcon
                 src={plusIcon}
-                width='21'
+                height='21px'
+                width='21px'
               />
             </AppButton>
           }
