@@ -1,0 +1,1 @@
+export { LgArticleSkeleton } from './LgArticleSkeleton';

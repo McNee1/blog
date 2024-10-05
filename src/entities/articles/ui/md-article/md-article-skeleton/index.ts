@@ -1,0 +1,1 @@
+export { MdArticleSkeleton } from './MdArticleSkeleton';

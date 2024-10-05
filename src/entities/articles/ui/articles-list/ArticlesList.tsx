@@ -1,14 +1,21 @@
 import type { ArticleType } from '@/entities';
 import type { ArticleLayoutType } from '@/pages';
 
-import { useCallback, useMemo } from 'react';
+import { ComponentProps } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib';
 import { FlexGroup, Typography } from '@/shared/ui';
 
-import { ArticleCardView, ArticleCardViewSkeleton } from '../article-card-view';
-import { ArticleTileView, ArticleTileViewSkeleton } from '../article-tile-view';
+import { getArticleComponent, getLoaderComponent } from '../../model';
+
+type Direction = Pick<ComponentProps<typeof FlexGroup>, 'direction'>['direction'];
+
+const direction: Record<ArticleLayoutType, Direction> = {
+  card: 'col',
+  tile: 'row',
+  list: 'col',
+};
 
 interface ArticlesListProps {
   articles: ArticleType[] | null;
@@ -27,34 +34,7 @@ export const ArticlesList = ({
 }: ArticlesListProps) => {
   const { t } = useTranslation('article');
 
-  const renderArticle = useCallback(
-    (article: ArticleType) => {
-      if (layoutType === 'card') {
-        return (
-          <ArticleCardView
-            article={article}
-            key={article.id}
-          />
-        );
-      } else {
-        return (
-          <ArticleTileView
-            article={article}
-            key={article.id}
-          />
-        );
-      }
-    },
-    [layoutType]
-  );
-
-  const getLoader = useMemo(() => {
-    return layoutType === 'card' ? (
-      <ArticleCardViewSkeleton />
-    ) : (
-      <ArticleTileViewSkeleton />
-    );
-  }, [layoutType]);
+  const loader = getLoaderComponent(layoutType);
 
   if (error) {
     return (
@@ -75,13 +55,13 @@ export const ArticlesList = ({
 
   return (
     <FlexGroup
-      direction={layoutType === 'card' ? 'col' : 'row'}
       gap={layoutType === 'card' ? 'gap10' : 'gap12'}
       className={classNames(className)}
+      direction={direction[layoutType]}
       wrap={layoutType === 'tile'}
     >
-      {articles?.map(renderArticle)}
-      {isLoading && getLoader}
+      {articles?.map((article) => getArticleComponent(layoutType, article))}
+      {isLoading && loader}
     </FlexGroup>
   );
 };

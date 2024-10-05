@@ -1,7 +1,7 @@
 import type { ArticleCategory, ArticleType } from '@/entities';
 import type { OrderType, SortedType } from '@/features';
 
-export type ArticleLayoutType = 'card' | 'tile';
+export type ArticleLayoutType = 'card' | 'tile' | 'list';
 
 export interface ArticlesSchema {
   _initd: boolean;

@@ -1,6 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { PathName } from '@/shared/constants';
 import {
   getAboutPath,
   getArticleDetailPath,
@@ -10,6 +9,8 @@ import {
   getNewArticlePath,
   getNotFoundPath,
   getProfilePath,
+  getUserArticlesPath,
+  getUsersPath,
 } from '@/shared/lib';
 
 import { allowedRolesForPage } from '@/entities';
@@ -22,6 +23,7 @@ import {
   MainPage,
   NotFound,
   ProfilePage,
+  UserArticlesPage,
   UsersPage,
 } from '@/pages';
 
@@ -77,10 +79,18 @@ export const useRouter = () => {
           ),
         },
         {
-          path: PathName.USERS,
+          path: getUsersPath(),
           element: (
             <PrivateRoute requireRole={allowedRolesForPage.USERS}>
               <UsersPage />
+            </PrivateRoute>
+          ),
+        },
+        {
+          path: getUserArticlesPath(':id'),
+          element: (
+            <PrivateRoute>
+              <UserArticlesPage />
             </PrivateRoute>
           ),
         },

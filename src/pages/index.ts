@@ -8,3 +8,5 @@ export { MainPage } from './main-page';
 export { NotFound } from './not-found';
 export { ProfilePage } from './profile-page';
 export { UsersPage } from './users-page';
+export { UserArticlesPage, userArticlesReducer } from './user-articles-page';
+export type { UserArticlesSchema } from './user-articles-page';

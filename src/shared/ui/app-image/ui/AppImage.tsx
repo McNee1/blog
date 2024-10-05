@@ -23,6 +23,7 @@ interface AppImageProps extends ComponentProps<'img'> {
   className?: string;
   errorFallback?: ReactElement;
   fallback?: ReactElement;
+  fallbackError?: boolean;
   round?: Round;
   size?: number;
   src: string | undefined;
@@ -41,6 +42,7 @@ export const AppImage = memo(function AppImage({
   styles,
   alt,
   center = false,
+  fallbackError = true,
   className,
   round = 'none',
   fallback,
@@ -94,7 +96,7 @@ export const AppImage = memo(function AppImage({
     return fallback;
   }
 
-  if (hasError) {
+  if (hasError && fallbackError) {
     return (
       <img
         style={{ width: '100%', maxHeight: '300px' }}

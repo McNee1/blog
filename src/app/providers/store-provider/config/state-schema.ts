@@ -8,7 +8,7 @@ import {
   ProfileSchema,
   UsersSchema,
 } from '@/features';
-import { ArticlesSchema } from '@/pages';
+import { ArticlesSchema, UserArticlesSchema } from '@/pages';
 import { ArticleManagerSchema } from '@/widgets';
 import {
   EnhancedStore,
@@ -29,6 +29,8 @@ export interface StateSchema {
   profile?: ProfileSchema;
 
   user: UserSchema;
+
+  userArticles?: UserArticlesSchema;
   users?: UsersSchema;
 }
 

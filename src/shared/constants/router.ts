@@ -7,5 +7,6 @@ export const PathName = {
   NOT_FOUND: 'not_found',
   NEW_ARTICLE: 'new_article',
   EDIT_ARTICLE: 'edit_article',
+  USER_ARTICLES: 'user_articles',
   USERS: 'users',
 } as const;

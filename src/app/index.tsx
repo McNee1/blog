@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { RouterProvider } from 'react-router-dom';
 
 import { Preloader } from '@/shared/ui';
@@ -9,14 +9,14 @@ export const Provider = () => {
   const router = useRouter();
 
   return (
-    // <React.StrictMode>
-    <StoreProvider>
-      <ThemeProvider>
-        <Suspense fallback={<Preloader height='full' />}>
-          <RouterProvider router={router} />
-        </Suspense>
-      </ThemeProvider>
-    </StoreProvider>
-    // </React.StrictMode>
+    <React.StrictMode>
+      <StoreProvider>
+        <ThemeProvider>
+          <Suspense fallback={<Preloader height='full' />}>
+            <RouterProvider router={router} />
+          </Suspense>
+        </ThemeProvider>
+      </StoreProvider>
+    </React.StrictMode>
   );
 };

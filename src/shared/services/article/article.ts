@@ -13,6 +13,10 @@ export class ArticleService {
     return $axios.get<ArticleType[]>(`/articles`, config);
   }
 
+  fetchArticlesById({ params, config }: AxiosRequestConfig<{ id: string }>) {
+    return $axios.get<ArticleType[]>(`/articles?userId=${params.id}`, config);
+  }
+
   postArticle({ params, config }: AxiosRequestConfig<PostArticleType>) {
     return $axios.post<ArticleType>(`/articles`, params, config);
   }

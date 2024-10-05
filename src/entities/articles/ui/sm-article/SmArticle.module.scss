@@ -1,0 +1,28 @@
+.tile_card {
+  overflow: visible !important;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+
+  padding: 10px;
+}
+
+.card_header {
+  margin-bottom: 10px;
+}
+
+.card_body {
+  margin-bottom: 10px;
+  .title {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+}
+
+.card_footer {
+  font-size: 14px;
+}

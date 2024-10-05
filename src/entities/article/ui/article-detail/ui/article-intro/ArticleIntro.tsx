@@ -34,6 +34,7 @@ export const ArticleIntro = ({ articleDetail }: ArticleIntroProps) => {
           }
           className={styles.intro_img}
           src={articleDetail?.img}
+          fallbackError={false}
         />
 
         <FlexGroup

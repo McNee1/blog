@@ -1,0 +1,1 @@
+export { SmArticleSkeleton } from './SmArticleSkeleton';

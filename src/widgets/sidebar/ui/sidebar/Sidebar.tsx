@@ -21,9 +21,9 @@ export const Sidebar = () => {
       data-testid='sidebar'
     >
       <FlexGroup
+        gap={collapsed ? 'gap14' : 'gap12'}
         className={styles.nav}
         direction='col'
-        gap='gap12'
       >
         {sidebarItems.map((item) => (
           <SidebarItem

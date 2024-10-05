@@ -19,3 +19,5 @@ export { Typography } from './typography';
 export { Reaction } from './reaction';
 export { Label } from './label';
 export { AppIcon } from './app-icon';
+export { ViewCount } from './view-count';
+export { DateView } from './date-view';

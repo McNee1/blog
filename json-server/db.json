@@ -70,7 +70,10 @@
           "id": "8"
         }
       ],
-      "type": ["SCIENCE", "IT"],
+      "type": [
+        "SCIENCE",
+        "IT"
+      ],
       "userId": "4",
       "views": 0,
       "createdAt": "1721916296917",
@@ -148,7 +151,10 @@
           "id": "8"
         }
       ],
-      "type": ["SCIENCE", "IT"],
+      "type": [
+        "SCIENCE",
+        "IT"
+      ],
       "userId": "1",
       "views": 0,
       "createdAt": "1721916296917",
@@ -159,7 +165,9 @@
     },
     {
       "title": "Замыкание в Java Script для непосвященных",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "type": "TEXT",
@@ -221,7 +229,9 @@
     },
     {
       "title": "1Замыкание в Java Script для непосвященных",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "type": "TEXT",
@@ -283,7 +293,9 @@
     },
     {
       "title": "2Замыкание в Java Script для непосвященных",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "type": "TEXT",
@@ -344,7 +356,9 @@
     },
     {
       "title": "2343Замыкание в Java Script для непосвященных",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "type": "TEXT",
@@ -401,11 +415,14 @@
       "views": 0,
       "createdAt": "1722521384508",
       "id": 5,
-      "changed": "1722688708791"
+      "changed": "1722688708791",
+      "reaction": 0
     },
     {
       "title": "2Замыкание sdsв Java Script для непосвященных",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "type": "TEXT",
@@ -466,7 +483,9 @@
     },
     {
       "title": "2Замыкание в Java Script длdнепосвяdfенных",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "type": "TEXT",
@@ -595,7 +614,10 @@
           "id": "8"
         }
       ],
-      "type": ["SCIENCE", "IT"],
+      "type": [
+        "SCIENCE",
+        "IT"
+      ],
       "userId": "1",
       "views": 0,
       "createdAt": "1721916296917",
@@ -674,7 +696,10 @@
           "id": "8"
         }
       ],
-      "type": ["SCIENCE", "IT"],
+      "type": [
+        "SCIENCE",
+        "IT"
+      ],
       "userId": "1",
       "views": 0,
       "createdAt": "1721916296917",
@@ -752,7 +777,10 @@
           "id": "8"
         }
       ],
-      "type": ["SCIENCE", "IT"],
+      "type": [
+        "SCIENCE",
+        "IT"
+      ],
       "userId": "2",
       "views": 0,
       "createdAt": "1721916296917",
@@ -839,6 +867,12 @@
       "userId": "1",
       "reaction": "like",
       "id": 1
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "reaction": "like",
+      "id": 2
     }
   ]
 }

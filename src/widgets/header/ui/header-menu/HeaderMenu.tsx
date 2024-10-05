@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import styles from './HeaderMenu.module.scss';
 
-import { getProfilePath, useAppDispatch } from '@/shared/lib';
+import { getProfilePath, getUserArticlesPath, useAppDispatch } from '@/shared/lib';
 import { AppPopup } from '@/shared/ui';
 
 import { userAction } from '@/entities';
@@ -29,6 +29,11 @@ export const HeaderMenu = ({ referenceClass, reference, profileId }: HeaderMenuP
         content: t('profile'),
         href: getProfilePath(profileId),
       },
+      {
+        href: getUserArticlesPath(profileId),
+        content: t('My articles'),
+      },
+
       {
         content: t('Log out'),
         action: handleLogout,
