@@ -1,16 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { postComment } from '../services';
-import { articleDetailCommentFormSchema } from '../types';
+import { AddCommentFormSchema } from '../types';
 
 const initialState = {
   error: null,
   isLoading: false,
   text: '',
-} satisfies articleDetailCommentFormSchema as articleDetailCommentFormSchema;
+} satisfies AddCommentFormSchema as AddCommentFormSchema;
 
-const articleDetailCommentFormSlice = createSlice({
-  name: 'articleDetailCommentForm',
+const addCommentFormSlice = createSlice({
+  name: 'addCommentForm',
   initialState,
   reducers: {
     setText: (state, action: PayloadAction<string>) => {
@@ -38,5 +38,5 @@ const articleDetailCommentFormSlice = createSlice({
   },
 });
 
-export const { actions: articleDetailCommentFormAction } = articleDetailCommentFormSlice;
-export const { reducer: articleDetailCommentFormReducer } = articleDetailCommentFormSlice;
+export const { actions: addCommentFormAction } = addCommentFormSlice;
+export const { reducer: addCommentFormReducer } = addCommentFormSlice;

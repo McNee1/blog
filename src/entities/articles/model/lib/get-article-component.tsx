@@ -10,9 +10,24 @@ import { SmArticle } from '../../ui/sm-article';
 
 const articleTypeMap: Record<ArticleLayoutType, (article: ArticleType) => ReactElement> =
   {
-    card: (article) => <LgArticle article={article} />,
-    tile: (article) => <MdArticle article={article} />,
-    list: (article) => <SmArticle article={article} />,
+    card: (article) => (
+      <LgArticle
+        article={article}
+        key={article.id}
+      />
+    ),
+    tile: (article) => (
+      <MdArticle
+        article={article}
+        key={article.id}
+      />
+    ),
+    list: (article) => (
+      <SmArticle
+        article={article}
+        key={article.id}
+      />
+    ),
   };
 
 export const getArticleComponent = (

@@ -1,26 +1,31 @@
 import { useCallback } from 'react';
 
-import { AsyncSliceManager, useAppDispatch, useAppSelector } from '@/shared/lib';
+import {
+  AsyncSliceManager,
+  ReducersList,
+  useAppDispatch,
+  useAppSelector,
+} from '@/shared/lib';
 
 import { CommentForm, getUserData } from '@/entities';
 import { fetchComments } from '@/features';
 
 import {
-  articleDetailCommentFormAction,
-  articleDetailCommentFormReducer,
+  addCommentFormAction,
+  addCommentFormReducer,
   getCommentForm,
   getCommentFormError,
   getCommentFormIsLoading,
   postComment,
 } from '../model';
 
-const initialReducer = { articleCommentForm: articleDetailCommentFormReducer };
+const initialReducer: ReducersList = { addCommentForm: addCommentFormReducer };
 
-export interface ArticleDetailCommentFormProps {
+export interface AddCommentFormProps {
   articleId: string | undefined;
 }
 
-const ArticleDetailCommentForm = ({ articleId }: ArticleDetailCommentFormProps) => {
+const AddCommentForm = ({ articleId }: AddCommentFormProps) => {
   const dispatch = useAppDispatch();
 
   const text = useAppSelector(getCommentForm);
@@ -31,7 +36,7 @@ const ArticleDetailCommentForm = ({ articleId }: ArticleDetailCommentFormProps) 
 
   const handleChangeField = useCallback(
     (value: string) => {
-      dispatch(articleDetailCommentFormAction.setText(value));
+      dispatch(addCommentFormAction.setText(value));
     },
     [dispatch]
   );
@@ -69,4 +74,4 @@ const ArticleDetailCommentForm = ({ articleId }: ArticleDetailCommentFormProps) 
   );
 };
 
-export default ArticleDetailCommentForm;
+export default AddCommentForm;

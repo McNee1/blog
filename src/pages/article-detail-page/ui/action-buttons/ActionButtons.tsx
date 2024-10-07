@@ -1,5 +1,7 @@
-import { getArticlesPath, getEditArticlePath, useAppSelector } from '@/shared/lib';
-import { AppLink, FlexGroup } from '@/shared/ui';
+import { useNavigate } from 'react-router-dom';
+
+import { getEditArticlePath, useAppSelector } from '@/shared/lib';
+import { AppButton, AppLink, FlexGroup, ThemeButton } from '@/shared/ui';
 
 import { getCanEditArticle } from '../../model';
 
@@ -11,19 +13,22 @@ interface ActionButtonsProps {
 export const ActionButtons = ({ className, articleId }: ActionButtonsProps) => {
   const canEdit = useAppSelector(getCanEditArticle);
 
+  const navigate = useNavigate();
+
   return (
     <FlexGroup
       className={className}
       justify='between'
       direction='row'
     >
-      <AppLink
-        to={getArticlesPath()}
-        type='secondary'
-        border
+      <AppButton
+        theme={ThemeButton.OUTLINE_GRAY}
+        onClick={() => navigate(-1)}
+        round='sm'
+        size='md'
       >
         &#x2190;
-      </AppLink>
+      </AppButton>
       {canEdit && articleId && (
         <AppLink
           to={getEditArticlePath(articleId)}

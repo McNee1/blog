@@ -30,6 +30,5 @@ export const useIntersectionObserver = (
     }
 
     return () => observer.disconnect();
-    // TODO
   }, [callbackFn, observable]);
 };

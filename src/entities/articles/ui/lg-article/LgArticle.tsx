@@ -5,22 +5,16 @@ import { useTranslation } from 'react-i18next';
 
 import styles from './LgArticle.module.scss';
 
-import calendar from '@/shared/assets/icons/calendar.svg';
-import eye from '@/shared/assets/icons/eye.svg';
+import { formatDate, getArticleDetailPath, getProfilePath } from '@/shared/lib';
 import {
-  classNames,
-  formatDate,
-  getArticleDetailPath,
-  getProfilePath,
-} from '@/shared/lib';
-import {
-  AppIcon,
   AppImage,
   AppLink,
   Card,
+  DateView,
   FlexGroup,
   Skeleton,
   Typography,
+  ViewCount,
 } from '@/shared/ui';
 
 import { BadgeList, UserCard } from '@/entities';
@@ -35,7 +29,6 @@ export const LgArticle = memo(function LgArticle({ article }: LgArticleProps) {
   return (
     <Card>
       <FlexGroup
-        className={styles.card_header}
         spaceButton='space6'
         direction='col'
         gap='gap8'
@@ -56,21 +49,11 @@ export const LgArticle = memo(function LgArticle({ article }: LgArticleProps) {
         </UserCard>
 
         <div className={styles.info}>
-          <div className={classNames(styles.inline, styles.eye)}>
-            <AppIcon
-              width='20px'
-              src={eye}
-            />
-            <span>{article.views}</span>
-          </div>
-          <div className={classNames(styles.inline, styles.calendar)}>
-            <AppIcon
-              src={calendar}
-              height='20px'
-              width='20px'
-            />
-            <time>{formatDate(article.createdAt, { dateStyle: 'medium' })}</time>
-          </div>
+          <ViewCount
+            className={styles.info_count}
+            views={article.views}
+          />
+          <DateView date={formatDate(article.createdAt, { dateStyle: 'medium' })} />
         </div>
       </FlexGroup>
       <div className={styles.card_body}>

@@ -10,8 +10,8 @@ export { SortArticle } from './sort-article';
 export type { OrderType, SortedType } from './sort-article';
 export { updateUser, UserManager } from './user-manager';
 export type { UpdateUserType, UsersSchema } from './user-manager';
-export { ArticleDetailCommentForm } from './article-detail-comment-form';
-export type { articleDetailCommentFormSchema } from './article-detail-comment-form';
+export { AddCommentForm } from './add-comment-form';
+export type { AddCommentFormSchema } from './add-comment-form';
 export {
   articleDetailCommentListReducer,
   ArticleDetailComments,

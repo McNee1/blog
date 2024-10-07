@@ -4,9 +4,8 @@ import { memo } from 'react';
 
 import styles from './MdArticle.module.scss';
 
-import eye from '@/shared/assets/icons/eye.svg';
 import { formatDate, getArticleDetailPath, getProfilePath } from '@/shared/lib';
-import { AppIcon, AppLink, Card, FlexGroup, Typography } from '@/shared/ui';
+import { AppLink, Card, FlexGroup, Typography, ViewCount } from '@/shared/ui';
 
 import { BadgeList, UserCard } from '@/entities';
 
@@ -56,21 +55,10 @@ export const MdArticle = memo(function MdArticle({ article }: MdArticleProps) {
           </time>
         </FlexGroup>
 
-        <FlexGroup
+        <ViewCount
           className={styles.view_count}
-          spaceLeft='auto'
-          direction='row'
-          gap='gap8'
-        >
-          <AppIcon
-            width='18px'
-            src={eye}
-          />
-          <Typography
-            text={String(article.views)}
-            textClass={styles.count}
-          />
-        </FlexGroup>
+          views={article.views}
+        />
       </UserCard>
     </Card>
   );

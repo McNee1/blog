@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 
 import { ArticleDetail } from '@/entities';
 import {
-  ArticleDetailCommentForm,
+  AddCommentForm,
   ArticleDetailComments,
   ArticleDetailReaction,
   ArticleDetailRecommendation,
@@ -30,7 +30,7 @@ const ArticleDetailPage = () => {
 
       <ArticleDetailComments articleId={id} />
 
-      <ArticleDetailCommentForm articleId={id} />
+      <AddCommentForm articleId={id} />
     </PageManager>
   );
 };

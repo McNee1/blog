@@ -20,13 +20,19 @@ interface PostRtkType extends Omit<ReactionArticleType, 'id'> {
 export const reactionRtk = rtkApi.injectEndpoints({
   endpoints: (build) => ({
     getUserReaction: build.query<ReactionArticleType[], ReactionRtkGetType>({
-      query: ({ articleId, userId }) => ({
-        url: '/reactions',
-        params: {
-          articleId: articleId,
-          userId: userId,
-        },
-      }),
+      query: ({ articleId, userId }) => {
+        if (!userId) {
+          throw new Error('userId is required');
+        }
+
+        return {
+          url: '/reactions',
+          params: {
+            articleId: articleId,
+            userId: userId,
+          },
+        };
+      },
     }),
 
     updateReactionByArticleId: build.mutation<ArticleType, ReactionRtkArticleType>({
@@ -46,7 +52,6 @@ export const reactionRtk = rtkApi.injectEndpoints({
           userId,
           articleId,
         };
-        console.log(id);
         if (id) {
           // Reaction already exists, update it
           return {

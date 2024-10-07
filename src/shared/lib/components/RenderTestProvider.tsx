@@ -1,12 +1,11 @@
 import { ReactNode } from 'react';
-import { I18nextProvider } from 'react-i18next';
 import { BrowserRouter } from 'react-router-dom';
 
 import { StoreProvider, StoreProviderProps, ThemeProvider } from '@/app/providers';
 
 import { render } from '@testing-library/react';
 
-import i18nForTests from '../../config/i18n/i18nForTest';
+import { I18nProvider } from './i18nProvider';
 
 export type AllTheProvidersProps = Omit<StoreProviderProps, 'children'>;
 
@@ -21,7 +20,7 @@ export const AllTheProviders = (
         initialState={storeOption.initialState}
       >
         <ThemeProvider>
-          <I18nextProvider i18n={i18nForTests}>{children}</I18nextProvider>
+          <I18nProvider>{children}</I18nProvider>
         </ThemeProvider>
       </StoreProvider>
     </BrowserRouter>

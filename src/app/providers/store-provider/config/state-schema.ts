@@ -2,7 +2,7 @@ import { rtkApi } from '@/shared/services';
 
 import { ArticleDetailSchema, UserSchema } from '@/entities';
 import {
-  articleDetailCommentFormSchema,
+  AddCommentFormSchema,
   CommentListSchema,
   LoginSchema,
   ProfileSchema,
@@ -19,7 +19,7 @@ import {
 
 export interface StateSchema {
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
-  articleCommentForm?: articleDetailCommentFormSchema;
+  addCommentForm?: AddCommentFormSchema;
   articleDetail?: ArticleDetailSchema;
   articleManager?: ArticleManagerSchema;
   articles?: ArticlesSchema;

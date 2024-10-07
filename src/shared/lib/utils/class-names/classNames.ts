@@ -14,15 +14,11 @@ export const classNames = (
         return cls.filter((el) => Boolean(el)).join(' ');
       }
       if (typeof cls === 'object') {
-        return (
-          Object.entries(cls)
-            // TODO
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            .filter(([_, val]) => val)
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            .map(([className, _]) => className)
-            .join(' ')
-        );
+        return Object.entries(cls)
+          .filter(([, val]) => val)
+
+          .map(([className]) => className)
+          .join(' ');
       } else {
         return cls;
       }

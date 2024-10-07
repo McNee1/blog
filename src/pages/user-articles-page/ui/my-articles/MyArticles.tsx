@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from '@/shared/lib';
+import { AsyncSliceManager, useAppDispatch, useAppSelector } from '@/shared/lib';
 
 import { ArticlesList } from '@/entities';
 
@@ -9,18 +9,21 @@ import {
   getUserArticles,
   getUserArticlesError,
   getUserArticlesIsLoading,
+  userArticlesReducer,
 } from '../../model';
 
-interface ArticlesListProps {
+const initialReducer = { userArticles: userArticlesReducer };
+
+interface MyArticlesProps {
   id?: string;
 }
 
-export const MyArticles = ({ id }: ArticlesListProps) => {
-  const dispatch = useAppDispatch();
-
+export const MyArticles = ({ id }: MyArticlesProps) => {
   const articles = useAppSelector(getUserArticles);
   const error = useAppSelector(getUserArticlesError);
   const isLoading = useAppSelector(getUserArticlesIsLoading);
+
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (id) {
@@ -29,11 +32,13 @@ export const MyArticles = ({ id }: ArticlesListProps) => {
   }, [dispatch, id]);
 
   return (
-    <ArticlesList
-      isLoading={isLoading}
-      articles={articles}
-      layoutType={'list'}
-      error={error}
-    ></ArticlesList>
+    <AsyncSliceManager reducers={initialReducer}>
+      <ArticlesList
+        isLoading={isLoading}
+        articles={articles}
+        layoutType={'list'}
+        error={error}
+      ></ArticlesList>
+    </AsyncSliceManager>
   );
 };

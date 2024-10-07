@@ -7,7 +7,7 @@ import { Reducer } from '@reduxjs/toolkit';
 
 import { useAppDispatch } from '../hooks';
 
-type ReducersList = {
+export type ReducersList = {
   [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 };
 
@@ -28,7 +28,6 @@ export const AsyncSliceManager = ({
 
   useEffect(() => {
     const initdReducers = Object.keys(store.reducerManager.getReducerMap());
-    console.log(initdReducers);
 
     Object.entries(reducers).forEach(([name, reducer]) => {
       if (!initdReducers.includes(name)) {

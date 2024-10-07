@@ -4,4 +4,4 @@ export * from './utils';
 
 export * from './hooks';
 export { AsyncSliceManager, render } from './components';
-export type { AllTheProvidersProps } from './components';
+export type { AllTheProvidersProps, ReducersList } from './components';

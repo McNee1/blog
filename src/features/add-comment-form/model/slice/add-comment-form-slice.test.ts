@@ -1,9 +1,6 @@
 import { postComment } from '../services';
-import { articleDetailCommentFormSchema } from '../types';
-import {
-  articleDetailCommentFormAction,
-  articleDetailCommentFormReducer,
-} from './article-detail-comment-form-slice';
+import { AddCommentFormSchema } from '../types';
+import { addCommentFormAction, addCommentFormReducer } from './add-comment-form-slice';
 
 const MOCK_DATA = {
   articleId: '1',
@@ -14,12 +11,12 @@ const MOCK_DATA = {
 
 describe('profile-slice.test', () => {
   test('test set test', () => {
-    const state: DeepPartial<articleDetailCommentFormSchema> = { text: '' };
+    const state: DeepPartial<AddCommentFormSchema> = { text: '' };
 
     expect(
-      articleDetailCommentFormReducer(
-        state as articleDetailCommentFormSchema,
-        articleDetailCommentFormAction.setText('HELLO')
+      addCommentFormReducer(
+        state as AddCommentFormSchema,
+        addCommentFormAction.setText('HELLO')
       )
     ).toEqual({
       text: 'HELLO',
@@ -27,15 +24,15 @@ describe('profile-slice.test', () => {
   });
 
   test('test post comment service pending', () => {
-    const state: DeepPartial<articleDetailCommentFormSchema> = {
+    const state: DeepPartial<AddCommentFormSchema> = {
       text: 'hello world',
       error: null,
       isLoading: true,
     };
 
     expect(
-      articleDetailCommentFormReducer(
-        state as articleDetailCommentFormSchema,
+      addCommentFormReducer(
+        state as AddCommentFormSchema,
         postComment.pending('pending', MOCK_DATA)
       )
     ).toEqual({
@@ -46,13 +43,13 @@ describe('profile-slice.test', () => {
   });
 
   test('test post comment service fulfilled', () => {
-    const state: DeepPartial<articleDetailCommentFormSchema> = {
+    const state: DeepPartial<AddCommentFormSchema> = {
       isLoading: true,
     };
 
     expect(
-      articleDetailCommentFormReducer(
-        state as articleDetailCommentFormSchema,
+      addCommentFormReducer(
+        state as AddCommentFormSchema,
         postComment.fulfilled(
           {
             ...MOCK_DATA,

@@ -28,7 +28,7 @@ export const EditButtons = ({
       return false;
     }
   };
-  // TODO
+
   return (
     <>
       {canEdit && (

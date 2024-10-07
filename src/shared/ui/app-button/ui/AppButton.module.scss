@@ -72,8 +72,6 @@ button:disabled {
   font-size: var(--font-size-s);
 }
 
-//
-
 @mixin outline-btn($bg, $color) {
   color: $bg;
   border: 1px solid $bg;
@@ -108,7 +106,7 @@ button:disabled {
 }
 
 .outline-gray {
-  @include outline-btn(gray, white);
+  @include outline-btn(#afafaf, white);
 }
 
 .outline-red {
