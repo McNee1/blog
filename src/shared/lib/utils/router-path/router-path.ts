@@ -13,14 +13,15 @@ const getNewArticlePath = (): string => getPath('NEW_ARTICLE');
 const getNotFoundPath = (): string => getPath('NOT_FOUND');
 const getAboutPath = (): string => getPath('ABOUT');
 const getArticlesPath = (): string => getPath('ARTICLES');
-const getUsersPath = (): string => getPath('USERS');
-const getProfilePath = (id: string): string => getPath('PROFILE', id);
+const getAdminPath = (): string => getPath('ADMIN');
+const getProfilePath = (id?: string): string => getPath('PROFILE', id);
 const getArticleDetailPath = (id: string): string => getPath('ARTICLE_DETAIL', id);
 const getEditArticlePath = (id: string): string => getPath('EDIT_ARTICLE', id);
 const getUserArticlesPath = (id: string): string => getPath('USER_ARTICLES', id);
 
 export {
   getAboutPath,
+  getAdminPath,
   getArticleDetailPath,
   getArticlesPath,
   getEditArticlePath,
@@ -29,5 +30,4 @@ export {
   getNotFoundPath,
   getProfilePath,
   getUserArticlesPath,
-  getUsersPath,
 };

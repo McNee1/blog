@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import styles from './LgArticle.module.scss';
 
-import { formatDate, getArticleDetailPath, getProfilePath } from '@/shared/lib';
+import { getArticleDetailPath, getProfilePath } from '@/shared/lib';
 import {
   AppImage,
   AppLink,
@@ -53,7 +53,10 @@ export const LgArticle = memo(function LgArticle({ article }: LgArticleProps) {
             className={styles.info_count}
             views={article.views}
           />
-          <DateView date={formatDate(article.createdAt, { dateStyle: 'medium' })} />
+          <DateView
+            options={{ dateStyle: 'medium' }}
+            date={article.createdAt}
+          />
         </div>
       </FlexGroup>
       <div className={styles.card_body}>

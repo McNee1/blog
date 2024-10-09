@@ -1,7 +1,7 @@
 import type { StateSchema } from '@/app/providers';
 
 import { User, userAction } from '@/entities';
-import { updateUser } from '@/features';
+import { updateUser } from '@/pages';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { getProfileDataFrom } from '../../selectors';

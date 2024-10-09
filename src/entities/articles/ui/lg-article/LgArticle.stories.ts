@@ -25,7 +25,7 @@ const MOCK_CODE = {
 } as ArticleType;
 
 const meta = {
-  title: 'articles/ArticleCardView',
+  title: 'articles/LgArticle',
   component: LgArticle,
 } satisfies Meta<typeof LgArticle>;
 

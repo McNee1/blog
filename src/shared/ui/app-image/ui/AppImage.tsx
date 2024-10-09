@@ -17,6 +17,8 @@ import placeholder from '/src/shared/assets/img/placeholder.jpg';
 
 type Round = 'full' | 'sm' | 'none';
 
+type ScrType = string | undefined;
+
 interface AppImageProps extends ComponentProps<'img'> {
   alt?: string;
   center?: boolean;
@@ -26,7 +28,7 @@ interface AppImageProps extends ComponentProps<'img'> {
   fallbackError?: boolean;
   round?: Round;
   size?: number;
-  src: string | undefined;
+  src: ScrType;
   styles?: CSSProperties;
 }
 
@@ -72,7 +74,7 @@ export const AppImage = memo(function AppImage({
   );
 
   const renderImage = useCallback(
-    () => (
+    (src: ScrType) => (
       <>
         {src && (
           <img
@@ -89,7 +91,7 @@ export const AppImage = memo(function AppImage({
         )}
       </>
     ),
-    [alt, center, restProps, round, src, style, styles]
+    [alt, center, restProps, round, style, styles]
   );
 
   if (isLoading && fallback) {
@@ -97,17 +99,12 @@ export const AppImage = memo(function AppImage({
   }
 
   if (hasError && fallbackError) {
-    return (
-      <img
-        style={{ width: '100%', maxHeight: '300px' }}
-        src={placeholder}
-      />
-    );
+    return renderImage(placeholder);
   }
 
   return className ? (
-    <div className={classNames(cls.img_wrap, className)}>{renderImage()}</div>
+    <div className={classNames(cls.img_wrap, className)}>{renderImage(src)}</div>
   ) : (
-    renderImage()
+    renderImage(src)
   );
 });

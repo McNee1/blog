@@ -71,6 +71,7 @@ export const ArticleBlocksList = () => {
             <ArticleText
               onSetContentBlock={handleSetContentBlock}
               text={block.text}
+              key={block.id}
               id={block.id}
             />
           );
@@ -80,6 +81,7 @@ export const ArticleBlocksList = () => {
             <ArticleTitle
               onSetContentBlock={handleSetContentBlock}
               title={block.title}
+              key={block.id}
               id={block.id}
             />
           );
@@ -90,6 +92,7 @@ export const ArticleBlocksList = () => {
               onSetContentBlock={handleSetContentBlock}
               title={block.title}
               src={block.src}
+              key={block.id}
               id={block.id}
             />
           );
@@ -100,6 +103,7 @@ export const ArticleBlocksList = () => {
               onSetContentBlock={handleSetContentBlock}
               className={styles.code_block}
               code={block.code}
+              key={block.id}
               id={block.id}
             />
           );

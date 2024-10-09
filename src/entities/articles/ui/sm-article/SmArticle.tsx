@@ -1,6 +1,6 @@
 import styles from './SmArticle.module.scss';
 
-import { formatDate, getArticleDetailPath } from '@/shared/lib';
+import { getArticleDetailPath } from '@/shared/lib';
 import { AppLink, Card, DateView, FlexGroup, Typography, ViewCount } from '@/shared/ui';
 
 import { ArticleType, BadgeList } from '@/entities';
@@ -32,7 +32,10 @@ export const SmArticle = ({ article }: SmArticleProps) => {
           gap='gap20'
         >
           <ViewCount views={article.views} />
-          <DateView date={formatDate(article.createdAt, { dateStyle: 'medium' })} />
+          <DateView
+            options={{ dateStyle: 'medium' }}
+            date={article.createdAt}
+          />
         </FlexGroup>
       </Card>
     </div>

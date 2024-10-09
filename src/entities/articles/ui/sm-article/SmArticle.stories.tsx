@@ -6,7 +6,7 @@ import MOCK_AVATAR from '@/shared/assets/storybook/mock_avatar.jpg';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/constants';
 
-import { MdArticle } from './MdArticle';
+import { SmArticle } from './SmArticle';
 
 const MOCK_CODE = {
   id: '4',
@@ -24,9 +24,9 @@ const MOCK_CODE = {
 } as ArticleType;
 
 const meta = {
-  title: 'articles/MdArticle',
-  component: MdArticle,
-} satisfies Meta<typeof MdArticle>;
+  title: 'articles/SmArticle',
+  component: SmArticle,
+} satisfies Meta<typeof SmArticle>;
 
 export default meta;
 

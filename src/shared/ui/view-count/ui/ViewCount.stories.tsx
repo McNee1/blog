@@ -3,19 +3,26 @@ import { Theme } from '@/shared/constants';
 
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Preloader } from './Preloader';
+import { ViewCount } from './ViewCount';
 
 const meta = {
-  title: 'shared/Preloader',
-  component: Preloader,
-} satisfies Meta<typeof Preloader>;
+  title: 'shared/ViewCount',
+  component: ViewCount,
+} satisfies Meta<typeof ViewCount>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    views: 0,
+  },
+};
 
-export const Dark: Story = {};
-
+export const Dark: Story = {
+  args: {
+    views: 111,
+  },
+};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

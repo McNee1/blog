@@ -28,13 +28,11 @@ export const ArticleImage = ({
         onInput={(value) => onSetContentBlock(value, id, 'src')}
         placeholder={dictionary.imageLink}
         value={src}
-        autoHeight
       />
       <TextArea
         onInput={(value) => onSetContentBlock(value, id, 'title')}
         placeholder={dictionary.description}
         value={title}
-        autoHeight
       />
     </DeleteArticleBlock>
   );

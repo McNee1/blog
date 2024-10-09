@@ -9,6 +9,7 @@ import {
   deleteUser,
   fetchUsers,
   getUsersData,
+  getUsersDisabled,
   getUsersError,
   getUsersIsLoading,
   ModalAction,
@@ -39,6 +40,7 @@ export const UserManager = () => {
   const users = useAppSelector(getUsersData);
   const error = useAppSelector(getUsersError);
   const isLoading = useAppSelector(getUsersIsLoading);
+  const disabled = useAppSelector(getUsersDisabled);
 
   const handleOpenModal = useCallback((action: ModalAction) => {
     setModalState({ isOpen: true, action });
@@ -90,6 +92,7 @@ export const UserManager = () => {
           onOpenDeleteModal={handleOpenDeleteModal}
           onChangeRole={handleChangeRole}
           isLoading={isLoading}
+          disabled={disabled}
           error={error}
           users={users}
         />

@@ -1,25 +1,23 @@
 import { memo, useCallback } from 'react';
 
-import { useAppSelector } from '@/shared/lib';
+import { roleOptions } from '@/shared/constants';
 import { CustomSelect } from '@/shared/ui';
 
 import { Role } from '@/entities';
 
-import { getUsersDisabled, selectValues } from '../../model';
-
 interface RoleEditorProps {
   className?: string;
+  disabled?: boolean;
   onChangeRole: (role: Role) => void;
   userRole?: string;
 }
 
-export const RoleEditor = memo(function RoleEditor({
+export const ChangeRole = memo(function RoleEditor({
   userRole,
   className,
   onChangeRole,
+  disabled,
 }: RoleEditorProps) {
-  const disabled = useAppSelector(getUsersDisabled);
-
   const handleChangeRole = useCallback(
     (value: Role) => {
       onChangeRole(value);
@@ -32,7 +30,7 @@ export const RoleEditor = memo(function RoleEditor({
       placeholder='Change user role'
       onChange={handleChangeRole}
       dataTestId='RoleEditor'
-      options={selectValues}
+      options={roleOptions}
       className={className}
       disabled={disabled}
       value={userRole}

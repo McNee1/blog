@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib';
 import { FlexGroup, Typography } from '@/shared/ui';
 
-import { getArticleComponent, getLoaderComponent } from '../../model';
+import { getArticleComponent, getLoaderComponent } from '../../lib';
 
 type Direction = Pick<ComponentProps<typeof FlexGroup>, 'direction'>['direction'];
 

@@ -1,7 +1,7 @@
 import { ArticleType } from '@/entities';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { createBlock } from '../../util';
+import { createBlock } from '../../lib';
 import { fetchArticle, postArticle, updateArticle } from '../service';
 import {
   ArticleData,

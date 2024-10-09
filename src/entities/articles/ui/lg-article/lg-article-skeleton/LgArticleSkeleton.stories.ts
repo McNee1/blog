@@ -6,7 +6,7 @@ import { Theme } from '@/shared/constants';
 import { LgArticleSkeleton } from './LgArticleSkeleton';
 
 const meta = {
-  title: 'articles/ArticleCardViewSkeleton',
+  title: 'articles/LgArticleSkeleton',
   component: LgArticleSkeleton,
 } satisfies Meta<typeof LgArticleSkeleton>;
 

@@ -4,9 +4,9 @@ import { ReactElement } from 'react';
 import { ArticleType } from '@/entities';
 import { ArticleLayoutType } from '@/pages';
 
-import { LgArticle } from '../../ui/lg-article';
-import { MdArticle } from '../../ui/md-article';
-import { SmArticle } from '../../ui/sm-article';
+import { LgArticle } from '../ui/lg-article';
+import { MdArticle } from '../ui/md-article';
+import { SmArticle } from '../ui/sm-article';
 
 const articleTypeMap: Record<ArticleLayoutType, (article: ArticleType) => ReactElement> =
   {

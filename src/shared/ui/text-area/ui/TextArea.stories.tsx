@@ -28,11 +28,3 @@ export const NotEditable: Story = {
     editable: false,
   },
 };
-
-export const AutoHeight: Story = {
-  args: {
-    autoHeight: true,
-    border: true,
-    editable: true,
-  },
-};

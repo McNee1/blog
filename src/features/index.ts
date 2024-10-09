@@ -8,8 +8,7 @@ export { FilterArticleCategory } from './filter-article-category';
 export { SearchArticle } from './search-article';
 export { SortArticle } from './sort-article';
 export type { OrderType, SortedType } from './sort-article';
-export { updateUser, UserManager } from './user-manager';
-export type { UpdateUserType, UsersSchema } from './user-manager';
+
 export { AddCommentForm } from './add-comment-form';
 export type { AddCommentFormSchema } from './add-comment-form';
 export {
@@ -23,3 +22,4 @@ export type { ProfileSchema } from './editable-profile';
 export { ArticleDetailRecommendation } from './article-detail-recommendation';
 export { ArticleDetailReaction } from './article-detail-reaction';
 export { InfiniteScrollWithRestore } from './Infinite-scroll-with-restore';
+export { ChangeRole } from './change-role';

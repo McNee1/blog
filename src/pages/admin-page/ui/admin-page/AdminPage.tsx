@@ -1,7 +1,8 @@
-import { UserManager } from '@/features';
 import { PageManager } from '@/widgets';
 
-const UsersPage = () => {
+import { UserManager } from '../user-manager';
+
+const AdminPage = () => {
   return (
     <PageManager>
       <UserManager />
@@ -9,4 +10,4 @@ const UsersPage = () => {
   );
 };
 
-export default UsersPage;
+export default AdminPage;

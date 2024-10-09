@@ -9,7 +9,7 @@ import { AppIcon } from '../../app-icon';
 
 interface ViewCountProps {
   className?: string;
-  views: string | number;
+  views?: string | number;
 }
 
 export const ViewCount = memo(function ViewCount({ views, className }: ViewCountProps) {

@@ -29,7 +29,6 @@ export const ArticleCode = ({
         placeholder={dictionary.text}
         className={className}
         value={code}
-        autoHeight
       />
     </DeleteArticleBlock>
   );

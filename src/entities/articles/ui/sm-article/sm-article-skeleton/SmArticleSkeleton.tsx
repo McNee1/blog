@@ -1,6 +1,6 @@
 import { Card, FlexGroup, Skeleton } from '@/shared/ui';
 
-const arr = [...Array.from({ length: 4 })];
+const arr = [...Array.from({ length: 3 })];
 
 export const SmArticleSkeleton = () => {
   return (

@@ -5,11 +5,9 @@ import styles from './TextArea.module.scss';
 import { classNames, useThrottle } from '@/shared/lib';
 
 interface TextAreaProps extends Omit<ComponentProps<'textarea'>, 'onInput'> {
-  autoHeight?: boolean;
   border?: boolean;
   editable?: boolean;
   label?: string;
-  labelClass?: string;
   onInput?: (value: string) => void;
   size?: 'sm' | 'md' | 'xl';
 }
@@ -18,8 +16,6 @@ export const TextArea = memo(function TextArea({
   className,
   label,
   id,
-  labelClass,
-  autoHeight = false,
   onInput,
   editable = true,
   size = 'sm',
@@ -30,7 +26,6 @@ export const TextArea = memo(function TextArea({
 
   const autoGrow = (element: HTMLElement | null) => {
     if (!element) return;
-    element.style.height = '10px';
     element.style.height = element.scrollHeight + 'px';
   };
 
@@ -57,27 +52,20 @@ export const TextArea = memo(function TextArea({
   };
 
   useEffect(() => {
-    if (autoHeight && ref.current) {
-      resizeObserver.observe(ref.current);
+    if (ref.current) {
       autoGrow(ref.current);
+      resizeObserver.observe(ref.current);
     }
 
     return () => {
       resizeObserver.disconnect();
     };
-  }, [autoHeight, ref, resizeObserver]);
+  }, [ref, resizeObserver]);
   return (
     <>
-      {label && (
-        <label
-          className={classNames(styles.label, labelClass)}
-          htmlFor={id}
-        >
-          {label}
-        </label>
-      )}
       <textarea
         onChange={handleInput}
+        placeholder={label}
         ref={ref}
         {...rest}
         className={classNames(

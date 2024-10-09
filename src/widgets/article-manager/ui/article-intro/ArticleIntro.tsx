@@ -76,21 +76,18 @@ export const ArticleIntro = () => {
           onInput={handleChangeTitle}
           value={articleData?.title}
           size='xl'
-          autoHeight
         />
 
         <TextArea
           placeholder={dictionary.Subtitle}
           onInput={handleChangeSubtitle}
           value={articleData?.subtitle}
-          autoHeight
         />
 
         <TextArea
           placeholder={dictionary.Cover}
           onInput={handleChangeImg}
           value={articleData?.img}
-          autoHeight
         />
 
         {!!articleData?.type && <BadgeList types={articleData.type} />}

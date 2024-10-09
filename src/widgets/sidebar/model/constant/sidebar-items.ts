@@ -6,10 +6,10 @@ import usersIcon from '@/shared/assets/icons/users.svg';
 import { PathName } from '@/shared/constants';
 import {
   getAboutPath,
+  getAdminPath,
   getArticlesPath,
   getMainPath,
   getProfilePath,
-  getUsersPath,
 } from '@/shared/lib';
 
 import { allowedRolesForPage, Role } from '@/entities';
@@ -32,11 +32,11 @@ export const sidebarItems: SidebarItemsType[] = [
     isAuth: true,
   },
   {
-    name: 'users',
-    path: () => getUsersPath(),
+    name: 'admin',
+    path: () => getAdminPath(),
     icon: usersIcon,
     isAuth: true,
-    requiredRole: allowedRolesForPage.USERS,
+    requiredRole: allowedRolesForPage.ADMIN,
   },
   { name: 'about', path: () => getAboutPath(), icon: aboutIcon },
 ];

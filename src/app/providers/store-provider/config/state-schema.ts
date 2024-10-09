@@ -6,9 +6,8 @@ import {
   CommentListSchema,
   LoginSchema,
   ProfileSchema,
-  UsersSchema,
 } from '@/features';
-import { ArticlesSchema, UserArticlesSchema } from '@/pages';
+import { ArticlesSchema, UserArticlesSchema, UsersSchema } from '@/pages';
 import { ArticleManagerSchema } from '@/widgets';
 import {
   EnhancedStore,

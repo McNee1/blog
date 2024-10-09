@@ -1,11 +1,6 @@
 .label {
-  display: block;
-
-  margin-bottom: 3px;
-
   font-size: 13px;
   font-weight: 500;
-  line-height: 1.4;
 }
 
 .textarea {
@@ -14,6 +9,8 @@
   width: 100%;
 
   min-height: 100%;
+
+  padding: 6px;
 
   color: var(--primary-color);
 

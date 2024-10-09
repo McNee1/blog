@@ -20,7 +20,7 @@ export const ArticleImage = ({ content, className }: ArticleImageProps) => {
             height='200px'
           />
         }
-        styles={{ maxWidth: '800px' }}
+        className={styles.img}
         src={content.src}
         center
       />

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import mockAvatar from '@/shared/assets/storybook/mock_avatar.jpg';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/constants';
 
@@ -17,8 +18,7 @@ const MOCK_CODE: Comment[] = [
       id: '1',
       username: 'Homer',
       email: 'test@t.t',
-      avatar:
-        'https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/e76d4296-43f3-493b-9d50-f8e5c142d06c/2117667014/boys-profile-picture-screenshot.png',
+      avatar: mockAvatar,
     },
   },
   {
@@ -45,8 +45,7 @@ const MOCK_CODE: Comment[] = [
       id: '3',
       username: 'Bart',
       email: 'tes1t@t.t',
-      avatar:
-        'https://sm.askmen.com/t/askmen_in/article/f/facebook-p/facebook-profile-picture-affects-chances-of-gettin_fr3n.1200.jpg',
+      avatar: '',
     },
   },
   {

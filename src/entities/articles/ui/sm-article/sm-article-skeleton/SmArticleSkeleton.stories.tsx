@@ -3,12 +3,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/constants';
 
-import { MdArticleSkeleton } from './MdArticleSkeleton';
+import { SmArticleSkeleton } from './SmArticleSkeleton';
 
 const meta = {
-  title: 'articles/MdArticleSkeleton',
-  component: MdArticleSkeleton,
-} satisfies Meta<typeof MdArticleSkeleton>;
+  title: 'articles/SmArticleSkeleton',
+  component: SmArticleSkeleton,
+} satisfies Meta<typeof SmArticleSkeleton>;
 
 export default meta;
 

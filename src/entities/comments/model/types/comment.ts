@@ -5,6 +5,6 @@ export interface Comment {
   date: string;
   id: string;
   text: string;
-  user: Partial<User>;
+  user: User;
   userId: string;
 }

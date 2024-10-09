@@ -22,7 +22,6 @@ export const ArticleText = ({ onSetContentBlock, id, text }: ArticleTextProps) =
         onInput={(value) => onSetContentBlock(value, id, 'text')}
         placeholder={dictionary.text}
         value={text}
-        autoHeight
       />
     </DeleteArticleBlock>
   );

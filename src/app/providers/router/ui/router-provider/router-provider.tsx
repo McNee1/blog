@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import {
   getAboutPath,
+  getAdminPath,
   getArticleDetailPath,
   getArticlesPath,
   getEditArticlePath,
@@ -10,12 +11,12 @@ import {
   getNotFoundPath,
   getProfilePath,
   getUserArticlesPath,
-  getUsersPath,
 } from '@/shared/lib';
 
 import { allowedRolesForPage } from '@/entities';
 import {
   AboutPage,
+  AdminPage,
   ArticleDetailPage,
   ArticlesPage,
   CreateArticlePage,
@@ -24,7 +25,6 @@ import {
   NotFound,
   ProfilePage,
   UserArticlesPage,
-  UsersPage,
 } from '@/pages';
 
 import { BaseLayout } from '../../../../layout';
@@ -79,10 +79,10 @@ export const useRouter = () => {
           ),
         },
         {
-          path: getUsersPath(),
+          path: getAdminPath(),
           element: (
-            <PrivateRoute requireRole={allowedRolesForPage.USERS}>
-              <UsersPage />
+            <PrivateRoute requireRole={allowedRolesForPage.ADMIN}>
+              <AdminPage />
             </PrivateRoute>
           ),
         },

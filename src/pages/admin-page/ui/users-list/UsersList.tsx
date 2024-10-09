@@ -1,8 +1,6 @@
-import { memo } from 'react';
-
 import styles from './UsersList.module.scss';
 
-import { getProfilePath, useAppSelector } from '@/shared/lib';
+import { getProfilePath } from '@/shared/lib';
 import {
   AppButton,
   AppLink,
@@ -14,11 +12,10 @@ import {
 } from '@/shared/ui';
 
 import { Role, User, UserCard } from '@/entities';
-
-import { getUsersDisabled } from '../../model';
-import { RoleEditor } from '../role-editor';
+import { ChangeRole } from '@/features';
 
 interface UsersListProps {
+  disabled?: boolean;
   error: null | string;
   isLoading: boolean;
   onChangeRole: (id: string, role: Role) => void;
@@ -26,15 +23,14 @@ interface UsersListProps {
   users: User[] | null;
 }
 
-export const UsersList = memo(function UsersList({
+export const UsersList = ({
   users,
+  disabled,
   onChangeRole,
   onOpenDeleteModal,
   error,
   isLoading,
-}: UsersListProps) {
-  const disabled = useAppSelector(getUsersDisabled);
-
+}: UsersListProps) => {
   if (isLoading) {
     return (
       <Card>
@@ -69,6 +65,7 @@ export const UsersList = memo(function UsersList({
       </Card>
     );
   }
+
   return (
     <>
       {users?.map((user) => (
@@ -93,7 +90,7 @@ export const UsersList = memo(function UsersList({
               <span>{user.email}</span>
             </FlexGroup>
 
-            <RoleEditor
+            <ChangeRole
               onChangeRole={(role) => onChangeRole(user.id, role)}
               className={styles.select_role}
               userRole={user.role}
@@ -113,4 +110,4 @@ export const UsersList = memo(function UsersList({
       ))}
     </>
   );
-});
+};

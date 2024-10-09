@@ -22,7 +22,6 @@ export const ArticleTitle = ({ id, onSetContentBlock, title }: ArticleTitleProps
         onInput={(value) => onSetContentBlock(value, id, 'title')}
         placeholder={dictionary.title}
         value={title}
-        autoHeight
       />
     </DeleteArticleBlock>
   );
