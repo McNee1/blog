@@ -1,1 +1,1 @@
-export { useRouter } from './ui';
+export { useRouter } from './hook';

@@ -1,7 +1,7 @@
 .flex {
   display: flex;
 }
-//
+
 .justifyStart {
   justify-content: start;
 }
@@ -26,17 +26,14 @@
   justify-content: space-evenly;
 }
 
-//
 .flexColumn {
   flex-direction: column;
 }
 
-//
 .flexRow {
   flex-direction: row;
 }
 
-//
 .alignCenter {
   align-items: center;
 }
@@ -49,7 +46,6 @@
   align-items: start;
 }
 
-//
 .gap2 {
   gap: 2px;
 }
@@ -94,12 +90,10 @@
   gap: 22px;
 }
 
-//
 .wrap {
   flex-wrap: wrap;
 }
 
-//
 .marginBottomAuto {
   margin-bottom: auto;
 }
@@ -148,7 +142,6 @@
   margin-bottom: 22px;
 }
 
-//
 .marginLeftAuto {
   margin-left: auto;
 }
@@ -196,12 +189,55 @@
 .marginLeft22 {
   margin-left: 22px;
 }
-//
+
 .marginTopAuto {
   margin-top: auto;
 }
 
-//
+.marginTop2 {
+  margin-top: 2px;
+}
+
+.marginTop4 {
+  margin-top: 4px;
+}
+
+.marginTop6 {
+  margin-top: 6px;
+}
+
+.marginTop8 {
+  margin-top: 8px;
+}
+
+.marginTop10 {
+  margin-top: 10px;
+}
+
+.marginTop12 {
+  margin-top: 12px;
+}
+
+.marginTop14 {
+  margin-top: 14px;
+}
+
+.marginTop16 {
+  margin-top: 16px;
+}
+
+.marginTop18 {
+  margin-top: 18px;
+}
+
+.marginTop20 {
+  margin-top: 20px;
+}
+
+.marginTop22 {
+  margin-top: 22px;
+}
+
 .maxWidth {
   width: 100%;
 }

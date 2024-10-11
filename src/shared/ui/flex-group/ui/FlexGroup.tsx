@@ -16,7 +16,7 @@ type Gap = `gap${Numbers}`;
 type SpaceButton = `space${Numbers}` | 'auto';
 type SpaceLeft = `space${Numbers}` | 'auto';
 
-type SpaceTop = 'auto';
+type SpaceTop = `space${Numbers}` | 'auto';
 
 const spaceButtonClasses: Record<SpaceButton, string> = {
   auto: styles.marginBottomAuto,
@@ -50,6 +50,17 @@ const spaceLeftClasses: Record<SpaceLeft, string> = {
 
 const spaceTopClasses: Record<SpaceTop, string> = {
   auto: styles.marginTopAuto,
+  space2: styles.marginTop2,
+  space4: styles.marginTop4,
+  space6: styles.marginTop6,
+  space8: styles.marginTop8,
+  space10: styles.marginTop10,
+  space12: styles.marginTop12,
+  space14: styles.marginTop14,
+  space16: styles.marginTop16,
+  space18: styles.marginTop18,
+  space20: styles.marginTop20,
+  space22: styles.marginTop22,
 };
 
 const justifyClasses: Record<JustifyContent, string> = {

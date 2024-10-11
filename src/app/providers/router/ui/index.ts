@@ -1,1 +1,2 @@
-export { useRouter } from './router-provider';
+export { ErrorBoundary } from './error-boundary';
+export { PrivateRoute } from './private-route';

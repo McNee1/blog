@@ -12,8 +12,8 @@
 .wrap_edit {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   gap: 5px;
+  justify-content: space-between;
 
   &:hover .delete_btn {
     visibility: visible;

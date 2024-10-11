@@ -2,8 +2,8 @@ import { ReactNode } from 'react';
 
 import { Role } from '@/entities';
 
-import { AuthGuard } from './auth-guard';
-import { RoleGuard } from './role-guard';
+import { AuthGuard } from '../auth-guard';
+import { RoleGuard } from '../role-guard';
 
 interface PrivateRouteProps {
   children: ReactNode;

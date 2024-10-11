@@ -6,17 +6,15 @@
 .textarea {
   resize: none;
 
+  overflow: hidden;
+
   width: 100%;
-
   min-height: 100%;
-
   padding: 6px;
 
   color: var(--primary-color);
 
   background-color: inherit;
-
-  overflow: hidden;
 
   &:focus {
     outline: 1px solid #42cf7f;
@@ -53,6 +51,6 @@
 }
 
 .not_border {
-  outline: none;
   border: none;
+  outline: none;
 }
