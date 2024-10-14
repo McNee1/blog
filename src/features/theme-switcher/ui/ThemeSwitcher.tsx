@@ -1,18 +1,30 @@
+import { memo, useCallback } from 'react';
+
 import styles from './ThemeSwitcher.module.scss';
 
 import moonIcon from '@/shared/assets/icons/moon.svg';
 import sunIcon from '@/shared/assets/icons/sun.svg';
 import { Theme } from '@/shared/constants';
-import { useTheme } from '@/shared/lib';
+import { useAppDispatch, useTheme } from '@/shared/lib';
 import { AppButton, AppIcon } from '@/shared/ui';
 
-export const ThemeSwitcher = () => {
+import { updateJsonSetting } from '@/entities';
+
+export const ThemeSwitcher = memo(function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();
+
+  const dispatch = useAppDispatch();
+
+  const handleToggleTheme = useCallback(() => {
+    toggleTheme((newTheme) => {
+      void dispatch(updateJsonSetting({ theme: newTheme }));
+    });
+  }, [dispatch, toggleTheme]);
 
   return (
     <AppButton
+      onClick={handleToggleTheme}
       className={styles.button}
-      onClick={toggleTheme}
     >
       {theme == Theme.DARK ? (
         <AppIcon
@@ -29,4 +41,4 @@ export const ThemeSwitcher = () => {
       )}
     </AppButton>
   );
-};
+});

@@ -21,10 +21,6 @@ export const reactionRtk = rtkApi.injectEndpoints({
   endpoints: (build) => ({
     getUserReaction: build.query<ReactionArticleType[], ReactionRtkGetType>({
       query: ({ articleId, userId }) => {
-        if (!userId) {
-          throw new Error('userId is required');
-        }
-
         return {
           url: '/reactions',
           params: {

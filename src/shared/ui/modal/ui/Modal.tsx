@@ -3,7 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import styles from './Modal.module.scss';
 
-import { classNames } from '@/shared/lib';
+import { classNames, useTheme } from '@/shared/lib';
 import { TestProps } from '@/shared/types';
 
 interface ModalProps extends TestProps {
@@ -21,6 +21,8 @@ export const Modal = ({
   dataTestId,
 }: ModalProps) => {
   const modalRef = useRef(null);
+
+  const { theme } = useTheme();
 
   const handleCloseModal = useCallback(() => {
     if (onClose) {
@@ -65,7 +67,7 @@ export const Modal = ({
       unmountOnExit
     >
       <div
-        className={classNames(styles.modal, className)}
+        className={classNames(styles.modal, theme, className)}
         onClick={handleCloseModal}
         data-testid={dataTestId}
         ref={modalRef}

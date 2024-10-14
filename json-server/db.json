@@ -79,7 +79,8 @@
       "createdAt": "1721916296917",
       "id": 1,
       "subtitle": "",
-      "changed": "1724941889843"
+      "changed": "1724941889843",
+      "reaction": 1
     },
     {
       "title": "В начале этого года Python сместил Java и стал вторым по популярности языком программирования среди разработчиков",
@@ -812,7 +813,11 @@
       "password": "123",
       "email": "test@t.tt",
       "role": "admin",
-      "avatar": "https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/e76d4296-43f3-493b-9d50-f8e5c142d06c/2117667014/boys-profile-picture-screenshot.png"
+      "avatar": "https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/e76d4296-43f3-493b-9d50-f8e5c142d06c/2117667014/boys-profile-picture-screenshot.png",
+      "jsonSetting": {
+        "theme": "light",
+        "foo": 111
+      }
     },
     {
       "id": "2",
@@ -820,7 +825,11 @@
       "password": "123",
       "email": "test1@t.tt",
       "role": "moderator",
-      "avatar": "https://avatars.mds.yandex.net/get-shedevrum/11425623/img_b741a033f00f11eeb7f0ba0d8cad0506/orig"
+      "avatar": "https://avatars.mds.yandex.net/get-shedevrum/11425623/img_b741a033f00f11eeb7f0ba0d8cad0506/orig",
+      "jsonSetting": {
+        "theme": "dark",
+        "foo": "22"
+      }
     },
     {
       "id": "3",
@@ -873,6 +882,12 @@
       "userId": "1",
       "reaction": "like",
       "id": 2
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "reaction": "like",
+      "id": 3
     }
   ]
 }

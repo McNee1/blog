@@ -1,13 +1,14 @@
-import { ReactNode, useMemo, useState } from 'react';
+import { ReactNode, useEffect, useMemo, useState } from 'react';
 
-import { LOCAL_STORAGE_THEME_KEY, Theme } from '@/shared/constants';
-import { ThemeContext } from '@/shared/lib';
+import { Theme } from '@/shared/constants';
+import { ThemeContext, useAppSelector } from '@/shared/lib';
 
-const defaultTheme =
-  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
+import { getUserSetting } from '@/entities';
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>(defaultTheme);
+  const currTheme = useAppSelector(getUserSetting)?.theme;
+
+  const [theme, setTheme] = useState<Theme>(currTheme ?? Theme.LIGHT);
 
   const defaultProps = useMemo(
     () => ({
@@ -16,6 +17,12 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     }),
     [theme]
   );
+
+  useEffect(() => {
+    if (currTheme) {
+      setTheme(currTheme);
+    }
+  }, [currTheme]);
 
   return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
 };

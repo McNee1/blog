@@ -56,6 +56,8 @@ module.exports = {
           '@/shared/*',
           '@/shared/assets/storybook/*',
           '@/app/providers',
+          'app/App',
+          'app/providers',
           '**/config/storybook/*',
           '**/lib/tests/*',
           '**/**/i18nForTest',

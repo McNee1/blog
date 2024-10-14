@@ -1,4 +1,5 @@
 export { allowedRolesForPage, userRole } from './constants';
-export { getUserData, getUserRole } from './selectors';
+export { getUserData, getUserIsLoading, getUserRole, getUserSetting } from './selectors';
 export * from './slice';
-export type { Role, User, UserSchema } from './types';
+export type { JsonSetting, Role, User, UserSchema } from './types';
+export { fetchUser, updateJsonSetting } from './service';

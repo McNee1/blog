@@ -1,7 +1,11 @@
 export {
   allowedRolesForPage,
+  fetchUser,
   getUserData,
+  getUserIsLoading,
   getUserRole,
+  getUserSetting,
+  updateJsonSetting,
   userAction,
   UserCard,
   userReducer,

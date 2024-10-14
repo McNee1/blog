@@ -3,18 +3,16 @@
 @import './themes/light';
 @import './themes/dark';
 
-#root {
+.app {
   display: flex;
+  color: var(--primary-color);
+  color-scheme: light dark;
+  background: var(--bg-color);
 }
 
 body {
   min-height: 100vh;
-
   font: var(--font-m);
-  color: var(--primary-color);
-
-  color-scheme: light dark;
-  background: var(--bg-color);
 }
 
 .container {

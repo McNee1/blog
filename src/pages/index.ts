@@ -10,5 +10,5 @@ export { ProfilePage } from './profile-page';
 export { AdminPage } from './admin-page';
 export { UserArticlesPage, userArticlesReducer } from './user-articles-page';
 export type { UserArticlesSchema } from './user-articles-page';
-export type { UsersSchema } from './admin-page';
+export type { UpdateUserType, UsersSchema } from './admin-page';
 export { updateUser } from './admin-page';

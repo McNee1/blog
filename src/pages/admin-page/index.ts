@@ -1,3 +1,3 @@
 export { AdminPage } from './ui';
-export type { UsersSchema } from './model';
+export type { UpdateUserType, UsersSchema } from './model';
 export { updateUser } from './model';

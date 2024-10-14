@@ -26,7 +26,6 @@ export const CommentForm = ({
       <TextArea
         onChange={(e) => onChangeField(e.target.value)}
         className={styles.textarea}
-        labelClass={styles.label}
         label='Add comment'
         value={textField}
         rows={2}

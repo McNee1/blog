@@ -20,7 +20,10 @@ export const ArticleDetailReaction = ({ articleId }: ArticleDetailReactionProps)
 
   const userId = useAppSelector(getUserData)?.id;
 
-  const { data, isLoading } = useGetUserReactionQuery({ articleId, userId });
+  const { data, isLoading } = useGetUserReactionQuery(
+    { articleId, userId },
+    { skip: !userId }
+  );
 
   const reaction = data?.[0];
 

@@ -25,7 +25,7 @@ import {
   UserArticlesPage,
 } from '@/pages';
 
-import { BaseLayout } from '../../../layout';
+import { BaseLayout } from '../../layout';
 import { createRouteElement } from './create-route-element';
 
 const adminRoutes = [
