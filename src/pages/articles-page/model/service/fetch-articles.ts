@@ -46,7 +46,6 @@ export const fetchArticles = createAsyncThunk<
           _order: order,
           type_like: category === 'ALL' ? null : category,
         },
-        headers: { Authorization: 'foo' },
       },
     });
 

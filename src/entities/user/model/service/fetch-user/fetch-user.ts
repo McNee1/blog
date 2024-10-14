@@ -18,11 +18,9 @@ export const fetchUser = createAsyncThunk<User, void, { rejectValue: string }>(
       if (!userId) {
         return thunkAPI.rejectWithValue('no user id!');
       }
-      console.log(userId);
 
       const { data } = await userService.getUserById({
         params: { id: userId },
-        config: { headers: { Authorization: 'foo' } },
       });
 
       return data;

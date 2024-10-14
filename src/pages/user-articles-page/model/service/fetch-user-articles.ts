@@ -15,7 +15,7 @@ export const fetchUserArticles = createAsyncThunk<
   try {
     const { data } = await articleService.fetchArticlesById({
       params: { id },
-      config: { params: { _expand: 'user' }, headers: { Authorization: 'foo' } },
+      config: { params: { _expand: 'user' } },
     });
     return data;
   } catch (error) {

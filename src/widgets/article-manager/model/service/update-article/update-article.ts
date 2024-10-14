@@ -27,7 +27,6 @@ export const updateArticle = createAsyncThunk<ArticleType, void, { rejectValue: 
           userId: userId,
           changed: new Date().getTime().toString(),
         },
-        config: { headers: { Authorization: 'foo' } },
       });
 
       return data;

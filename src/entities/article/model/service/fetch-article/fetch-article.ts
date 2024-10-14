@@ -16,7 +16,6 @@ export const fetchArticleDetail = createAsyncThunk<
   try {
     const { data } = await articleService.fetchArticleById({
       params: { id: id },
-      config: { headers: { Authorization: 'foo' } },
     });
 
     return data;

@@ -38,6 +38,12 @@ export const userSlice = createSlice({
       state.authData = action.payload;
       state.isLoading = false;
     });
+    builder.addCase(fetchUser.rejected, (state, action) => {
+      if (action.payload) {
+        state.error = action.payload;
+      }
+      state.isLoading = false;
+    });
   },
 });
 

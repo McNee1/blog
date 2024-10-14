@@ -16,9 +16,6 @@ export const postComment = createAsyncThunk<
   try {
     const { data } = await commentsService.postComment({
       params: comment,
-      config: {
-        headers: { Authorization: 'foo' },
-      },
     });
 
     if (!data) {

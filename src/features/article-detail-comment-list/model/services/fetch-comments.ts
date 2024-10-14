@@ -22,7 +22,6 @@ export const fetchComments = createAsyncThunk<Comment[], string, { rejectValue: 
             articleId,
             _expand: 'user',
           },
-          headers: { Authorization: 'foo' },
         },
       });
 

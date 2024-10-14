@@ -27,7 +27,6 @@ export const updateJsonSetting = createAsyncThunk<
 
     const { data } = await userService.postJsonSetting({
       params: { id, jsonSetting: { ...jsonSetting, ...newJsonSetting } },
-      config: { headers: { Authorization: 'foo' } },
     });
 
     return data.jsonSetting;

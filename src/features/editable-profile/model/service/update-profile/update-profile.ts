@@ -17,7 +17,6 @@ export const updateProfile = createAsyncThunk<ProfileType, void, { rejectValue: 
 
       const { data } = await profileService.updateProfile({
         params: { ...profileData, age: parseInt(String(profileData?.age)) },
-        config: { headers: { Authorization: 'foo' } },
       });
 
       return data;

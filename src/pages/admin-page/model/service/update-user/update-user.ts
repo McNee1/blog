@@ -19,9 +19,6 @@ export const updateUser = createAsyncThunk<User, UpdateUserType, { rejectValue: 
 
       const { data } = await userService.updateUser({
         params: { ...option, id: option.id },
-        config: {
-          headers: { Authorization: 'foo' },
-        },
       });
 
       return data;

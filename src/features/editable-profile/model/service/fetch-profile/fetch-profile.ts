@@ -18,7 +18,6 @@ export const fetchProfile = createAsyncThunk<
       params: {
         id: profileId,
       },
-      config: { headers: { Authorization: 'foo' } },
     });
 
     if (!data) {

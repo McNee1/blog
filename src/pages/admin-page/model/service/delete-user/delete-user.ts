@@ -26,17 +26,11 @@ export const deleteUser = createAsyncThunk<void, void, { rejectValue: string }>(
           id: selectedId,
           isDeleted: true,
         },
-        config: {
-          headers: { Authorization: 'foo' },
-        },
       });
 
       await profileService.deleteProfile({
         params: {
           id: selectedId,
-        },
-        config: {
-          headers: { Authorization: 'foo' },
         },
       });
     } catch (error) {

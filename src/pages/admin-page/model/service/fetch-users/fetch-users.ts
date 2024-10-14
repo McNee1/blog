@@ -12,11 +12,7 @@ export const fetchUsers = createAsyncThunk<User[], void, { rejectValue: string }
   'users/fetchUsers',
   async (_, thunkAPI) => {
     try {
-      const { data } = await userService.getUsers({
-        config: {
-          headers: { Authorization: 'foo' },
-        },
-      });
+      const { data } = await userService.getUsers({});
 
       return data;
     } catch (error) {

@@ -28,7 +28,6 @@ export const postArticle = createAsyncThunk<ArticleType, void, { rejectValue: st
           views: 0,
           createdAt: new Date().getTime().toString(),
         },
-        config: { headers: { Authorization: 'foo' } },
       });
 
       return data;
