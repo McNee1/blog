@@ -2,8 +2,8 @@ import { USER_LC_KEY } from '@/shared/constants';
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { fetchUser } from '../service';
-import { User, UserSchema } from '../types';
+import { fetchUser, updateJsonSetting } from '../service';
+import { JsonSetting, User, UserSchema } from '../types';
 
 const initialState = {
   authData: null,
@@ -26,14 +26,14 @@ export const userSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    // builder.addCase(
-    //   updateJsonSetting.fulfilled,
-    //   (state, action: PayloadAction<JsonSetting>) => {
-    //     if (state.authData) {
-    //       state.authData.jsonSetting = action.payload;
-    //     }
-    //   }
-    // );
+    builder.addCase(
+      updateJsonSetting.fulfilled,
+      (state, action: PayloadAction<JsonSetting>) => {
+        if (state.authData) {
+          state.authData.jsonSetting = action.payload;
+        }
+      }
+    );
     builder.addCase(fetchUser.fulfilled, (state, action) => {
       state.authData = action.payload;
       state.isLoading = false;
