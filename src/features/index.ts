@@ -19,7 +19,7 @@ export {
 export type { CommentListSchema } from './article-detail-comment-list';
 export { EditableProfile, profileReducer } from './editable-profile';
 export type { ProfileSchema } from './editable-profile';
-export { ArticleDetailRecommendation } from './article-detail-recommendation';
-export { ArticleDetailReaction } from './article-detail-reaction';
+
 export { InfiniteScrollWithRestore } from './Infinite-scroll-with-restore';
 export { ChangeRole } from './change-role';
+export { ArticleDetailRecommendation } from './article-detail-recommendation';

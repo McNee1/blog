@@ -1,4 +1,5 @@
-import { ArticleType, fetchArticleDetail } from '@/entities';
+import { ArticleType } from '@/entities';
+import { fetchArticleDetail } from '@/pages';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchArticle = createAsyncThunk<

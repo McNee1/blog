@@ -1,1 +1,4 @@
-export { ArticleCode, ArticleImage, ArticleText, ArticleTitle } from './ui';
+export { ArticleCode } from './article-code';
+export { ArticleImage } from './article-image';
+export { ArticleText } from './article-text';
+export { ArticleTitle } from './article-title';

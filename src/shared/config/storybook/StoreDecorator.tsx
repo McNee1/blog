@@ -1,12 +1,11 @@
 import { StateSchema, StoreProvider } from '@/app/providers';
 
-import { articleDetailReducer } from '@/entities';
 import {
   articleDetailCommentListReducer,
   loginReducer,
   profileReducer,
 } from '@/features';
-import { articlesReducer } from '@/pages';
+import { articleDetailReducer, articlesReducer } from '@/pages';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { StoryFn } from '@storybook/react';
 

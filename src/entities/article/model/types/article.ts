@@ -4,7 +4,7 @@ export interface ArticleType {
   blocks: Block[];
   changed?: string;
   createdAt: string;
-  id: string;
+  id: number;
   img?: string;
   reaction?: number;
   subtitle: string;

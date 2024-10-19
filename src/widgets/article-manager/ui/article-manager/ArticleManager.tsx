@@ -3,8 +3,16 @@ import { useParams } from 'react-router-dom';
 
 import styles from './ArticleManager.module.scss';
 
+import successIcon from '@/shared/assets/icons/success.svg';
 import { AsyncSliceManager, useAppDispatch, useAppSelector } from '@/shared/lib';
-import { AppButton, Card, Preloader, ThemeButton, Typography } from '@/shared/ui';
+import {
+  AppButton,
+  Card,
+  MessageWithIcon,
+  Preloader,
+  ThemeButton,
+  Typography,
+} from '@/shared/ui';
 
 import {
   articleManagerReducers,
@@ -21,7 +29,6 @@ import {
 } from '../../model';
 import { ArticleBlocksList } from '../article-blocks-list';
 import { ArticleIntro } from '../article-intro';
-import { SuccessfullyAdded } from '../successfully-added';
 
 const initialReducer = { articleManager: articleManagerReducers };
 
@@ -51,21 +58,18 @@ export const ArticleManager = ({ pageType }: ArticleManagerProps) => {
     }
   };
 
-  useEffect(() => {
-    void dispatch(fetchArticle(id));
-  }, [dispatch, id, pageType]);
-
   const renderContent = () => {
     let messageContent;
 
     if (articleIsAdded) {
       messageContent = (
-        <SuccessfullyAdded
+        <MessageWithIcon
           text={
             pageType === 'new'
               ? dictionary.articleAddedSuccessfully
               : dictionary.articleChangedSuccessfully
           }
+          srcIcon={successIcon}
         />
       );
     }
@@ -117,6 +121,10 @@ export const ArticleManager = ({ pageType }: ArticleManagerProps) => {
       </>
     );
   };
+
+  useEffect(() => {
+    void dispatch(fetchArticle(id));
+  }, [dispatch, id, pageType]);
 
   return (
     <AsyncSliceManager reducers={initialReducer}>

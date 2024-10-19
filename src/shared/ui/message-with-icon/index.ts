@@ -1,0 +1,1 @@
+export { MessageWithIcon } from './MessageWithIcon';

@@ -1,0 +1,16 @@
+import { Typography } from '@/shared/ui';
+
+import { TitleBlock } from '../../../model';
+
+interface ArticleTitleProps {
+  content: TitleBlock;
+}
+
+export const ArticleTitle = ({ content }: ArticleTitleProps) => {
+  return (
+    <Typography
+      title={content.title}
+      titleLevel='h3'
+    />
+  );
+};

@@ -1,7 +1,12 @@
-export { ArticlesPage, articlesReducer } from './articles-page';
+export { ArticlesPage, articlesReducer, deleteArticle } from './articles-page';
 export type { ArticleLayoutType, ArticlesSchema } from './articles-page';
 export { AboutPage } from './about-page';
-export { ArticleDetailPage } from './article-detail-page';
+export {
+  ArticleDetailPage,
+  articleDetailReducer,
+  fetchArticleDetail,
+} from './article-detail-page';
+export type { ArticleDetailSchema } from './article-detail-page';
 export { CreateArticlePage } from './create-article-page';
 export { EditArticlePage } from './edit-article-page';
 export { MainPage } from './main-page';

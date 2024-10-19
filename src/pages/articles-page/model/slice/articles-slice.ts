@@ -4,7 +4,7 @@ import { ArticleCategory } from '@/entities';
 import { OrderType, SortedType } from '@/features';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { fetchArticles } from '../service';
+import { deleteArticle, fetchArticles } from '../service';
 import { ArticleLayoutType, ArticlesSchema, SearchParams } from '../types';
 
 const initialState = {
@@ -99,6 +99,18 @@ const articlesSlice = createSlice({
       .addCase(fetchArticles.rejected, (state, action) => {
         state.isLoading = false;
 
+        if (action.payload) {
+          state.error = action.payload;
+        }
+      })
+      .addCase(deleteArticle.fulfilled, (state, action) => {
+        const newArticles = state.articles?.filter((el) => el.id !== action.payload);
+
+        if (newArticles) {
+          state.articles = newArticles;
+        }
+      })
+      .addCase(deleteArticle.rejected, (state, action) => {
         if (action.payload) {
           state.error = action.payload;
         }

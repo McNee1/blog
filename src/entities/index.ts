@@ -13,17 +13,8 @@ export {
 } from './user';
 export type { Role, User, UserSchema } from './user';
 
-export {
-  ArticleDetail,
-  articleDetailAction,
-  articleDetailReducer,
-  fetchArticleDetail,
-  getArticleDetail,
-  getArticleDetailReaction,
-} from './article';
 export type {
   ArticleCategory,
-  ArticleDetailSchema,
   ArticleType,
   BaseBlock,
   Block,
@@ -32,6 +23,7 @@ export type {
   TextBlock,
   TitleBlock,
 } from './article';
+export { ArticleDetail } from './article';
 
 export { BadgeList } from './badge-list';
 export { ArticlesList } from './articles';

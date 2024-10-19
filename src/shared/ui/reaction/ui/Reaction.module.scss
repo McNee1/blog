@@ -9,16 +9,17 @@
   }
 
   .svg g {
-    fill: rgba(68, 77, 107, 0.9);
+    fill: var(--rating-color);
+    transition: opacity 0.3s;
   }
 
   .svg g:hover {
-    fill: rgb(58, 66, 94);
+    opacity: 0.7;
   }
 
   .svg.liked {
     g {
-      fill: rgb(48, 77, 173);
+      fill: rgb(48, 92, 236);
     }
   }
 

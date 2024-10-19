@@ -1,13 +1,18 @@
 import { rtkApi } from '@/shared/services';
 
-import { ArticleDetailSchema, UserSchema } from '@/entities';
+import { UserSchema } from '@/entities';
 import {
   AddCommentFormSchema,
   CommentListSchema,
   LoginSchema,
   ProfileSchema,
 } from '@/features';
-import { ArticlesSchema, UserArticlesSchema, UsersSchema } from '@/pages';
+import {
+  ArticleDetailSchema,
+  ArticlesSchema,
+  UserArticlesSchema,
+  UsersSchema,
+} from '@/pages';
 import { ArticleManagerSchema } from '@/widgets';
 import {
   EnhancedStore,

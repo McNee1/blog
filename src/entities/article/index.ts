@@ -1,6 +1,5 @@
 export type {
   ArticleCategory,
-  ArticleDetailSchema,
   ArticleType,
   BaseBlock,
   Block,
@@ -9,11 +8,5 @@ export type {
   TextBlock,
   TitleBlock,
 } from './model';
-export {
-  articleDetailAction,
-  articleDetailReducer,
-  fetchArticleDetail,
-  getArticleDetail,
-  getArticleDetailReaction,
-} from './model';
+
 export { ArticleDetail } from './ui';

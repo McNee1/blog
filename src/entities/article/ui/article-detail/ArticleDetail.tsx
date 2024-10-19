@@ -1,68 +1,28 @@
-import { useEffect } from 'react';
+import { Card, FlexGroup } from '@/shared/ui';
 
-import { AsyncSliceManager, useAppDispatch, useAppSelector } from '@/shared/lib';
-import { Card, FlexGroup, Typography } from '@/shared/ui';
-
-import {
-  articleDetailReducer,
-  fetchArticleDetail,
-  getArticleDetail,
-  getArticleDetailError,
-  getArticleDetailIsLoading,
-} from '../../model';
-import { ArticleIntro, ArticleSkeleton, BlockList } from './ui';
-
-const initialReducer = { articleDetail: articleDetailReducer };
+import { ArticleType } from '../../model';
+import { ArticleIntro } from '../article-intro';
+import { ArticleSkeleton } from '../article-skeleton';
+import { BlockList } from '../block-list';
 
 interface ArticleDetailProps {
-  articleId?: string | undefined;
+  data: ArticleType | null;
+  isLoading: boolean;
 }
-
-export const ArticleDetail = ({ articleId }: ArticleDetailProps) => {
-  const dispatch = useAppDispatch();
-
-  const articleDetail = useAppSelector(getArticleDetail);
-  const isLoading = useAppSelector(getArticleDetailIsLoading);
-  const error = useAppSelector(getArticleDetailError);
-
-  useEffect(() => {
-    if (articleId) {
-      void dispatch(fetchArticleDetail(articleId));
-    }
-  }, [dispatch, articleId]);
-
-  let content;
-
+export const ArticleDetail = ({ data, isLoading }: ArticleDetailProps) => {
   if (isLoading) {
-    content = <ArticleSkeleton />;
-  } else if (error) {
-    content = (
-      <Typography
-        titleLevel='h2'
-        align='center'
-        theme='error'
-        title={error}
-      />
-    );
-  } else {
-    content = (
-      <>
-        <ArticleIntro articleDetail={articleDetail} />
-        <BlockList articleDetail={articleDetail} />
-      </>
-    );
+    return <ArticleSkeleton />;
   }
 
   return (
-    <AsyncSliceManager reducers={initialReducer}>
-      <Card tagName='article'>
-        <FlexGroup
-          direction='col'
-          gap='gap6'
-        >
-          {content}
-        </FlexGroup>
-      </Card>
-    </AsyncSliceManager>
+    <Card tagName='article'>
+      <FlexGroup
+        direction='col'
+        gap='gap6'
+      >
+        <ArticleIntro articleDetail={data} />
+        <BlockList articleDetail={data} />
+      </FlexGroup>
+    </Card>
   );
 };

@@ -11,33 +11,31 @@ interface SmArticleProps {
 
 export const SmArticle = ({ article }: SmArticleProps) => {
   return (
-    <div>
-      <Card className={styles.tile_card}>
-        <div className={styles.card_header}>
-          <BadgeList types={article.type} />
-        </div>
-        <div className={styles.card_body}>
-          <AppLink
-            to={getArticleDetailPath(article.id)}
-            className={styles.title}
-          >
-            {article.title}
-          </AppLink>
-
-          <Typography text={article.subtitle} />
-        </div>
-        <FlexGroup
-          className={styles.card_footer}
-          direction='row'
-          gap='gap20'
+    <Card className={styles.tile_card}>
+      <div className={styles.card_header}>
+        <BadgeList types={article.type} />
+      </div>
+      <div className={styles.card_body}>
+        <AppLink
+          to={getArticleDetailPath(article.id)}
+          className={styles.title}
         >
-          <ViewCount views={article.views} />
-          <DateView
-            options={{ dateStyle: 'medium' }}
-            date={article.createdAt}
-          />
-        </FlexGroup>
-      </Card>
-    </div>
+          {article.title}
+        </AppLink>
+
+        <Typography text={article.subtitle} />
+      </div>
+      <FlexGroup
+        className={styles.card_footer}
+        direction='row'
+        gap='gap20'
+      >
+        <ViewCount views={article.views} />
+        <DateView
+          options={{ dateStyle: 'medium' }}
+          date={article.createdAt}
+        />
+      </FlexGroup>
+    </Card>
   );
 };

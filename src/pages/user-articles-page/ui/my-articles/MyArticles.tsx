@@ -36,9 +36,9 @@ export const MyArticles = ({ id }: MyArticlesProps) => {
       <ArticlesList
         isLoading={isLoading}
         articles={articles}
-        layoutType={'list'}
+        layoutType='list'
         error={error}
-      ></ArticlesList>
+      />
     </AsyncSliceManager>
   );
 };

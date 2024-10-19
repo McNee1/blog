@@ -13,7 +13,7 @@ export class ArticleService {
     return $axios.get<ArticleType[]>(`/articles`, config);
   }
 
-  fetchArticlesById({ params, config }: AxiosRequestConfig<{ id: string }>) {
+  fetchArticlesById({ params, config }: AxiosRequestConfig<{ id: ArticleType['id'] }>) {
     return $axios.get<ArticleType[]>(`/articles?userId=${params.id}`, config);
   }
 
@@ -22,5 +22,9 @@ export class ArticleService {
   }
   updateArticle({ params, config }: AxiosRequestConfig<PostArticleType>) {
     return $axios.put<ArticleType>(`/articles/${params.id}`, params, config);
+  }
+
+  deleteArticle({ params, config }: AxiosRequestConfig<{ id: ArticleType['id'] }>) {
+    return $axios.delete<ArticleType[]>(`/articles/${params.id}`, config);
   }
 }

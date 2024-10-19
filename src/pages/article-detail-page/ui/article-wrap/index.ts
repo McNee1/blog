@@ -1,0 +1,1 @@
+export { ArticleWrap } from './ArticleWrap';

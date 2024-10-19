@@ -21,3 +21,4 @@ export { Label } from './label';
 export { AppIcon } from './app-icon';
 export { ViewCount } from './view-count';
 export { DateView } from './date-view';
+export { MessageWithIcon } from './message-with-icon';
