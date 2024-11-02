@@ -9,8 +9,8 @@ interface ArticleTitleProps {
 export const ArticleTitle = ({ content }: ArticleTitleProps) => {
   return (
     <Typography
-      title={content.title}
-      titleLevel='h3'
+      content={content.title}
+      as='h3'
     />
   );
 };

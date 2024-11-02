@@ -2,6 +2,7 @@ export {
   allowedRolesForPage,
   fetchUser,
   getUserData,
+  getUserId,
   getUserIsLoading,
   getUserRole,
   getUserSetting,

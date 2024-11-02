@@ -5,7 +5,9 @@ export {
   ArticleDetailPage,
   articleDetailReducer,
   fetchArticleDetail,
+  getArticleDetail,
 } from './article-detail-page';
+
 export type { ArticleDetailSchema } from './article-detail-page';
 export { CreateArticlePage } from './create-article-page';
 export { EditArticlePage } from './edit-article-page';

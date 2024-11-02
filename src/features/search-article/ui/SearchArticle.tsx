@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import styles from './SearchArticle.module.scss';
@@ -12,12 +13,12 @@ interface SearchProps<T> {
   value: T;
 }
 
-export const SearchArticle = <T extends string>({
+const SearchArticleComponent = <T extends string>({
   className,
   onSearch,
   value,
 }: SearchProps<T>) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('transition');
 
   return (
     <div className={classNames(styles.input_wrap, className)}>
@@ -37,3 +38,5 @@ export const SearchArticle = <T extends string>({
     </div>
   );
 };
+
+export const SearchArticle = memo(SearchArticleComponent);

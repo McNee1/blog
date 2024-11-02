@@ -20,9 +20,10 @@ export const ArticleDetailRecommendation = () => {
   return (
     <div className={styles.recommended}>
       <Typography
-        titleClass={styles.recommended_title}
-        title='Recommended'
-        titleLevel='h2'
+        space={{ marginButton: 'mb6' }}
+        content='Recommended'
+        size='md'
+        as='h3'
       />
       <ArticlesList
         className={styles.recommended_list}

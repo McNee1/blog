@@ -1,19 +1,14 @@
 import { rtkApi } from '@/shared/services';
 
 import { UserSchema } from '@/entities';
-import {
-  AddCommentFormSchema,
-  CommentListSchema,
-  LoginSchema,
-  ProfileSchema,
-} from '@/features';
+import { AddCommentFormSchema, LoginSchema, ProfileSchema } from '@/features';
 import {
   ArticleDetailSchema,
   ArticlesSchema,
   UserArticlesSchema,
   UsersSchema,
 } from '@/pages';
-import { ArticleManagerSchema } from '@/widgets';
+import { ArticleManagerSchema, CommentsListFormSchema } from '@/widgets';
 import {
   EnhancedStore,
   Reducer,
@@ -27,7 +22,7 @@ export interface StateSchema {
   articleDetail?: ArticleDetailSchema;
   articleManager?: ArticleManagerSchema;
   articles?: ArticlesSchema;
-  commentsList?: CommentListSchema;
+  commentsListForm?: CommentsListFormSchema;
   loginForm?: LoginSchema;
 
   profile?: ProfileSchema;

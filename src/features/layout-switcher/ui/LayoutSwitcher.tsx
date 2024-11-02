@@ -23,28 +23,29 @@ export const LayoutSwitcher = ({
   };
 
   return (
-    <Card className={className}>
-      <div className={styles.layout_switch}>
-        {switcherTypes.map((type) => {
-          return (
-            <div
-              className={classNames(
-                styles.switch,
-                type.view === activeLayout && styles.active
-              )}
-              onClick={() => handleSwitch(type.view)}
-              key={type.view}
-            >
-              <AppIcon
-                className={classNames(type.svgClass && styles[type.svgClass])}
-                src={type.icon}
-                height='20px'
-                width='20px'
-              />
-            </div>
-          );
-        })}
-      </div>
+    <Card
+      className={classNames(className, styles.layout_switch)}
+      flex={{ direction: 'row', alignItems: 'center' }}
+    >
+      {switcherTypes.map((type) => {
+        return (
+          <div
+            className={classNames(
+              styles.switch,
+              type.view === activeLayout && styles.active
+            )}
+            onClick={() => handleSwitch(type.view)}
+            key={type.view}
+          >
+            <AppIcon
+              className={classNames(type.svgClass && styles[type.svgClass])}
+              src={type.icon}
+              height='20px'
+              width='20px'
+            />
+          </div>
+        );
+      })}
     </Card>
   );
 };

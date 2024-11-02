@@ -37,6 +37,9 @@
   .count.positive {
     color: #008000;
   }
+  .count.negative {
+    color: #910f06;
+  }
 
   &.disabled svg {
     pointer-events: none;

@@ -4,6 +4,7 @@ export {
   allowedRolesForPage,
   fetchUser,
   getUserData,
+  getUserId,
   getUserIsLoading,
   getUserRole,
   getUserSetting,
@@ -11,7 +12,6 @@ export {
   userAction,
   userReducer,
   userRole,
-  userSlice,
 } from './model';
 
 export { UserCard } from './ui';

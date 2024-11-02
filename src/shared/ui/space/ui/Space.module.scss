@@ -1,0 +1,84 @@
+// marginBottom
+.marginBottomAuto {
+  margin-bottom: auto;
+}
+
+@for $i from 1 through 11 {
+  $margin: $i * 2;
+  .marginBottom#{$margin} {
+    margin-bottom: #{$margin}px;
+  }
+}
+
+// marginLeft
+.marginLeftAuto {
+  margin-left: auto;
+}
+
+@for $i from 1 through 11 {
+  $margin: $i * 2;
+  .marginLeft#{$margin} {
+    margin-left: #{$margin}px;
+  }
+}
+
+// marginTop
+.marginTopAuto {
+  margin-top: auto;
+}
+
+@for $i from 1 through 11 {
+  $margin: $i * 2;
+  .marginTop#{$margin} {
+    margin-top: #{$margin}px;
+  }
+}
+
+// paddingBottom
+@for $i from 1 through 8 {
+  $padding: $i * 2;
+  .paddingBottom#{$padding} {
+    padding-bottom: #{$padding}px;
+  }
+}
+
+// paddingLeft
+@for $i from 1 through 8 {
+  $padding: $i * 2;
+  .paddingLeft#{$padding} {
+    padding-left: #{$padding}px;
+  }
+}
+// paddingTop
+@for $i from 1 through 8 {
+  $padding: $i * 2;
+  .paddingTop#{$padding} {
+    padding-top: #{$padding}px;
+  }
+}
+
+// padding
+@for $i from 1 through 8 {
+  $padding: $i * 2;
+  .padding#{$padding} {
+    padding: #{$padding}px;
+  }
+}
+
+// paddingX
+@for $i from 1 through 8 {
+  $padding: $i * 2;
+  .paddingX#{$padding} {
+    padding-right: #{$padding}px;
+    padding-left: #{$padding}px;
+  }
+}
+
+// paddingY
+@for $i from 1 through 8 {
+  $padding: $i * 2;
+  .paddingY#{$padding} {
+    padding-top: #{$padding}px;
+    padding-bottom: #{$padding}px;
+  }
+}

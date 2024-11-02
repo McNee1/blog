@@ -1,4 +1,4 @@
-export const PathName = {
+export const PATCH_NAME = {
   MAIN: 'main',
   ABOUT: 'about',
   PROFILE: 'profile',

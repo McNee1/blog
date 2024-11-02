@@ -1,18 +1,15 @@
-/* eslint-disable import/no-internal-modules */
-import { ReactElement } from 'react';
-
 import { ArticleLayoutType } from '@/pages';
 
-import { LgArticleSkeleton } from '../ui/lg-article';
-import { MdArticleSkeleton } from '../ui/md-article';
-import { SmArticleSkeleton } from '../ui/sm-article';
+import { LgArticleSkeleton, MdArticleSkeleton, SmArticleSkeleton } from '../ui';
 
 export const getLoaderComponent = (layoutType: ArticleLayoutType) => {
-  const loaderMap: Record<ArticleLayoutType, ReactElement> = {
-    card: <LgArticleSkeleton />,
-    tile: <MdArticleSkeleton />,
-    list: <SmArticleSkeleton />,
-  };
+  switch (layoutType) {
+    case 'card':
+      return <LgArticleSkeleton />;
 
-  return loaderMap[layoutType];
+    case 'tile':
+      return <MdArticleSkeleton />;
+    case 'list':
+      return <SmArticleSkeleton />;
+  }
 };

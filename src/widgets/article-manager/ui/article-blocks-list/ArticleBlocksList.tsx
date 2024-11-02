@@ -8,10 +8,9 @@ import plusIcon from '@/shared/assets/icons/plus.svg';
 import textIcon from '@/shared/assets/icons/text.svg';
 import titleIcon from '@/shared/assets/icons/title.svg';
 import { useAppDispatch, useAppSelector } from '@/shared/lib';
-import { AppButton, AppIcon, AppPopup, FlexGroup } from '@/shared/ui';
+import { AppButton, AppIcon, AppPopup, FlexCol } from '@/shared/ui';
 
-import { Block } from '@/entities';
-
+import { getBlockComponent } from '../../lib';
 import {
   articleManagerActions,
   BlockTypes,
@@ -19,7 +18,6 @@ import {
   UpdatableBlockKeys,
   useArticleDictionary,
 } from '../../model';
-import { ArticleCode, ArticleImage, ArticleText, ArticleTitle } from '../article-blocks';
 import { TitleText } from '../title-text';
 
 interface MenuItems {
@@ -63,63 +61,13 @@ export const ArticleBlocksList = () => {
     [dictionary, handleAddBlock]
   );
 
-  const renderBlock = useCallback(
-    (block: Block) => {
-      switch (block.type) {
-        case 'TEXT':
-          return (
-            <ArticleText
-              onSetContentBlock={handleSetContentBlock}
-              text={block.text}
-              key={block.id}
-              id={block.id}
-            />
-          );
-
-        case 'TITLE':
-          return (
-            <ArticleTitle
-              onSetContentBlock={handleSetContentBlock}
-              title={block.title}
-              key={block.id}
-              id={block.id}
-            />
-          );
-
-        case 'IMAGE':
-          return (
-            <ArticleImage
-              onSetContentBlock={handleSetContentBlock}
-              title={block.title}
-              src={block.src}
-              key={block.id}
-              id={block.id}
-            />
-          );
-
-        case 'CODE':
-          return (
-            <ArticleCode
-              onSetContentBlock={handleSetContentBlock}
-              className={styles.code_block}
-              code={block.code}
-              key={block.id}
-              id={block.id}
-            />
-          );
-      }
-    },
-    [handleSetContentBlock]
-  );
-
   return (
     <>
       <TitleText title={dictionary.articleBlocs} />
-      <FlexGroup
-        direction='col'
-        gap='gap14'
-      >
-        <>{articleBlocks?.map(renderBlock)}</>
+      <FlexCol gap='gap14'>
+        <>
+          {articleBlocks?.map((block) => getBlockComponent(block, handleSetContentBlock))}
+        </>
 
         <AppPopup
           reference={
@@ -137,7 +85,7 @@ export const ArticleBlocksList = () => {
           items={menuItems}
           isArrow={false}
         />
-      </FlexGroup>
+      </FlexCol>
     </>
   );
 };

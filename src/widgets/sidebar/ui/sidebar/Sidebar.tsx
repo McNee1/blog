@@ -3,7 +3,7 @@ import { useState } from 'react';
 import styles from './Sidebar.module.scss';
 
 import { classNames } from '@/shared/lib';
-import { AppButton, FlexGroup } from '@/shared/ui';
+import { AppButton, FlexCol } from '@/shared/ui';
 
 import { sidebarItems } from '../../model';
 import { SidebarItem } from '../sidebar-item';
@@ -20,10 +20,9 @@ export const Sidebar = () => {
       className={classNames(styles.sidebar, collapsed && styles.collapsed)}
       data-testid='sidebar'
     >
-      <FlexGroup
+      <FlexCol
         gap={collapsed ? 'gap14' : 'gap12'}
         className={styles.nav}
-        direction='col'
       >
         {sidebarItems.map((item) => (
           <SidebarItem
@@ -32,7 +31,7 @@ export const Sidebar = () => {
             item={item}
           />
         ))}
-      </FlexGroup>
+      </FlexCol>
 
       <AppButton
         className={styles.sidebar_button}

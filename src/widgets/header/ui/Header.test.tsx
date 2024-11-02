@@ -8,14 +8,6 @@ import { Header } from './Header';
 
 import '@testing-library/jest-dom';
 
-jest.mock('react-inlinesvg', () => {
-  const MockedInlineSVG = () => 'svg';
-
-  MockedInlineSVG.displayName = 'ReactInlineSVG';
-
-  return MockedInlineSVG;
-});
-
 const MOCK_USER: UserSchema = {
   authData: {
     role: 'admin',
@@ -24,6 +16,8 @@ const MOCK_USER: UserSchema = {
     id: '1',
     username: 'Homer',
   },
+  error: null,
+  isLoading: false,
 };
 
 const initialState = { initialState: { user: MOCK_USER } };

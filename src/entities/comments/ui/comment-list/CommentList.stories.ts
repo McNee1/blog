@@ -7,13 +7,13 @@ import { Theme } from '@/shared/constants';
 import { Comment } from '../../model';
 import { CommentList } from './CommentList';
 
-const MOCK_CODE: Comment[] = [
+const MOCK_CODE = [
   {
     text: 'hello dude!',
     articleId: '1',
     date: '1717610713509',
     userId: '1',
-    id: '1',
+    id: 1,
     user: {
       id: '1',
       username: 'Homer',
@@ -118,7 +118,7 @@ const MOCK_CODE: Comment[] = [
         'https://sm.askmen.com/t/askmen_in/article/f/facebook-p/facebook-profile-picture-affects-chances-of-gettin_fr3n.1200.jpg',
     },
   },
-];
+] as Comment[];
 
 const meta = {
   title: 'comments/CommentList',
@@ -136,7 +136,6 @@ export const Light: Story = {
     isLoading: false,
   },
 };
-Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark: Story = {
   args: {
@@ -154,7 +153,6 @@ export const LoadLight: Story = {
     isLoading: true,
   },
 };
-LoadLight.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const LoadDark: Story = {
   args: {
@@ -181,4 +179,3 @@ export const ErrorLight: Story = {
     isLoading: false,
   },
 };
-ErrorLight.decorators = [ThemeDecorator(Theme.LIGHT)];

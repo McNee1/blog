@@ -1,11 +1,12 @@
 import { Component, ErrorInfo, ReactNode } from 'react';
 
-import { AppButton, FlexGroup, ThemeButton, Typography } from '@/shared/ui';
+import { AppButton, FlexCol, Typography } from '@/shared/ui';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
 }
 interface ErrorBoundaryState {
+  error?: string;
   hasError: boolean;
 }
 
@@ -26,7 +27,8 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     //   in ErrorBoundary (created by App)
     //   in div (created by App)
     //   in App
-    console.log(error, info.componentStack);
+
+    this.setState({ error: error.message });
     return info;
     // logErrorToMyService(error, info.componentStack);
   }
@@ -35,26 +37,25 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return (
-        <FlexGroup
+        <FlexCol
+          space={{ paddingX: 'px8', paddingTop: 'pt6' }}
           alignItems='center'
-          spaceTop='space8'
-          direction='col'
           gap='gap6'
         >
           <Typography
-            text='Unknown error reload page'
-            textWeight='bolder'
-            theme='error'
+            content={this.state.error}
+            weight='bolder'
+            variant='error'
           />
           <AppButton
             onClick={() => window.location.reload()}
-            theme={ThemeButton.RED}
+            variant='red'
             round='sm'
             size='md'
           >
             Reload
           </AppButton>
-        </FlexGroup>
+        </FlexCol>
       );
     }
 

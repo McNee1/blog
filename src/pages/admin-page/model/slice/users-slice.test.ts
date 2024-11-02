@@ -24,6 +24,15 @@ const users: UsersSchema = {
   ],
 };
 
+jest.mock('@/entities', () => ({
+  userReducer: () => ({ type: 'MOCK_USER_REDUCER' }),
+  userRole: {
+    ADMIN: 'admin',
+    MODERATOR: 'moderator',
+    USER: 'user',
+  },
+}));
+
 describe('users-slice.test', () => {
   describe('action test', () => {
     test('should set selectedUserId and prevUserRole', () => {

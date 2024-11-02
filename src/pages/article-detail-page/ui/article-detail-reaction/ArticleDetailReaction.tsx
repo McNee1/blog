@@ -1,16 +1,17 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '@/shared/lib';
+import { updateReactionCount, useAppDispatch, useAppSelector } from '@/shared/lib';
+import { ReactionType } from '@/shared/types';
 import { Card, Reaction } from '@/shared/ui';
 
-import { getUserData } from '@/entities';
+import { getUserId } from '@/entities';
 
 import {
   useGetUserReactionQuery,
   usePostReactionMutation,
   useUpdateReactionByArticleIdMutation,
 } from '../../api';
-import { articleDetailAction, getArticleDetailReaction, ReactionType } from '../../model';
+import { articleDetailAction, getArticleDetailReaction } from '../../model';
 
 interface ArticleDetailReactionProps {
   articleId: string | undefined;
@@ -19,7 +20,9 @@ interface ArticleDetailReactionProps {
 export const ArticleDetailReaction = ({ articleId }: ArticleDetailReactionProps) => {
   const dispatch = useAppDispatch();
 
-  const userId = useAppSelector(getUserData)?.id;
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const userId = useAppSelector(getUserId);
 
   const { data, isLoading } = useGetUserReactionQuery(
     { articleId, userId },
@@ -28,36 +31,50 @@ export const ArticleDetailReaction = ({ articleId }: ArticleDetailReactionProps)
 
   const reaction = data?.[0];
 
-  const reactionIdRef = useRef<number | undefined>(reaction?.id);
+  const reactionRef = useRef<{ reactionId: number; prevType?: ReactionType } | null>(
+    null
+  );
 
   const reactionArticle = useAppSelector(getArticleDetailReaction);
 
-  const [updateArticle, { isLoading: postIsLoading }] =
-    useUpdateReactionByArticleIdMutation();
+  const [updateArticle] = useUpdateReactionByArticleIdMutation();
 
   const [postReaction] = usePostReactionMutation();
 
-  const handleRatingChange = (type: ReactionType) => {
-    if (!articleId || !userId) {
-      return;
+  useEffect(() => {
+    if (reaction) {
+      reactionRef.current = { reactionId: reaction.id, prevType: reaction.reaction };
     }
-    dispatch(articleDetailAction.setReaction({ type }));
+  }, [data, reaction]);
 
-    void updateArticle({
+  const handleRatingChange = async (type: ReactionType) => {
+    if (!articleId || !userId) return;
+
+    setIsDisabled(true);
+    dispatch(
+      articleDetailAction.setReaction({
+        currType: type,
+        prevType: reactionRef.current?.prevType,
+      })
+    );
+
+    await updateArticle({
       articleId,
-      reaction: type === 'like' ? reactionArticle + 1 : reactionArticle - 1,
+      reaction:
+        reactionArticle + updateReactionCount(type, reactionRef.current?.prevType),
     });
 
-    void postReaction({
-      id: reactionIdRef.current,
+    const { data } = await postReaction({
+      id: reactionRef.current?.reactionId ?? null,
       articleId,
       userId,
       reaction: type,
-    }).then((e) => {
-      if (e.data?.id) {
-        reactionIdRef.current ??= e.data?.id;
-      }
     });
+
+    if (data) {
+      reactionRef.current = { reactionId: data?.id, prevType: type };
+    }
+    setIsDisabled(false);
   };
 
   if (isLoading) {
@@ -67,10 +84,12 @@ export const ArticleDetailReaction = ({ articleId }: ArticleDetailReactionProps)
   return (
     <Card>
       <Reaction
-        onRatingChange={handleRatingChange}
+        onRatingChange={(type: ReactionType) => {
+          void handleRatingChange(type);
+        }}
         countReaction={reactionArticle}
         reaction={reaction?.reaction}
-        disabled={postIsLoading}
+        disabled={isDisabled}
         size={27}
       />
     </Card>

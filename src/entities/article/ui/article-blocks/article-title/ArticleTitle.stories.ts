@@ -26,7 +26,6 @@ export const Light: Story = {
     content: MOCK_CODE,
   },
 };
-Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark: Story = {
   args: {

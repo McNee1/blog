@@ -8,36 +8,98 @@ import { Theme } from '@/shared/constants';
 
 import { ArticlesList } from './ArticlesList';
 
-const CATEGORY = ['IT', 'SCIENCE', 'ECONOMICS', 'TECHNOLOGY'];
-
-const MOCK_CODE = {
-  id: '6',
-  userId: '3',
-  title: 'Будущее IT: Революция через инновации',
-  subtitle: 'Изменения в IT и их влияние на общество',
-  img: MOCK_IMG,
-  views: 2560,
-  createdAt: '1721916296917',
-  type: ['IT'],
-  user: {
-    username: 'Homer',
-    avatar: MOCK_AVATAR,
+const MOCK_DATA = [
+  {
+    id: 1,
+    userId: '3',
+    title: 'Будущее IT: Революция через инновации',
+    subtitle: 'Изменения в IT и их влияние на общество',
+    img: MOCK_IMG,
+    views: 2560,
+    createdAt: '1721916296917',
+    type: ['IT'],
+    user: {
+      id: '1',
+      username: 'Homer',
+      avatar: MOCK_AVATAR,
+    },
   },
-} as ArticleType;
-
-function getRandomElement<T>(items: T[]): T {
-  const randomIndex = Math.floor(Math.random() * items.length);
-  return items[randomIndex];
-}
-
-const articles = [...Array.from({ length: 15 })].fill(MOCK_CODE).map(
-  (_, id) =>
-    ({
-      ...MOCK_CODE,
-      id: String(id),
-      type: [getRandomElement(CATEGORY)],
-    }) as ArticleType
-);
+  {
+    id: 2,
+    userId: '3',
+    title: 'Будущее IT: Революция через инновации',
+    subtitle: 'Изменения в IT и их влияние на общество',
+    img: MOCK_IMG,
+    views: 2560,
+    createdAt: '1721916296917',
+    type: ['ALL'],
+    user: {
+      id: '1',
+      username: 'Homer',
+      avatar: MOCK_AVATAR,
+    },
+  },
+  {
+    id: 3,
+    userId: '3',
+    title: 'Будущее IT: Революция через инновации',
+    subtitle: 'Изменения в IT и их влияние на общество',
+    img: MOCK_IMG,
+    views: 2560,
+    createdAt: '1721916296917',
+    type: ['SCIENCE'],
+    user: {
+      id: '1',
+      username: 'Homer',
+      avatar: MOCK_AVATAR,
+    },
+  },
+  {
+    id: 4,
+    userId: '3',
+    title: 'Будущее IT: Революция через инновации',
+    subtitle: 'Изменения в IT и их влияние на общество',
+    img: MOCK_IMG,
+    views: 2560,
+    createdAt: '1721916296917',
+    type: ['IT'],
+    user: {
+      id: '1',
+      username: 'Homer',
+      avatar: MOCK_AVATAR,
+    },
+  },
+  {
+    id: 5,
+    userId: '3',
+    title: 'Будущее IT: Революция через инновации',
+    subtitle: 'Изменения в IT и их влияние на общество',
+    img: MOCK_IMG,
+    views: 2560,
+    createdAt: '1721916296917',
+    type: ['ECONOMICS'],
+    user: {
+      id: '1',
+      username: 'Homer',
+      avatar: MOCK_AVATAR,
+    },
+  },
+  {
+    id: 6,
+    userId: '3',
+    title: 'Будущее IT: Революция через инновации',
+    subtitle: 'Изменения в IT и их влияние на общество',
+    img: MOCK_IMG,
+    views: 2560,
+    createdAt: '1721916296917',
+    type: ['IT', 'TECHNOLOGY'],
+    user: {
+      id: '1',
+      username: 'Homer',
+      avatar: MOCK_AVATAR,
+    },
+  },
+] as ArticleType[];
 
 const meta = {
   title: 'articles/ArticlesList',
@@ -51,17 +113,16 @@ type Story = StoryObj<typeof meta>;
 export const LightTile: Story = {
   args: {
     layoutType: 'tile',
-    articles: articles,
+    articles: MOCK_DATA,
     error: null,
     isLoading: false,
   },
 };
-LightTile.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const DarkTile: Story = {
   args: {
     layoutType: 'tile',
-    articles: articles,
+    articles: MOCK_DATA,
     error: null,
     isLoading: false,
   },
@@ -71,7 +132,7 @@ DarkTile.decorators = [ThemeDecorator(Theme.DARK)];
 export const DarkCard: Story = {
   args: {
     layoutType: 'card',
-    articles: articles,
+    articles: MOCK_DATA,
     error: null,
     isLoading: false,
   },
@@ -81,9 +142,8 @@ DarkCard.decorators = [ThemeDecorator(Theme.DARK)];
 export const LightCard: Story = {
   args: {
     layoutType: 'card',
-    articles: articles,
+    articles: MOCK_DATA,
     error: null,
     isLoading: false,
   },
 };
-LightCard.decorators = [ThemeDecorator(Theme.LIGHT)];

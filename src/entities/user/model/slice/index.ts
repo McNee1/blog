@@ -1,1 +1,1 @@
-export * from './user-slice';
+export { userAction, userReducer } from './user-slice';

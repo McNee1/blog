@@ -1,7 +1,7 @@
 import styles from './Articles.module.scss';
 
 import { useAppDispatch, useAppSelector } from '@/shared/lib';
-import { AppButton, FlexGroup, ThemeButton } from '@/shared/ui';
+import { AppButton, FlexCol } from '@/shared/ui';
 
 import { LayoutSwitcher } from '@/features';
 import { PageManager } from '@/widgets';
@@ -41,10 +41,9 @@ export const Articles = () => {
       gap='gap14'
       width='xl'
     >
-      <FlexGroup
+      <FlexCol
         className={styles.articles}
         tagName='section'
-        direction='col'
         gap='gap12'
       >
         <Description />
@@ -60,13 +59,13 @@ export const Articles = () => {
           <AppButton
             onClick={handleNextPageByClick}
             className={styles.btn_dowland}
-            theme={ThemeButton.GREEN}
+            variant='gray'
             size='lg'
           >
             dowland more
           </AppButton>
         )}
-      </FlexGroup>
+      </FlexCol>
 
       <Toolbar />
     </PageManager>

@@ -1,4 +1,4 @@
-import { Card, FlexGroup } from '@/shared/ui';
+import { Card, FlexCol } from '@/shared/ui';
 
 import { ArticleType } from '../../model';
 import { ArticleIntro } from '../article-intro';
@@ -15,14 +15,14 @@ export const ArticleDetail = ({ data, isLoading }: ArticleDetailProps) => {
   }
 
   return (
-    <Card tagName='article'>
-      <FlexGroup
-        direction='col'
-        gap='gap6'
-      >
-        <ArticleIntro articleDetail={data} />
+    <Card
+      space={{ paddingX: 'px10', paddingY: 'py16' }}
+      as='article'
+    >
+      <ArticleIntro articleDetail={data} />
+      <FlexCol gap='gap6'>
         <BlockList articleDetail={data} />
-      </FlexGroup>
+      </FlexCol>
     </Card>
   );
 };

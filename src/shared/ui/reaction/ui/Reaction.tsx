@@ -12,13 +12,14 @@ interface ReactionProps {
   className?: string;
   countReaction?: number;
   disabled?: boolean;
-  onRatingChange: (type: 'dislike' | 'like') => void;
-  reaction?: 'dislike' | 'like';
+  onRatingChange: (type: 'dislike' | 'like' | 'neutral') => void;
+  reaction?: 'dislike' | 'like' | 'neutral';
   size?: number;
 }
 
 const LIKE = 'like';
 const DISLIKE = 'dislike';
+const NEUTRAL = 'neutral';
 
 export const Reaction = memo(function Reaction({
   size = 40,
@@ -28,27 +29,30 @@ export const Reaction = memo(function Reaction({
   countReaction,
   disabled,
 }: ReactionProps) {
-  const [isLike, setIsLike] = useState(reaction === 'like');
-  const [isDislike, setIsDislike] = useState(reaction === 'dislike');
+  const [isLike, setIsLike] = useState(reaction === LIKE);
+  const [isDislike, setIsDislike] = useState(reaction === DISLIKE);
 
   const handleLike = () => {
     if (isLike) {
       setIsLike(false);
-      onRatingChange(DISLIKE);
+      onRatingChange(NEUTRAL);
       return;
     }
     setIsLike(true);
     setIsDislike(false);
+
     onRatingChange(LIKE);
   };
   const handleDislike = () => {
     if (isDislike) {
       setIsDislike(false);
-      onRatingChange(LIKE);
+
+      onRatingChange(NEUTRAL);
       return;
     }
     setIsDislike(true);
     setIsLike(false);
+
     onRatingChange(DISLIKE);
   };
 
@@ -62,6 +66,7 @@ export const Reaction = memo(function Reaction({
 
   const countClass = countReaction && countReaction >= 0 ? 'positive' : 'negative';
   const sign = countClass === 'positive' ? '+' : '';
+  console.log(countClass);
 
   return (
     <div

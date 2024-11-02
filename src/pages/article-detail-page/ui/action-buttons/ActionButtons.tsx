@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { getEditArticlePath, useAppDispatch, useAppSelector } from '@/shared/lib';
-import { AppButton, FlexGroup, ThemeButton } from '@/shared/ui';
+import { getEditArticlePath, useAppDispatch } from '@/shared/lib';
+import { AppButton, FlexRow } from '@/shared/ui';
 
 import { deleteArticle } from '@/pages';
 
-import { articleDetailAction, IsArticleOwner } from '../../model';
+import { articleDetailAction } from '../../model';
 
 interface ActionButtonsProps {
   articleId?: string;
@@ -19,7 +19,7 @@ export const ActionButtons = ({
   className,
   showOnlyBack,
 }: ActionButtonsProps) => {
-  const isOwner = useAppSelector(IsArticleOwner);
+  const isOwner = true;
 
   const { t } = useTranslation('translation');
 
@@ -38,9 +38,9 @@ export const ActionButtons = ({
   if (showOnlyBack) {
     return (
       <AppButton
-        theme={ThemeButton.OUTLINE_GRAY}
         style={{ marginRight: 'auto' }}
         onClick={() => navigate(-1)}
+        variant='outline-gray'
         round='sm'
         size='md'
       >
@@ -50,27 +50,23 @@ export const ActionButtons = ({
   }
 
   return (
-    <FlexGroup
+    <FlexRow
       className={className}
       justify='between'
-      direction='row'
     >
       <AppButton
-        theme={ThemeButton.OUTLINE_GRAY}
         onClick={() => navigate(-1)}
+        variant='outline-gray'
         round='sm'
         size='md'
       >
         &#x2190;
       </AppButton>
       {isOwner && articleId && (
-        <FlexGroup
-          direction='row'
-          gap='gap8'
-        >
+        <FlexRow gap='gap8'>
           <AppButton
-            onClick={() => navigate(getEditArticlePath(articleId))}
-            theme={ThemeButton.BLUE}
+            onClick={() => navigate(getEditArticlePath(+articleId))}
+            variant='blue'
             round='sm'
             size='md'
           >
@@ -79,14 +75,14 @@ export const ActionButtons = ({
 
           <AppButton
             onClick={() => void handleDeleteArticle()}
-            theme={ThemeButton.RED}
+            variant='red'
             round='sm'
             size='md'
           >
             {t('Delete')}
           </AppButton>
-        </FlexGroup>
+        </FlexRow>
       )}
-    </FlexGroup>
+    </FlexRow>
   );
 };

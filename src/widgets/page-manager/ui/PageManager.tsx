@@ -3,11 +3,11 @@ import { ComponentProps, ReactNode, useMemo, useRef } from 'react';
 import styles from './PageManager.module.scss';
 
 import { classNames, useIntersectionObserver } from '@/shared/lib';
-import { FlexGroup } from '@/shared/ui';
+import { Flex } from '@/shared/ui';
 
-type FlexGroupProps = ComponentProps<typeof FlexGroup>;
+type FlexProps = ComponentProps<typeof Flex>;
 
-interface PageManagerProps extends Partial<Omit<FlexGroupProps, 'children'>> {
+interface PageManagerProps extends Partial<Omit<FlexProps, 'children'>> {
   children: ReactNode;
   className?: string;
   onScroll?: () => void;
@@ -31,11 +31,7 @@ export const PageManager = ({
 
   const hasFlexProps = Object.keys(flexProps).length > 0;
 
-  const content = hasFlexProps ? (
-    <FlexGroup {...flexProps}>{children}</FlexGroup>
-  ) : (
-    children
-  );
+  const content = hasFlexProps ? <Flex {...flexProps}>{children}</Flex> : children;
   return (
     <>
       <main className={classNames(styles.Page, styles[width], className)}>{content}</main>

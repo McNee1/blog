@@ -11,9 +11,8 @@ import {
 
 import cls from './AppImage.module.scss';
 
+import placeholder from '@/shared/assets/img/placeholder.jpg';
 import { classNames } from '@/shared/lib';
-
-import placeholder from '/src/shared/assets/img/placeholder.jpg';
 
 type Round = 'full' | 'sm' | 'none';
 

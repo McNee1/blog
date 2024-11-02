@@ -1,5 +1,5 @@
 .author_link {
-  font-size: 19px;
+  font-size: var(--font-size-m);
   font-weight: 600;
 }
 
@@ -15,11 +15,6 @@
 }
 
 .info {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  align-items: center;
-
   font-size: 16px;
 }
 

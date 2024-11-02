@@ -12,6 +12,7 @@ module.exports = {
     'plugin:storybook/recommended',
     '@feature-sliced/eslint-config/rules/public-api/lite',
     '@feature-sliced/eslint-config/rules/layers-slices',
+
     // '@feature-sliced',
     // 'plugin:@conarti/feature-sliced/rules',
   ],
@@ -33,7 +34,7 @@ module.exports = {
   },
   ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh', 'perfectionist', 'import'],
+  plugins: ['react-refresh', 'perfectionist', 'import', 'unused-imports'],
 
   rules: {
     'boundaries/element-types': [
@@ -54,7 +55,7 @@ module.exports = {
           '**/i18n',
           '**/*.svg',
           '@/shared/*',
-          '@/shared/assets/storybook/*',
+          '@/shared/assets/**',
           '@/app/providers',
           'app/App',
           'app/providers',
@@ -145,6 +146,17 @@ module.exports = {
       {
         type: 'alphabetical',
         order: 'asc',
+      },
+    ],
+    'no-unused-vars': 'off', // or "@typescript-eslint/no-unused-vars": "off",
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'warn',
+      {
+        vars: 'all',
+        varsIgnorePattern: '^_',
+        args: 'after-used',
+        argsIgnorePattern: '^_',
       },
     ],
   },

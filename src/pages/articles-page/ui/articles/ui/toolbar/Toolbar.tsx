@@ -100,7 +100,7 @@ export const Toolbar = ({ className }: ToolbarProps) => {
   return (
     <Card
       className={classNames(styles.toolbar, className)}
-      tagName='aside'
+      as='aside'
     >
       <SearchArticle
         className={styles.search_input}

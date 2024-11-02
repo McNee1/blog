@@ -1,74 +1,77 @@
-import { memo } from 'react';
+import { ComponentProps, memo } from 'react';
 
-import style from './Typography.module.scss';
+import cls from './Typography.module.scss';
 
 import { classNames } from '@/shared/lib';
 
+import { Space } from '../../space';
+
 type Weight = 'bold' | 'boldest' | 'bolder' | 'normal' | 'lighter';
-type Size = 'sm' | 'md' | 'lg';
+type Size = 'sm' | 'md' | 'lg' | 'xl';
+type BasicTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div';
+type Variant = 'error' | 'primary' | 'secondary';
+
+type SpaceProps = ComponentProps<typeof Space>;
 
 interface TypographyProps {
   align?: 'center' | 'right' | 'left';
-  text?: string;
-  textClass?: string;
-  textSize?: Size;
-  textWeight?: Weight;
-  theme?: 'error' | 'primary';
-  title?: string;
-  titleClass?: string;
-  titleLevel?: 'h1' | 'h2' | 'h3';
-  titleSize?: 'md' | 'lg' | 'xl';
-  titleWeight?: Weight;
+  as?: BasicTags;
+  className?: string;
+  content?: string | null;
+  size?: Size;
+  space?: SpaceProps;
+  variant?: Variant;
+  weight?: Weight;
 }
 
-const TypographyComponent = ({
-  title,
-  text,
-  theme = 'primary',
-  titleLevel = 'h1',
+const weightClass: Record<Weight, string> = {
+  normal: cls.normal,
+  bold: cls.bold,
+  bolder: cls.bolder,
+  boldest: cls.boldest,
+  lighter: cls.lighter,
+};
+
+const sizeClass: Record<Size, string> = {
+  lg: cls.lg,
+  md: cls.md,
+  xl: cls.xl,
+  sm: cls.sm,
+};
+
+const variantClass: Record<Variant, string> = {
+  error: cls.error,
+  primary: cls.primary,
+  secondary: cls.secondary,
+};
+// add 14px size
+export const Typography = memo(function Typography({
+  as = 'p',
   align,
-  titleWeight,
-  textWeight,
-  textSize = 'sm',
-  titleSize,
-  textClass,
-  titleClass,
-}: TypographyProps) => {
-  const TitleContent = titleLevel === 'h1' ? 'h1' : titleLevel === 'h2' ? 'h2' : 'h3';
+  size = 'sm',
+  weight = 'normal',
+  content,
+  className,
+  variant = 'secondary',
+  space,
+}: TypographyProps) {
+  const Component = as;
+
+  const spaceClasses = Space({ ...space });
+
+  const classes = [
+    align && cls[align],
+    size && sizeClass[size],
+    weight && weightClass[weight],
+    variant && variantClass[variant],
+    ...spaceClasses,
+  ];
 
   return (
     <>
-      {title && (
-        <TitleContent
-          className={classNames(
-            style[theme],
-            titleWeight && style[titleWeight],
-            align && style[align],
-            style[titleLevel],
-            titleSize && style[titleSize],
-            style.title,
-            titleClass
-          )}
-        >
-          {title}
-        </TitleContent>
-      )}
-      {text && (
-        <p
-          className={classNames(
-            style[theme],
-            style[textSize],
-            align && style[align],
-            textWeight && style[textWeight],
-            style.text,
-            textClass
-          )}
-        >
-          {text}
-        </p>
+      {content && (
+        <Component className={classNames(...classes, className)}>{content}</Component>
       )}
     </>
   );
-};
-
-export const Typography = memo(TypographyComponent);
+});

@@ -1,1 +1,1 @@
-export { routerConfig } from './router-config';
+export { createRouteElement } from './create-route-element';

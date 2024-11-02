@@ -6,7 +6,7 @@ module.exports = {
     '^.+\\.[t|j]sx?$': 'babel-jest',
     '^.+\\.tsx?$': 'ts-jest',
     '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
-    '^.+\\.svg$': 'jest-transformer-svg',
+    // '^.+\\.svg$': 'jest-transformer-svg',
   },
   globals: {
     _TEST_: 'jest',
@@ -17,6 +17,7 @@ module.exports = {
   },
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
   moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/fileMock.ts',
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   reporters: [

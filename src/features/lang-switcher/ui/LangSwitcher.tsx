@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import { AppButton, ThemeButton } from '@/shared/ui';
+import { AppButton } from '@/shared/ui';
 
 export const LangSwitcher = () => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation('translation');
 
   const toggleLang = () => {
     void i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
@@ -11,8 +11,8 @@ export const LangSwitcher = () => {
 
   return (
     <AppButton
-      theme={ThemeButton.GRAY}
       onClick={toggleLang}
+      variant='gray'
       round='sm'
       size='md'
     >

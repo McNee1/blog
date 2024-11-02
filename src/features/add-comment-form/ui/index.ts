@@ -1,1 +1,1 @@
-export { AddCommentFormSuspense as AddCommentForm } from './AddCommentForm.async';
+export { AddCommentSuspense as AddCommentForm } from './AddCommentForm.async';

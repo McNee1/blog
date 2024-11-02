@@ -1,12 +1,10 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-
-import styles from './CommentList.module.scss';
 
 import { Card, Typography } from '@/shared/ui';
 
 import { Comment } from '../../model';
-import { CommentCard, CommentSkeleton } from './ui';
+import { CommentCard } from '../comment-card';
+import { CommentSkeleton } from '../comment-skeleton';
 
 interface CommentListProps {
   comments: Comment[] | null;
@@ -19,44 +17,41 @@ export const CommentList = memo(function CommentList({
   error,
   isLoading,
 }: CommentListProps) {
-  const { t } = useTranslation();
+  if (isLoading) {
+    return <CommentSkeleton />;
+  }
 
-  let commentsContent;
-
-  if (comments?.length) {
-    commentsContent = comments.map((com) => (
-      <CommentCard
-        comment={com}
-        key={com.id}
+  if (!error) {
+    return (
+      <Typography
+        variant='error'
+        content={error}
+        align='center'
+        as='h2'
       />
-    ));
-  } else {
-    commentsContent = <Typography text={t('No comments')} />;
+    );
+  }
+
+  if (!comments?.length) {
+    return (
+      <Card>
+        <Typography
+          content={'No comments'}
+          size='sm'
+          as='p'
+        />
+      </Card>
+    );
   }
 
   return (
-    <section>
-      <Typography
-        titleClass={styles.comment_title}
-        title={t('Comments')}
-        titleLevel='h2'
-        titleSize='lg'
-      />
-
-      <div className={styles.comment_list}>
-        {isLoading ? (
-          <CommentSkeleton />
-        ) : error ? (
-          <Typography
-            titleLevel='h2'
-            align='center'
-            theme='error'
-            title={error}
-          />
-        ) : (
-          <Card>{commentsContent}</Card>
-        )}
-      </div>
-    </section>
+    <Card flex={{ direction: 'col' }}>
+      {comments?.map((com) => (
+        <CommentCard
+          comment={com}
+          key={com.id}
+        />
+      ))}
+    </Card>
   );
 });

@@ -1,9 +1,6 @@
 import { ArticleDetail } from '@/entities';
-import {
-  AddCommentForm,
-  ArticleDetailComments,
-  ArticleDetailRecommendation,
-} from '@/features';
+import { ArticleDetailRecommendation } from '@/features';
+import { CommentsListForm } from '@/widgets';
 
 import { ArticleDetailReaction } from '../article-detail-reaction';
 import { ArticleWrap } from '../article-wrap';
@@ -22,9 +19,7 @@ const ArticleDetailPage = () => {
 
           <ArticleDetailRecommendation />
 
-          <ArticleDetailComments articleId={id} />
-
-          <AddCommentForm articleId={id} />
+          <CommentsListForm articleId={id} />
         </>
       )}
     />

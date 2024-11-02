@@ -8,7 +8,6 @@ import { Skeleton } from './Skeleton';
 const meta = {
   title: 'shared/Skeleton',
   component: Skeleton,
-  decorators: [ThemeDecorator(Theme.LIGHT)],
   parameters: {
     layout: 'fullscreen',
   },
@@ -34,7 +33,6 @@ export const Light: Story = {
     height: '100px',
   },
 };
-Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Circle: Story = {
   args: {

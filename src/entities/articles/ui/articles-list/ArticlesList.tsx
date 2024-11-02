@@ -5,11 +5,11 @@ import { ComponentProps } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib';
-import { FlexGroup, Typography } from '@/shared/ui';
+import { Flex, Typography } from '@/shared/ui';
 
 import { getArticleComponent, getLoaderComponent } from '../../lib';
 
-type Direction = Pick<ComponentProps<typeof FlexGroup>, 'direction'>['direction'];
+type Direction = Pick<ComponentProps<typeof Flex>, 'direction'>['direction'];
 
 const direction: Record<ArticleLayoutType, Direction> = {
   card: 'col',
@@ -39,22 +39,22 @@ export const ArticlesList = ({
   if (error) {
     return (
       <Typography
-        theme='error'
-        text={error}
+        variant='error'
+        content={error}
       />
     );
   } else if (!articles?.length && !isLoading) {
     return (
       <Typography
-        text={t('the list of articles is empty')}
-        theme='error'
-        textSize='md'
+        content={t('the list of articles is empty')}
+        variant='error'
+        size='md'
       />
     );
   }
 
   return (
-    <FlexGroup
+    <Flex
       gap={layoutType === 'card' ? 'gap10' : 'gap12'}
       className={classNames(className)}
       direction={direction[layoutType]}
@@ -62,6 +62,6 @@ export const ArticlesList = ({
     >
       {articles?.map((article) => getArticleComponent(layoutType, article))}
       {isLoading && loader}
-    </FlexGroup>
+    </Flex>
   );
 };

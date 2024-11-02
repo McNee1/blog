@@ -1,18 +1,17 @@
 import styles from './MessageWithIcon.module.scss';
 
-import { AppIcon, Card, FlexGroup, Typography } from '@/shared/ui';
+import { AppIcon, Card, FlexCol, Typography } from '@/shared/ui';
 
 interface MessageWithIconProps {
   srcIcon: string;
   text: string;
 }
-
+// wrapp
 export const MessageWithIcon = ({ text, srcIcon }: MessageWithIconProps) => {
   return (
     <Card>
-      <FlexGroup
+      <FlexCol
         alignItems='center'
-        direction='col'
         gap='gap12'
       >
         <AppIcon
@@ -21,10 +20,10 @@ export const MessageWithIcon = ({ text, srcIcon }: MessageWithIconProps) => {
           width='75px'
         />
         <Typography
-          titleLevel='h2'
-          title={text}
+          content={text}
+          as='h2'
         />
-      </FlexGroup>
+      </FlexCol>
     </Card>
   );
 };

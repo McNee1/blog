@@ -1,4 +1,4 @@
-import { AppButton, ThemeButton } from '@/shared/ui';
+import { AppButton } from '@/shared/ui';
 
 import { ProfileValidationErrors } from '@/entities';
 
@@ -36,8 +36,8 @@ export const EditButtons = ({
           {readonly ? (
             <AppButton
               data-testid='EditButtons.EditBtn'
-              theme={ThemeButton.GREEN}
               onClick={onEdit}
+              variant='green'
               round='sm'
               size='lg'
             >
@@ -47,9 +47,9 @@ export const EditButtons = ({
             <>
               <AppButton
                 data-testid='EditButtons.Save'
-                theme={ThemeButton.GREEN}
                 onClick={onSaveChanges}
                 disabled={isError()}
+                variant='green'
                 round='sm'
                 size='lg'
               >
@@ -57,8 +57,8 @@ export const EditButtons = ({
               </AppButton>
               <AppButton
                 data-testid='EditButtons.Cancel'
-                theme={ThemeButton.RED}
                 onClick={onCancelEdit}
+                variant='red'
                 round='sm'
                 size='lg'
               >

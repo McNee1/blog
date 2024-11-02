@@ -31,7 +31,6 @@ export const SortArticle = memo(function SortArticle({
   sortValue,
 }: SortArticleProps) {
   const { t } = useTranslation('article');
-  console.log(orderValue, sortValue);
 
   const articleOptions = useMemo<ArticleOptions[]>(
     () => [
@@ -67,8 +66,8 @@ export const SortArticle = memo(function SortArticle({
   return (
     <div className={className}>
       <Typography
-        textClass={styles.title}
-        text={t('Sorted by')}
+        className={styles.title}
+        content={t('sort by')}
       />
       <CustomSelect
         className={styles.select}

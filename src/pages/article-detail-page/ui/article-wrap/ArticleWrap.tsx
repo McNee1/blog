@@ -2,7 +2,12 @@ import { ReactNode, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import successIcon from '@/shared/assets/icons/success.svg';
-import { AsyncSliceManager, useAppDispatch, useAppSelector } from '@/shared/lib';
+import {
+  AsyncSliceManager,
+  ReducersList,
+  useAppDispatch,
+  useAppSelector,
+} from '@/shared/lib';
 import { MessageWithIcon, Typography } from '@/shared/ui';
 
 import { ArticleType } from '@/entities';
@@ -18,7 +23,9 @@ import {
 } from '../../model';
 import { ActionButtons } from '../action-buttons';
 
-const initialReducer = { articleDetail: articleDetailReducer };
+const initialReducer: ReducersList = {
+  articleDetail: articleDetailReducer,
+};
 
 interface ArticleWrapProps {
   error?: null | string;
@@ -50,15 +57,15 @@ export const ArticleWrap = ({ renderContent }: ArticleWrapProps) => {
   return (
     <PageManager
       direction='col'
-      gap='gap8'
+      gap='gap14'
       width='xl'
     >
       <AsyncSliceManager reducers={initialReducer}>
         {error ? (
           <Typography
-            titleSize='md'
-            theme='error'
-            title={error}
+            variant='error'
+            content={error}
+            size='md'
           />
         ) : (
           <>

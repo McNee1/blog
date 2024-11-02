@@ -1,1 +1,1 @@
-export { AppButton, ThemeButton } from './ui';
+export { AppButton } from './ui';

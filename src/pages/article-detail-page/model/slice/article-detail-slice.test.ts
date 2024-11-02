@@ -5,7 +5,7 @@ import { ArticleDetailSchema } from '../types';
 import { articleDetailAction, articleDetailReducer } from './article-detail-slice';
 
 const MOCK_DATA = {
-  id: '1',
+  id: 1,
   title: 'Javascript news',
   subtitle: 'Что нового в JS за 2022 год?',
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
@@ -14,6 +14,17 @@ const MOCK_DATA = {
   type: [],
   blocks: [],
 } as unknown as ArticleType;
+
+jest.mock('@/entities', () => ({
+  userReducer: () => ({ type: 'MOCK_USER_REDUCER' }),
+  userRole: {
+    ADMIN: 'admin',
+    MODERATOR: 'moderator',
+    USER: 'user',
+  },
+
+  allowedRolesForPage: () => ['ADMIN', 'MODERATOR'],
+}));
 
 describe('article-detail-slice.test', () => {
   test('should set like reaction', () => {

@@ -1,9 +1,11 @@
 import type { StateSchema } from '@/app/providers';
 
+import { ArticleType } from '@/entities';
+
 import { getArticleDetail } from './get-article-detail';
 
-const MOCK_DATA = {
-  id: '1',
+const MOCK_DATA: Partial<ArticleType> = {
+  id: 1,
   title: 'Javascript news',
   subtitle: 'Что нового в JS за 2022 год?',
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',

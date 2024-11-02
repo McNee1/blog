@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import styles from './CommentForm.module.scss';
 
-import { AppButton, TextArea, ThemeButton, Typography } from '@/shared/ui';
+import { AppButton, TextArea, Typography } from '@/shared/ui';
 
 interface CommentFormProps {
   className?: string;
@@ -20,9 +20,9 @@ export const CommentForm = ({
   onSendComment,
   textField,
 }: CommentFormProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation');
   return (
-    <section className={styles.comment_form}>
+    <form className={styles.comment_form}>
       <TextArea
         onChange={(e) => onChangeField(e.target.value)}
         className={styles.textarea}
@@ -33,21 +33,21 @@ export const CommentForm = ({
       />
       <div className={styles.comment_footer}>
         <Typography
-          text={error ?? ''}
-          theme='error'
+          content={error}
+          variant='error'
         />
 
         <AppButton
           disabled={!textField || isLoading}
-          theme={ThemeButton.BLUE}
           onClick={onSendComment}
           className={styles.btn}
+          variant='blue'
           round='sm'
           size='lg'
         >
           {t('Send')}
         </AppButton>
       </div>
-    </section>
+    </form>
   );
 };

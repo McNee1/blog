@@ -1,7 +1,3 @@
-.title {
-  color: var(--primary-color);
-}
-
 .h1 {
   font: var(--font-xl);
 }
@@ -14,23 +10,37 @@
   font: var(--font-m);
 }
 
-.title.md {
-  font-size: var(--font-size-m);
-}
-
-.title.lg {
-  font-size: var(--font-size-l);
-}
-
-.title.xl {
+// size
+.xl {
   font-size: var(--font-size-xl);
 }
 
-.text {
-  font: var(--font-s);
+.lg {
+  font-size: var(--font-size-l);
+}
+
+.md {
+  font-size: var(--font-size-m);
+}
+
+.sm {
+  font-size: var(--font-size-s);
+}
+
+// color
+.secondary {
   color: var(--secondary-color);
 }
 
+.error {
+  color: rgb(206, 4, 4);
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+// position
 .center {
   text-align: center;
 }
@@ -43,14 +53,7 @@
   text-align: left;
 }
 
-.error.title {
-  color: rgb(245, 3, 3);
-}
-
-.error.text {
-  color: rgb(206, 4, 4);
-}
-
+// weight
 .boldest {
   font-weight: 800;
 }
@@ -69,16 +72,4 @@
 
 .light {
   font-weight: 400;
-}
-
-.sm {
-  font-size: var(--font-size-s);
-}
-
-.md {
-  font-size: var(--font-size-m);
-}
-
-.lg {
-  font-size: var(--font-size-l);
 }

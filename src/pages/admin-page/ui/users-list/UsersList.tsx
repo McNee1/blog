@@ -5,9 +5,9 @@ import {
   AppButton,
   AppLink,
   Card,
-  FlexGroup,
+  FlexCol,
+  FlexRow,
   Skeleton,
-  ThemeButton,
   Typography,
 } from '@/shared/ui';
 
@@ -34,10 +34,7 @@ export const UsersList = ({
   if (isLoading) {
     return (
       <Card>
-        <FlexGroup
-          alignItems='center'
-          direction='row'
-        >
+        <FlexRow alignItems='center'>
           <Skeleton
             border='100%'
             height={50}
@@ -49,7 +46,7 @@ export const UsersList = ({
             height={25}
             width='40%'
           />
-        </FlexGroup>
+        </FlexRow>
       </Card>
     );
   }
@@ -58,9 +55,9 @@ export const UsersList = ({
     return (
       <Card>
         <Typography
+          variant='error'
+          content={error}
           align='center'
-          theme='error'
-          text={error}
         />
       </Card>
     );
@@ -75,20 +72,18 @@ export const UsersList = ({
           key={user.id}
           round='sm'
         >
-          <FlexGroup
+          <FlexRow
             alignItems='center'
             justify='between'
-            direction='row'
             maxWidth
           >
-            <FlexGroup
+            <FlexCol
+              space={{ marginLeft: 'ml10' }}
               className={styles.user_info}
-              spaceLeft='space10'
-              direction='col'
             >
               <AppLink to={getProfilePath(user.id)}>{user.username}</AppLink>
               <span>{user.email}</span>
-            </FlexGroup>
+            </FlexCol>
 
             <ChangeRole
               onChangeRole={(role) => onChangeRole(user.id, role)}
@@ -98,14 +93,14 @@ export const UsersList = ({
             <AppButton
               onClick={() => onOpenDeleteModal(user.id)}
               dataTestId='UsersList.Btn_modal'
-              theme={ThemeButton.RED}
               disabled={disabled}
+              variant='red'
               round='sm'
               size='md'
             >
               Delete account
             </AppButton>
-          </FlexGroup>
+          </FlexRow>
         </UserCard>
       ))}
     </>

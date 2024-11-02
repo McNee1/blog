@@ -1,1 +1,1 @@
-export { routerConfig } from './lib';
+export { useRouter } from './hook';

@@ -14,7 +14,7 @@ interface ReactionRtkArticleType extends Omit<ReactionRtkGetType, 'userId'> {
 }
 
 interface PostRtkType extends Omit<ReactionArticleType, 'id'> {
-  id?: number;
+  id: number | null;
 }
 
 export const reactionRtk = rtkApi.injectEndpoints({
@@ -48,6 +48,7 @@ export const reactionRtk = rtkApi.injectEndpoints({
           userId,
           articleId,
         };
+        console.log(id, articleId, userId, reaction);
         if (id) {
           // Reaction already exists, update it
           return {

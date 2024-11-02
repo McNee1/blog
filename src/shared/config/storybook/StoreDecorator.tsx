@@ -1,10 +1,6 @@
 import { StateSchema, StoreProvider } from '@/app/providers';
 
-import {
-  articleDetailCommentListReducer,
-  loginReducer,
-  profileReducer,
-} from '@/features';
+import { loginReducer, profileReducer } from '@/features';
 import { articleDetailReducer, articlesReducer } from '@/pages';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { StoryFn } from '@storybook/react';
@@ -13,7 +9,7 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
   loginForm: loginReducer,
   articleDetail: articleDetailReducer,
   profile: profileReducer,
-  commentsList: articleDetailCommentListReducer,
+
   articles: articlesReducer,
 };
 

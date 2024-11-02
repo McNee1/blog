@@ -3,7 +3,7 @@ import { memo, useCallback, useState } from 'react';
 import styles from './Header.module.scss';
 
 import { classNames } from '@/shared/lib';
-import { FlexGroup } from '@/shared/ui';
+import { FlexRow } from '@/shared/ui';
 
 import { LangSwitcher, LoginModal, ThemeSwitcher } from '@/features';
 
@@ -13,7 +13,7 @@ interface HeaderProps {
   className?: string;
 }
 
-const HeaderComponent = ({ className }: HeaderProps) => {
+export const Header = memo(function Header({ className }: HeaderProps) {
   const [isOpenModal, setOpenModal] = useState(false);
 
   const handleOpenModal = useCallback(() => {
@@ -30,16 +30,15 @@ const HeaderComponent = ({ className }: HeaderProps) => {
         className={classNames(styles.navbar, className)}
         data-testid='Header'
       >
-        <div className={classNames('container', styles.navbar_wrap)}>
-          <FlexGroup
-            className={styles.btn_group}
-            direction='row'
-          >
-            <LangSwitcher />
-            <ThemeSwitcher />
-            <HeaderAction onOpenModal={handleOpenModal} />
-          </FlexGroup>
-        </div>
+        <FlexRow
+          className={'container'}
+          alignItems='center'
+          gap='gap20'
+        >
+          <LangSwitcher />
+          <ThemeSwitcher />
+          <HeaderAction onOpenModal={handleOpenModal} />
+        </FlexRow>
       </header>
       <LoginModal
         onClose={handleCLoseModal}
@@ -47,6 +46,4 @@ const HeaderComponent = ({ className }: HeaderProps) => {
       />
     </>
   );
-};
-
-export const Header = memo(HeaderComponent);
+});

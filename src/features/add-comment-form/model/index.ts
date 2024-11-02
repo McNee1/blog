@@ -1,8 +1,3 @@
-export {
-  getCommentForm,
-  getCommentFormError,
-  getCommentFormIsLoading,
-} from './selectors';
-export { postComment } from './services';
-export { addCommentFormAction, addCommentFormReducer } from './slice';
+export { addCommentAction, addCommentReducer } from './slice';
 export type { AddCommentFormSchema } from './types';
+export { getCommentForm } from './selectors';

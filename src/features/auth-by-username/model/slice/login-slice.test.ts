@@ -1,6 +1,15 @@
 import { LoginSchema } from '../types';
 import { loginAction, loginReducer } from './login-slice';
 
+jest.mock('@/entities', () => ({
+  userReducer: () => ({ type: 'MOCK_USER_REDUCER' }),
+  userRole: {
+    ADMIN: 'admin',
+    MODERATOR: 'moderator',
+    USER: 'user',
+  },
+}));
+
 describe('loginSlice.test', () => {
   test('test set username', () => {
     const state: DeepPartial<LoginSchema> = { username: '123' };

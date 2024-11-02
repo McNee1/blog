@@ -17,7 +17,7 @@ interface HeaderMenuProps {
 export const HeaderMenu = ({ referenceClass, reference, profileId }: HeaderMenuProps) => {
   const dispatch = useAppDispatch();
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation');
 
   const handleLogout = useCallback(() => {
     dispatch(userAction.logoutUser());
@@ -30,7 +30,7 @@ export const HeaderMenu = ({ referenceClass, reference, profileId }: HeaderMenuP
         href: getProfilePath(profileId),
       },
       {
-        href: getUserArticlesPath(profileId),
+        href: getUserArticlesPath(+profileId),
         content: t('My articles'),
       },
 
@@ -49,6 +49,7 @@ export const HeaderMenu = ({ referenceClass, reference, profileId }: HeaderMenuP
       dataTestId='HeaderMenu'
       reference={reference}
       items={menuItems}
+      isArrow={false}
     />
   );
 };

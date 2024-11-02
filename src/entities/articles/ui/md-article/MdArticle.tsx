@@ -5,7 +5,7 @@ import { memo } from 'react';
 import styles from './MdArticle.module.scss';
 
 import { formatDate, getArticleDetailPath, getProfilePath } from '@/shared/lib';
-import { AppLink, Card, FlexGroup, Typography, ViewCount } from '@/shared/ui';
+import { AppLink, Card, FlexCol, ViewCount } from '@/shared/ui';
 
 import { BadgeList, UserCard } from '@/entities';
 
@@ -26,20 +26,17 @@ export const MdArticle = memo(function MdArticle({ article }: MdArticleProps) {
         >
           {article.title}
         </AppLink>
-
-        <Typography text={article.subtitle} />
       </div>
 
       <UserCard
         className={styles.card_footer}
         avatar={article.user?.avatar}
+        space={{ marginTop: 'auto' }}
         alignItems='center'
-        spaceTop='auto'
         round='full'
       >
-        <FlexGroup
-          spaceLeft='space10'
-          direction='col'
+        <FlexCol
+          space={{ marginLeft: 'ml10' }}
           gap='gap6'
         >
           <AppLink
@@ -53,7 +50,7 @@ export const MdArticle = memo(function MdArticle({ article }: MdArticleProps) {
           <time className={styles.date}>
             {formatDate(article.createdAt, { dateStyle: 'medium' })}
           </time>
-        </FlexGroup>
+        </FlexCol>
 
         <ViewCount
           className={styles.view_count}

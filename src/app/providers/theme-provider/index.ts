@@ -1,1 +1,1 @@
-export { ThemeProvider } from './ui';
+export { ThemeProvider, withTheme } from './ui';

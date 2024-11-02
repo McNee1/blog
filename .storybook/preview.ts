@@ -8,15 +8,18 @@ import { Theme } from '../src/shared/constants/theme';
 
 const preview: Preview = {
   parameters: {
-    actions: {},
+    actions: {
+      argTypesRegex: '^on.*',
+    },
+
     controls: {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
     },
+    decorators: [RouterDecorator, ThemeDecorator(Theme.LIGHT), StyleDecorator],
   },
-  decorators: [RouterDecorator, StyleDecorator, ThemeDecorator(Theme.LIGHT)],
 };
 
 export default preview;

@@ -6,7 +6,8 @@
 }
 
 .height_full {
-  height: calc(100vh - var(--navbar-height) - var(--gap-top) - 10px);
+  // height: calc(100vh - var(--navbar-height) - var(--gap-top) - 10px);
+  height: 100vh;
 }
 
 .loader {

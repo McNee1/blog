@@ -6,7 +6,7 @@ export {
   getArticleDetailReaction,
   IsArticleOwner,
 } from './selectors';
-export type { ArticleDetailSchema, ReactionArticleType, ReactionType } from './types';
+export type { ArticleDetailSchema, ReactionArticleType } from './types';
 
 export { articleDetailAction, articleDetailReducer, articleDetailSlice } from './slice';
 

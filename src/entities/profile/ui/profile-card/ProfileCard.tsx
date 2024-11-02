@@ -48,17 +48,14 @@ const ProfileCardComponent = ({
   if (error) {
     return (
       <Typography
-        theme='error'
-        text={error}
+        variant='error'
+        content={error}
       />
     );
   }
   return (
     <div className={styles.profile}>
-      <Card
-        className={styles.profile_card}
-        padding={false}
-      >
+      <Card className={styles.profile_card}>
         <AppImage
           fallback={<Skeleton height='200px' />}
           src={avatar}

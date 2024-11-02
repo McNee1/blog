@@ -11,12 +11,7 @@ interface ArticleCodeProps {
   onSetContentBlock: (value: string, id: string, type: UpdatableBlockKeys) => void;
 }
 
-export const ArticleCode = ({
-  onSetContentBlock,
-  id,
-  code,
-  className,
-}: ArticleCodeProps) => {
+export const ArticleCode = ({ onSetContentBlock, id, code }: ArticleCodeProps) => {
   const { dictionary } = useArticleDictionary();
 
   return (
@@ -27,7 +22,6 @@ export const ArticleCode = ({
       <TextArea
         onInput={(value) => onSetContentBlock(value, id, 'code')}
         placeholder={dictionary.text}
-        className={className}
         value={code}
       />
     </DeleteArticleBlock>

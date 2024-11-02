@@ -1,11 +1,11 @@
-import { PathName } from '@/shared/constants';
+import { PATCH_NAME } from '@/shared/constants';
 import { PathNameKey } from '@/shared/types';
 
-const getPath = (pathKey: PathNameKey, id?: string): string => {
+const getPath = (pathKey: PathNameKey, id?: number | string): string => {
   if (id) {
-    return `/${PathName[pathKey]}/${id}`;
+    return `/${PATCH_NAME[pathKey]}/${id}`;
   }
-  return `/${PathName[pathKey]}`;
+  return `/${PATCH_NAME[pathKey]}`;
 };
 
 const getMainPath = (): string => '/';
@@ -15,9 +15,9 @@ const getAboutPath = (): string => getPath('ABOUT');
 const getArticlesPath = (): string => getPath('ARTICLES');
 const getAdminPath = (): string => getPath('ADMIN');
 const getProfilePath = (id?: string): string => getPath('PROFILE', id);
-const getArticleDetailPath = (id: string): string => getPath('ARTICLE_DETAIL', id);
-const getEditArticlePath = (id: string): string => getPath('EDIT_ARTICLE', id);
-const getUserArticlesPath = (id: string): string => getPath('USER_ARTICLES', id);
+const getArticleDetailPath = (id: number): string => getPath('ARTICLE_DETAIL', id);
+const getEditArticlePath = (id: number): string => getPath('EDIT_ARTICLE', id);
+const getUserArticlesPath = (id: number): string => getPath('USER_ARTICLES', id);
 
 export {
   getAboutPath,

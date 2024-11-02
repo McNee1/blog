@@ -5,32 +5,44 @@ import styles from './AppButton.module.scss';
 import { classNames } from '@/shared/lib';
 import { TestProps } from '@/shared/types';
 
-export enum ThemeButton {
-  GREEN = 'green',
-  BLUE = 'blue',
-  RED = 'red',
-  GRAY = 'gray',
-  BLACK = 'black',
-  PURPLE = 'purple',
+type Variant =
+  | 'green'
+  | 'blue'
+  | 'red'
+  | 'gray'
+  | 'black'
+  | 'outline-blue'
+  | 'outline-green'
+  | 'outline-red'
+  | 'outline-gray'
+  | 'outline-black';
 
-  OUTLINE_BLUE = 'outline-blue',
-  OUTLINE_GREEN = 'outline-green',
-  OUTLINE_RED = 'outline-red',
-  OUTLINE_GRAY = 'outline-gray',
-  OUTLINE_BLACK = 'outline-black',
-  OUTLINE_PURPLE = 'outline-purple',
-}
+type Size = 'sm' | 'md' | 'lg';
+type Round = 'sm' | 'md' | 'lg' | 'full';
+
+const sizeClass: Record<Size, string> = {
+  sm: styles['size-sm'],
+  md: styles['size-md'],
+  lg: styles['size-lg'],
+};
+
+const roundClass: Record<Round, string> = {
+  sm: styles['round-sm'],
+  md: styles['round-md'],
+  lg: styles['round-lg'],
+  full: styles['round-full'],
+};
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, TestProps {
   bgColor?: string;
   className?: string;
-  round?: 'sm' | 'md' | 'lg' | 'full';
-  size?: 'sm' | 'md' | 'lg';
-  theme?: ThemeButton | ThemeButton[];
+  round?: Round;
+  size?: Size;
+  variant?: Variant;
 }
 
 export const AppButton = memo(function AppButton({
-  theme,
+  variant,
   children,
   className,
   round,
@@ -39,15 +51,15 @@ export const AppButton = memo(function AppButton({
   dataTestId,
   ...otherProps
 }: AppButtonProps) {
+  const classes = [
+    round && roundClass[round],
+    size && sizeClass[size],
+    variant && styles[variant],
+  ];
+
   return (
     <button
-      className={classNames(
-        styles.btn,
-        styles[`round-${round}`],
-        styles[`size-${size}`],
-        theme && (Array.isArray(theme) ? theme.map((cls) => styles[cls]) : styles[theme]),
-        className
-      )}
+      className={classNames(styles.btn, ...classes, className)}
       style={{ backgroundColor: bgColor }}
       data-testid={dataTestId}
       {...otherProps}

@@ -1,11 +1,10 @@
-import { Card, FlexGroup, Skeleton } from '@/shared/ui';
+import { Card, FlexCol, FlexRow, Skeleton } from '@/shared/ui';
 
 const arr = [...Array.from({ length: 3 })];
 
 export const SmArticleSkeleton = () => {
   return (
-    <FlexGroup
-      direction='col'
+    <FlexCol
       gap='gap10'
       maxWidth
       wrap
@@ -13,9 +12,8 @@ export const SmArticleSkeleton = () => {
       {arr.map((_, id) => {
         return (
           <Card key={id}>
-            <FlexGroup
-              spaceButton='space10'
-              direction='row'
+            <FlexRow
+              space={{ marginButton: 'mb10' }}
               gap='gap10'
             >
               <Skeleton
@@ -24,11 +22,8 @@ export const SmArticleSkeleton = () => {
                 height={15}
                 width={70}
               />
-            </FlexGroup>
-            <FlexGroup
-              direction='col'
-              gap='gap6'
-            >
+            </FlexRow>
+            <FlexCol gap='gap6'>
               <Skeleton
                 width='65%'
                 height={15}
@@ -42,10 +37,10 @@ export const SmArticleSkeleton = () => {
                 width='90%'
                 height={14}
               />
-            </FlexGroup>
+            </FlexCol>
           </Card>
         );
       })}
-    </FlexGroup>
+    </FlexCol>
   );
 };

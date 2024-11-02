@@ -9,7 +9,7 @@ import { Theme } from '@/shared/constants';
 import { MdArticle } from './MdArticle';
 
 const MOCK_CODE = {
-  id: '4',
+  id: 4,
   userId: '3',
   title: 'Квантовые вычисления в криптографии',
   subtitle: 'Будущее защиты данных в эпоху квантовых технологий',
@@ -37,7 +37,6 @@ export const Light: Story = {
     article: MOCK_CODE,
   },
 };
-Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark: Story = {
   args: {

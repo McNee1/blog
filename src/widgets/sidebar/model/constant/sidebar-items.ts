@@ -3,7 +3,7 @@ import articleIcon from '@/shared/assets/icons/article.svg';
 import homeIcon from '@/shared/assets/icons/home.svg';
 import profileIcon from '@/shared/assets/icons/profile.svg';
 import usersIcon from '@/shared/assets/icons/users.svg';
-import { PathName } from '@/shared/constants';
+import { PATCH_NAME } from '@/shared/constants';
 import {
   getAboutPath,
   getAdminPath,
@@ -17,7 +17,7 @@ import { allowedRolesForPage, Role } from '@/entities';
 export interface SidebarItemsType {
   icon: string;
   isAuth?: boolean;
-  name: (typeof PathName)[keyof typeof PathName];
+  name: (typeof PATCH_NAME)[keyof typeof PATCH_NAME];
   path: (id?: string) => string;
   requiredRole?: Role[];
 }

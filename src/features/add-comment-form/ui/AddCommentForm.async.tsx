@@ -1,13 +1,11 @@
 import { FC, lazy, Suspense } from 'react';
 
-import { AddCommentFormProps } from './AddCommentForm';
+import { AddCommentProps } from './AddCommentForm';
 
-const AddCommentFormAsync = lazy<FC<AddCommentFormProps>>(
-  () => import('./AddCommentForm')
-);
+const AddCommentAsync = lazy<FC<AddCommentProps>>(() => import('./AddCommentForm'));
 
-export const AddCommentFormSuspense = ({ articleId }: AddCommentFormProps) => (
+export const AddCommentSuspense = (props: AddCommentProps) => (
   <Suspense fallback='loading...'>
-    <AddCommentFormAsync articleId={articleId} />
+    <AddCommentAsync {...props} />
   </Suspense>
 );

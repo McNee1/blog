@@ -1,15 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import MOCK_IMG from '@/shared/assets/storybook/Type-Safe-Module-Mocking.jpg';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/constants';
 
 import { AppImage } from './AppImage';
 
 const meta = {
   title: 'shared/AppImage',
   component: AppImage,
-  decorators: [ThemeDecorator(Theme.LIGHT)],
+
   parameters: {
     layout: 'padded',
   },

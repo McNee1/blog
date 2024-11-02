@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AppButton, ThemeButton } from './AppButton';
+import { AppButton } from './AppButton';
 
 const meta = {
   title: 'shared/AppButton',
@@ -20,80 +20,68 @@ export default meta;
 
 export const Blue: Story = {
   args: {
-    theme: ThemeButton.BLUE,
+    variant: 'blue',
     children: 'text',
   },
 };
 
 export const Gray: Story = {
   args: {
-    theme: ThemeButton.GRAY,
+    variant: 'gray',
     children: 'text',
   },
 };
 
 export const Green: Story = {
   args: {
-    theme: ThemeButton.GREEN,
+    variant: 'green',
     children: 'text',
   },
 };
 export const Black: Story = {
   args: {
-    theme: ThemeButton.BLACK,
+    variant: 'black',
     children: 'text',
   },
 };
 export const Red: Story = {
   args: {
-    theme: ThemeButton.RED,
-    children: 'text',
-  },
-};
-
-export const Purple: Story = {
-  args: {
-    theme: ThemeButton.PURPLE,
+    variant: 'red',
     children: 'text',
   },
 };
 
 export const OutlineRed: Story = {
   args: {
-    theme: ThemeButton.OUTLINE_RED,
+    variant: 'outline-red',
     children: 'text',
   },
 };
-export const OutlinePurple: Story = {
-  args: {
-    theme: ThemeButton.OUTLINE_PURPLE,
-    children: 'text',
-  },
-};
+
 export const OutlineGreen: Story = {
   args: {
-    theme: ThemeButton.OUTLINE_GREEN,
+    variant: 'outline-green',
     children: 'text',
   },
 };
 
 export const OutlineBlack: Story = {
   args: {
-    theme: ThemeButton.OUTLINE_BLACK,
+    variant: 'outline-black',
     children: 'text',
   },
 };
 
 export const OutlineGray: Story = {
   args: {
-    theme: ThemeButton.OUTLINE_GRAY,
+    variant: 'outline-gray',
     children: 'text',
   },
 };
 
 export const OutlineBlue: Story = {
   args: {
-    theme: ThemeButton.OUTLINE_BLUE,
+    variant: 'outline-blue',
     children: 'text',
   },
 };
@@ -101,7 +89,7 @@ export const OutlineBlue: Story = {
 export const Circle: Story = {
   args: {
     round: 'full',
-    theme: ThemeButton.GRAY,
+    variant: 'outline-gray',
     size: 'lg',
     children: 'text',
   },

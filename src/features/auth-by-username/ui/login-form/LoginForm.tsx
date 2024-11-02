@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback } from 'react';
+import { ChangeEvent, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import style from './LoginForm.module.scss';
@@ -7,10 +7,11 @@ import i18n from '@/shared/config/i18n/i18n';
 import {
   AsyncSliceManager,
   classNames,
+  ReducersList,
   useAppDispatch,
   useAppSelector,
 } from '@/shared/lib';
-import { AppButton, TextField, ThemeButton, Typography } from '@/shared/ui';
+import { AppButton, TextField, Typography } from '@/shared/ui';
 
 import { userAction } from '@/entities';
 
@@ -28,10 +29,10 @@ export interface LoginFormProps {
   className?: string;
   onClose: () => void;
 }
-const initialReducer = { loginForm: loginReducer };
+const initialReducer: ReducersList = { loginForm: loginReducer };
 
 const LoginForm = ({ className, onClose }: LoginFormProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation');
 
   const email = useAppSelector(getLoginEmail);
   const password = useAppSelector(getLoginPassword);
@@ -65,13 +66,25 @@ const LoginForm = ({ className, onClose }: LoginFormProps) => {
       });
   };
 
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleLoginUser();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  });
+
   return (
     <AsyncSliceManager reducers={initialReducer}>
       <div className={classNames(style.login_form, className)}>
         <Typography
-          titleClass={style.form_title}
-          title={t('Login form')}
-          theme='primary'
+          className={style.form_title}
+          content={t('Login form')}
+          variant='primary'
         />
         <div className={style.input_wrap}>
           <TextField
@@ -94,15 +107,15 @@ const LoginForm = ({ className, onClose }: LoginFormProps) => {
         </div>
         {error && (
           <Typography
-            text={t(error)}
-            theme='error'
+            content={t(error)}
+            variant='error'
           />
         )}
         <AppButton
           className={style.btn_form}
           onClick={handleLoginUser}
-          theme={ThemeButton.BLACK}
           disabled={isLoading}
+          variant='black'
           type='submit'
           round='md'
           size='lg'

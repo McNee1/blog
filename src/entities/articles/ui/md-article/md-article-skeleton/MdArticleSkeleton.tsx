@@ -1,13 +1,12 @@
 import styles from './MdArticleSkeleton.module.scss';
 
-import { Card, FlexGroup, Skeleton } from '@/shared/ui';
+import { Card, FlexCol, FlexRow, Skeleton } from '@/shared/ui';
 
 const arr = [...Array.from({ length: 6 })];
 
 export const MdArticleSkeleton = () => {
   return (
-    <FlexGroup
-      direction='row'
+    <FlexRow
       gap='gap10'
       maxWidth
       wrap
@@ -18,9 +17,8 @@ export const MdArticleSkeleton = () => {
             className={styles.skeleton_tile}
             key={id}
           >
-            <FlexGroup
-              spaceButton='space10'
-              direction='row'
+            <FlexRow
+              space={{ marginButton: 'mb10' }}
               gap='gap10'
             >
               <Skeleton
@@ -35,10 +33,9 @@ export const MdArticleSkeleton = () => {
                 height={15}
                 width={50}
               />
-            </FlexGroup>
-            <FlexGroup
-              spaceButton='space20'
-              direction='col'
+            </FlexRow>
+            <FlexCol
+              space={{ marginButton: 'mb20' }}
               gap='gap6'
             >
               <Skeleton
@@ -49,13 +46,12 @@ export const MdArticleSkeleton = () => {
                 width='95%'
                 height={10}
               />
-            </FlexGroup>
+            </FlexCol>
 
-            <FlexGroup
+            <FlexRow
               className={styles.skeleton_footer}
+              space={{ marginTop: 'auto' }}
               alignItems='center'
-              direction='row'
-              spaceTop='auto'
               gap='gap8'
             >
               <Skeleton
@@ -64,9 +60,8 @@ export const MdArticleSkeleton = () => {
                 height={45}
                 width={45}
               />
-              <FlexGroup
+              <FlexCol
                 className={styles.skeleton_info}
-                direction='col'
                 gap='gap6'
                 maxWidth
               >
@@ -78,11 +73,11 @@ export const MdArticleSkeleton = () => {
                   width='40%'
                   height={10}
                 />
-              </FlexGroup>
-            </FlexGroup>
+              </FlexCol>
+            </FlexRow>
           </Card>
         );
       })}
-    </FlexGroup>
+    </FlexRow>
   );
 };

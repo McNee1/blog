@@ -3,7 +3,7 @@ import { useCallback, useMemo } from 'react';
 import styles from './ArticleIntro.module.scss';
 
 import { useAppDispatch, useAppSelector } from '@/shared/lib';
-import { CustomSelect, FlexGroup, TextArea } from '@/shared/ui';
+import { CustomSelect, FlexCol, TextArea } from '@/shared/ui';
 
 import { ArticleCategory, BadgeList } from '@/entities';
 
@@ -66,9 +66,8 @@ export const ArticleIntro = () => {
     <>
       <TitleText title={dictionary.articleSetting} />
 
-      <FlexGroup
-        spaceButton='space20'
-        direction='col'
+      <FlexCol
+        space={{ marginButton: 'mb20' }}
         gap='gap14'
       >
         <TextArea
@@ -100,7 +99,7 @@ export const ArticleIntro = () => {
           value={articleData?.type}
           multiple
         />
-      </FlexGroup>
+      </FlexCol>
     </>
   );
 };

@@ -80,7 +80,7 @@
       "id": 1,
       "subtitle": "",
       "changed": "1724941889843",
-      "reaction": 1
+      "reaction": -23
     },
     {
       "title": "Замыкание в Java Script для непосвященных",
@@ -272,6 +272,25 @@
       "id": 5,
       "changed": "1722688708791",
       "reaction": 0
+    },
+    {
+      "title": "sd",
+      "subtitle": "sd",
+      "img": "",
+      "type": [
+        "ECONOMICS"
+      ],
+      "blocks": [
+        {
+          "type": "TITLE",
+          "title": "sdsdsd",
+          "id": "1"
+        }
+      ],
+      "userId": "2",
+      "views": 0,
+      "createdAt": "1729782783393",
+      "id": 6
     }
   ],
   "comments": [
@@ -288,6 +307,111 @@
       "text": "hello world!",
       "userId": "2",
       "id": 2
+    },
+    {
+      "articleId": "6",
+      "date": "1729874808358",
+      "text": "12121212",
+      "userId": "2",
+      "id": 3
+    },
+    {
+      "articleId": "6",
+      "date": "1729874841125",
+      "text": "1212",
+      "userId": "2",
+      "id": 4
+    },
+    {
+      "articleId": "6",
+      "date": "1729875365526",
+      "text": "1212sd",
+      "userId": "2",
+      "id": 5
+    },
+    {
+      "articleId": "6",
+      "date": "1729875376334",
+      "text": "nnnn",
+      "userId": "2",
+      "id": 6
+    },
+    {
+      "articleId": "6",
+      "date": "1729876039618",
+      "text": "foo\n",
+      "userId": "2",
+      "id": 7
+    },
+    {
+      "articleId": "1",
+      "date": "1729880829093",
+      "text": "sdsd",
+      "userId": "2",
+      "id": 8
+    },
+    {
+      "articleId": "1",
+      "date": "1729880838311",
+      "text": "1212",
+      "userId": "2",
+      "id": 9
+    },
+    {
+      "articleId": "1",
+      "date": "1729880926597",
+      "text": "11x",
+      "userId": "2",
+      "id": 10
+    },
+    {
+      "articleId": "1",
+      "date": "1729947299214",
+      "text": "cc",
+      "userId": "2",
+      "id": 11
+    },
+    {
+      "articleId": "6",
+      "userId": "2",
+      "date": "1730027281838",
+      "text": "12121212sd1",
+      "id": 12
+    },
+    {
+      "articleId": "6",
+      "userId": "2",
+      "date": "1730027407186",
+      "text": "12121212sd1s",
+      "id": 13
+    },
+    {
+      "articleId": "6",
+      "userId": "2",
+      "date": "1730027415134",
+      "text": "1",
+      "id": 14
+    },
+    {
+      "articleId": "6",
+      "userId": "2",
+      "date": "1730027666660",
+      "text": "1212",
+      "id": 15
+    },
+    {
+      "articleId": "6",
+      "userId": "2",
+      "date": "1730027671517",
+      "text": "1212s",
+      "id": 16
+    },
+    {
+      "articleId": "6",
+      "userId": "2",
+      "date": "1730027726387",
+      "text": "hello",
+      "id": 17
     }
   ],
   "users": [
@@ -321,7 +445,10 @@
       "password": "123",
       "role": "admin",
       "email": "test2@t.tt",
-      "avatar": "https://www.shutterstock.com/image-vector/bart-simpson-cartoon-character-isolated-600nw-2413951549.jpg"
+      "avatar": "https://www.shutterstock.com/image-vector/bart-simpson-cartoon-character-isolated-600nw-2413951549.jpg",
+      "jsonSetting": {
+        "theme": "light"
+      }
     },
     {
       "id": "4",
@@ -356,22 +483,16 @@
   ],
   "reactions": [
     {
-      "articleId": "5",
+      "articleId": "1",
       "userId": "1",
-      "reaction": "like",
-      "id": 2
+      "reaction": "dislike",
+      "id": 1
     },
     {
       "articleId": "1",
-      "userId": "1",
+      "userId": "3",
       "reaction": "like",
-      "id": 3
-    },
-    {
-      "articleId": "2",
-      "userId": "1",
-      "reaction": "like",
-      "id": 4
+      "id": 2
     }
   ]
 }

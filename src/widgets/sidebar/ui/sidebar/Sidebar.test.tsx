@@ -9,15 +9,7 @@ import { Sidebar } from './Sidebar';
 
 import '@testing-library/jest-dom';
 
-jest.mock('react-inlinesvg', () => {
-  const MockedInlineSVG = () => 'svg';
-
-  MockedInlineSVG.displayName = 'ReactInlineSVG';
-
-  return MockedInlineSVG;
-});
-
-const MOCK_USER: UserSchema = {
+const MOCK_USER = {
   authData: {
     role: 'admin',
     avatar: '',
@@ -25,9 +17,9 @@ const MOCK_USER: UserSchema = {
     id: '1',
     username: 'Homer',
   },
-};
+} as UserSchema;
 
-const renderSidebar = (initialState = MOCK_USER) => {
+const renderSidebar = (initialState: UserSchema | object = MOCK_USER) => {
   render(<Sidebar />, { initialState: { user: initialState } });
 };
 
@@ -55,9 +47,7 @@ describe('Sidebar test', () => {
   });
 
   describe('user not authenticated', () => {
-    beforeEach(() => {
-      renderSidebar({});
-    });
+    beforeEach(() => renderSidebar({}));
     test('should show 3 links', () => {
       const links = screen.getAllByTestId(/SidebarItem.Link/);
       expect(links).toHaveLength(3);

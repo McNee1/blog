@@ -1,7 +1,7 @@
 import styles from './ArticleIntro.module.scss';
 
 import { FORMAT_DATE_OPT } from '@/shared/constants';
-import { DateView, FlexGroup, Typography, ViewCount } from '@/shared/ui';
+import { DateView, FlexRow, Typography, ViewCount } from '@/shared/ui';
 
 import { ArticleType } from '../../model';
 
@@ -15,11 +15,16 @@ export const ArticleIntro = ({ articleDetail }: ArticleIntroProps) => {
       <div className={styles.intro}>
         <div className={styles.title_intro}>
           <Typography
-            text={articleDetail?.subtitle}
-            title={articleDetail?.title}
-            titleWeight='normal'
-            titleLevel='h1'
-            titleSize='lg'
+            content={articleDetail?.title}
+            weight='normal'
+            size='lg'
+            as='h1'
+          />
+          <Typography
+            content={articleDetail?.subtitle}
+            weight='normal'
+            size='lg'
+            as='h1'
           />
         </div>
 
@@ -34,12 +39,7 @@ export const ArticleIntro = ({ articleDetail }: ArticleIntroProps) => {
           className={styles.eye}
         />
 
-        <FlexGroup
-          direction='row'
-          gap='gap8'
-        >
-          {articleDetail?.type.join(', ').toLowerCase()}
-        </FlexGroup>
+        <FlexRow gap='gap8'>{articleDetail?.type.join(', ').toLowerCase()}</FlexRow>
       </div>
     </>
   );

@@ -1,15 +1,11 @@
-import { Card, FlexGroup, Skeleton } from '@/shared/ui';
-
+import { Card, FlexCol, FlexRow, Skeleton } from '@/shared/ui';
+// wrapp
 export const LgArticleSkeleton = () => {
   return (
     <Card>
-      <FlexGroup
-        direction='col'
-        gap='gap10'
-      >
-        <FlexGroup
+      <FlexCol gap='gap10'>
+        <FlexRow
           alignItems='center'
-          direction='row'
           gap='gap10'
         >
           <Skeleton
@@ -17,10 +13,7 @@ export const LgArticleSkeleton = () => {
             height={50}
             width={50}
           />
-          <FlexGroup
-            direction='col'
-            gap='gap8'
-          >
+          <FlexCol gap='gap8'>
             <Skeleton
               height={20}
               width={150}
@@ -29,12 +22,9 @@ export const LgArticleSkeleton = () => {
               height={10}
               width={100}
             />
-          </FlexGroup>
-        </FlexGroup>
-        <FlexGroup
-          direction='col'
-          gap='gap8'
-        >
+          </FlexCol>
+        </FlexRow>
+        <FlexCol gap='gap8'>
           <Skeleton
             height={15}
             width={200}
@@ -45,8 +35,8 @@ export const LgArticleSkeleton = () => {
           />
 
           <Skeleton height={250} />
-        </FlexGroup>
-      </FlexGroup>
+        </FlexCol>
+      </FlexCol>
     </Card>
   );
 };

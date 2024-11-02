@@ -1,14 +1,14 @@
 import { ComponentProps, ReactNode } from 'react';
 
-import { AppImage, FlexGroup, Skeleton } from '@/shared/ui';
+import { AppImage, Flex, FlexRow, Skeleton } from '@/shared/ui';
 
 type RoundImage = ComponentProps<typeof AppImage>;
 
-type FlexGroupProps = ComponentProps<typeof FlexGroup>;
+type FlexProps = ComponentProps<typeof Flex>;
 
 interface UserCardProps
   extends Pick<RoundImage, 'round' | 'size'>,
-    Omit<FlexGroupProps, 'direction' | 'children'> {
+    Omit<FlexProps, 'direction' | 'children'> {
   avatar?: string;
   children: ReactNode;
   className?: string;
@@ -25,10 +25,9 @@ export const UserCard = ({
   ...flexProps
 }: UserCardProps) => {
   return (
-    <FlexGroup
+    <FlexRow
       dataTestId={dataTestId}
       className={className}
-      direction='row'
       {...flexProps}
     >
       <AppImage
@@ -45,6 +44,6 @@ export const UserCard = ({
       />
 
       {children}
-    </FlexGroup>
+    </FlexRow>
   );
 };

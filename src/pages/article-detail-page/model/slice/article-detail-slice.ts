@@ -1,3 +1,6 @@
+import { updateReactionCount } from '@/shared/lib';
+import { ReactionType } from '@/shared/types';
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { fetchArticleDetail } from '../service';
@@ -10,14 +13,19 @@ const initialState = {
 } satisfies ArticleDetailSchema as ArticleDetailSchema;
 
 export const articleDetailSlice = createSlice({
-  name: 'article',
+  name: 'articleDetailSlice',
   initialState,
   reducers: {
-    setReaction: (state, action: PayloadAction<{ type: 'like' | 'dislike' }>) => {
-      let reaction = state.data?.reaction ?? 0;
+    setReaction: (
+      state,
+      { payload }: PayloadAction<{ currType: ReactionType; prevType?: ReactionType }>
+    ) => {
+      const reactionCount = state.data?.reaction ?? 0;
 
-      if (state.data) {
-        state.data.reaction = action.payload.type === 'like' ? ++reaction : --reaction;
+      const change = updateReactionCount(payload.currType, payload.prevType);
+
+      if (state.data?.reaction) {
+        state.data.reaction = reactionCount + change;
       }
     },
 
@@ -38,7 +46,6 @@ export const articleDetailSlice = createSlice({
       .addCase(fetchArticleDetail.rejected, (state, action) => {
         state.isLoading = false;
 
-        console.log(action);
         if (action.payload) {
           state.error = action.payload;
         }

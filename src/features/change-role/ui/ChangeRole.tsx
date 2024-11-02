@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 
-import { roleOptions } from '@/shared/constants';
+import { ROLE_OPTIONS } from '@/shared/constants';
 import { CustomSelect } from '@/shared/ui';
 
 import { Role } from '@/entities';
@@ -30,7 +30,7 @@ export const ChangeRole = memo(function RoleEditor({
       placeholder='Change user role'
       onChange={handleChangeRole}
       dataTestId='RoleEditor'
-      options={roleOptions}
+      options={ROLE_OPTIONS}
       className={className}
       disabled={disabled}
       value={userRole}

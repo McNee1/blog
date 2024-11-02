@@ -3,7 +3,7 @@ import type { StateSchema } from '@/app/providers';
 import { ArticleService } from '@/shared/services';
 import { CustomErrorResponse } from '@/shared/types';
 
-import { ArticleType, getUserData } from '@/entities';
+import { ArticleType, getUserId } from '@/entities';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
 
@@ -15,7 +15,7 @@ export const postArticle = createAsyncThunk<ArticleType, void, { rejectValue: st
   'articleManager/postArticle',
   async (_, thunkAPI) => {
     const article = getArticleData(thunkAPI.getState() as StateSchema);
-    const userId = getUserData(thunkAPI.getState() as StateSchema)?.id;
+    const userId = getUserId(thunkAPI.getState() as StateSchema);
 
     if (!userId || !article) {
       return thunkAPI.rejectWithValue('User ID or article data is missing');

@@ -1,4 +1,4 @@
-export { AppButton, ThemeButton } from './app-button';
+export { AppButton } from './app-button';
 export { AppImage } from './app-image';
 export { AppLink } from './app-link';
 export { AppPopup } from './app-popup';
@@ -7,7 +7,8 @@ export { Badge } from './badge';
 export { Card } from './card';
 export { CustomSelect } from './custom-select';
 export type { Option } from './custom-select';
-export { FlexGroup } from './flex-group';
+export { Flex, FlexClass, FlexCol, FlexRow } from './flex-box';
+export { Space } from './space';
 export { Modal } from './modal';
 export { Portal } from './portal';
 export { Preloader } from './preloader';

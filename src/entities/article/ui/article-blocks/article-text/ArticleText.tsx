@@ -11,8 +11,8 @@ interface ArticleTextProps {
 export const ArticleText = ({ content }: ArticleTextProps) => {
   return (
     <Typography
-      textClass={styles.text_block}
-      text={content.text}
+      className={styles.text_block}
+      content={content.text}
     />
   );
 };

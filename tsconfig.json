@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "jest.config.ts"],
+  "include": ["src", "jest.config.ts", "fileMock.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

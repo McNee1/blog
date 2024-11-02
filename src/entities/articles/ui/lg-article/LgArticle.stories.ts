@@ -10,7 +10,7 @@ import { ArticleType } from '@/entities';
 import { LgArticle } from './LgArticle';
 
 const MOCK_CODE = {
-  id: '6',
+  id: 6,
   userId: '3',
   title: 'Будущее IT: Революция через инновации',
   subtitle: 'Изменения в IT и их влияние на общество',
@@ -38,7 +38,6 @@ export const Light: Story = {
     article: MOCK_CODE,
   },
 };
-Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark: Story = {
   args: {

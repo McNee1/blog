@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import styles from './TextError.module.scss';
 
@@ -13,15 +12,13 @@ export const TextError = memo(function TextError({
   name,
   ...props
 }: TextErrorProps) {
-  const { t } = useTranslation('profile');
-
   return (
     <>
       {error && (
         <small
           {...props}
           className={styles.errorText}
-        >{`${t(name)} ${t(error)}`}</small>
+        >{`${name} ${error}`}</small>
       )}
     </>
   );

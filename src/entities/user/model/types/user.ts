@@ -5,7 +5,7 @@ export interface User {
   email?: string;
   id: string;
   isDeleted?: boolean;
-  jsonSetting: JsonSetting;
+  jsonSetting?: JsonSetting;
   role?: Role;
   username?: string;
 }

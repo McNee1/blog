@@ -1,1 +1,1 @@
-export { addCommentFormAction, addCommentFormReducer } from './add-comment-form-slice';
+export { addCommentAction, addCommentReducer } from './add-comment-form-slice';

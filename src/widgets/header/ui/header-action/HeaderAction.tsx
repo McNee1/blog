@@ -4,15 +4,7 @@ import styles from './HeaderAction.module.scss';
 
 import pencilIcon from '@/shared/assets/icons/pencil.svg';
 import { getNewArticlePath, useAppSelector } from '@/shared/lib';
-import {
-  AppButton,
-  AppIcon,
-  AppImage,
-  AppLink,
-  FlexGroup,
-  Skeleton,
-  ThemeButton,
-} from '@/shared/ui';
+import { AppButton, AppIcon, AppImage, AppLink, FlexRow, Skeleton } from '@/shared/ui';
 
 import { getUserData } from '@/entities';
 
@@ -33,18 +25,17 @@ export const HeaderAction = ({ onOpenModal }: HeaderActionProps) => {
         <AppButton
           dataTestId='HeaderAction.btn_login'
           className={styles.btn_login}
-          theme={ThemeButton.BLUE}
           onClick={onOpenModal}
+          variant='blue'
           round='md'
           size='lg'
         >
           {t('Log in')}
         </AppButton>
       ) : (
-        <FlexGroup
+        <FlexRow
+          space={{ marginLeft: 'auto' }}
           alignItems='center'
-          spaceLeft='auto'
-          direction='row'
           gap='gap20'
         >
           <AppLink
@@ -79,7 +70,7 @@ export const HeaderAction = ({ onOpenModal }: HeaderActionProps) => {
             }
             profileId={authData.id}
           />
-        </FlexGroup>
+        </FlexRow>
       )}
     </>
   );

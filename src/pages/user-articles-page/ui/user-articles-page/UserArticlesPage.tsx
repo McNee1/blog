@@ -15,8 +15,8 @@ const UserArticlesPage = () => {
     <PageManager>
       <Card className={styles.title_wrap}>
         <Typography
-          titleClass={styles.title}
-          title='My article List'
+          content='My article List'
+          className={styles.title}
         />
       </Card>
       <MyArticles id={id} />

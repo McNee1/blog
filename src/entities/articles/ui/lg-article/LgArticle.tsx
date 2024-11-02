@@ -11,7 +11,8 @@ import {
   AppLink,
   Card,
   DateView,
-  FlexGroup,
+  FlexCol,
+  FlexRow,
   Skeleton,
   Typography,
   ViewCount,
@@ -28,14 +29,12 @@ export const LgArticle = memo(function LgArticle({ article }: LgArticleProps) {
 
   return (
     <Card>
-      <FlexGroup
-        spaceButton='space6'
-        direction='col'
+      <FlexCol
+        space={{ marginButton: 'mb6' }}
         gap='gap8'
       >
         <UserCard
           avatar={article.user?.avatar}
-          className={styles.author}
           alignItems='center'
           gap='gap10'
         >
@@ -48,7 +47,11 @@ export const LgArticle = memo(function LgArticle({ article }: LgArticleProps) {
           </AppLink>
         </UserCard>
 
-        <div className={styles.info}>
+        <FlexRow
+          className={styles.info}
+          alignItems='center'
+          gap='gap20'
+        >
           <ViewCount
             className={styles.info_count}
             views={article.views}
@@ -57,23 +60,23 @@ export const LgArticle = memo(function LgArticle({ article }: LgArticleProps) {
             options={{ dateStyle: 'medium' }}
             date={article.createdAt}
           />
-        </div>
-      </FlexGroup>
+        </FlexRow>
+      </FlexCol>
       <div className={styles.card_body}>
         <Typography
-          titleClass={styles.title}
-          title={article.title}
-          titleLevel='h3'
-          titleSize='lg'
+          className={styles.title}
+          content={article.title}
+          size='md'
+          as='h3'
         />
         <Typography
-          textClass={styles.subtitle}
-          text={article.subtitle}
-          textSize='md'
+          className={styles.subtitle}
+          content={article.subtitle}
+          size='sm'
         />
 
         <BadgeList
-          spaceButton='space14'
+          space={{ marginButton: 'mb8' }}
           types={article.type}
         />
 

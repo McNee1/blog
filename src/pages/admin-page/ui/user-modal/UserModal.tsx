@@ -5,7 +5,7 @@ import styles from './UserModal.module.scss';
 
 import successIcon from '@/shared/assets/icons/success.svg';
 import { useAppSelector } from '@/shared/lib';
-import { AppButton, AppIcon, FlexGroup, Modal, Portal, ThemeButton } from '@/shared/ui';
+import { AppButton, AppIcon, FlexCol, FlexRow, Modal, Portal } from '@/shared/ui';
 
 import { getSelectedUser, getUsersPrevRole, ModalAction } from '../../model';
 
@@ -35,36 +35,32 @@ export const UserModal = memo(function UserModal({
         isOpen={isOpen}
       >
         {action === ModalAction.DELETE ? (
-          <FlexGroup
-            alignItems='center'
-            direction='col'
-          >
+          <FlexCol alignItems='center'>
             Удалить пользователя?
             <div className={styles.modal_btn}>
               <AppButton
                 dataTestId='UserModal.Accept'
-                theme={ThemeButton.RED}
                 onClick={onDeleteUser}
+                variant='red'
                 round='sm'
                 size='lg'
               >
                 Да
               </AppButton>
               <AppButton
-                theme={ThemeButton.GREEN}
                 onClick={onCloseModal}
+                variant='green'
                 round='sm'
                 size='lg'
               >
                 Нет
               </AppButton>
             </div>
-          </FlexGroup>
+          </FlexCol>
         ) : (
-          <FlexGroup
+          <FlexRow
             dataTestId='UserModal.Success_content'
             alignItems='center'
-            direction='row'
             gap='gap10'
           >
             <AppIcon
@@ -75,7 +71,7 @@ export const UserModal = memo(function UserModal({
             {t(
               `You have changed ${selectedUser?.username}'s access rights from ${prevUserRole} to ${selectedUser?.role}`
             )}
-          </FlexGroup>
+          </FlexRow>
         )}
       </Modal>
     </Portal>

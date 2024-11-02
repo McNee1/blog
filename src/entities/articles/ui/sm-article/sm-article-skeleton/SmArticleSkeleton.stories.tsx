@@ -15,7 +15,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const LightTile: Story = {};
-LightTile.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const DarkTile: Story = {};
 DarkTile.decorators = [ThemeDecorator(Theme.DARK)];

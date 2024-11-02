@@ -5,7 +5,7 @@ import styles from './FilterArticleCategory.module.scss';
 
 import { CATEGORY } from '@/shared/constants';
 import { classNames } from '@/shared/lib';
-import { FlexGroup } from '@/shared/ui';
+import { FlexCol } from '@/shared/ui';
 
 import { ArticleCategory } from '@/entities';
 
@@ -27,9 +27,8 @@ export const FilterArticleCategory = memo(function FilterArticleCategory({
   };
 
   return (
-    <FlexGroup
+    <FlexCol
       className={classNames(styles.tabs, className)}
-      direction='col'
       gap='gap4'
     >
       {CATEGORY.map((cat) => (
@@ -44,6 +43,6 @@ export const FilterArticleCategory = memo(function FilterArticleCategory({
           {t(cat)}
         </div>
       ))}
-    </FlexGroup>
+    </FlexCol>
   );
 });

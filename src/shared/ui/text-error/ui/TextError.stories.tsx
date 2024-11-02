@@ -8,7 +8,7 @@ import { TextError } from './TextError';
 const meta = {
   title: 'shared/TextError',
   component: TextError,
-  decorators: [ThemeDecorator(Theme.LIGHT)],
+
   parameters: {
     layout: 'padded',
   },
@@ -32,4 +32,3 @@ export const Light: Story = {
     error: 'error',
   },
 };
-Light.decorators = [ThemeDecorator(Theme.LIGHT)];

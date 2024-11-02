@@ -2,13 +2,13 @@ import type { ArticleCategory } from '@/entities';
 
 import { ComponentProps, memo } from 'react';
 
-import { Badge, FlexGroup } from '@/shared/ui';
+import { Badge, Flex } from '@/shared/ui';
 
 import { getTypeColor } from '../lib';
 
-type FlexGroupProps = ComponentProps<typeof FlexGroup>;
+type FlexProps = ComponentProps<typeof Flex>;
 
-interface BadgeListProps extends Partial<Omit<FlexGroupProps, 'children'>> {
+interface BadgeListProps extends Partial<Omit<FlexProps, 'children'>> {
   types: ArticleCategory[];
 }
 
@@ -19,7 +19,7 @@ export const BadgeList = memo(function BadgeList({
   ...flexProps
 }: BadgeListProps) {
   return (
-    <FlexGroup
+    <Flex
       direction={direction}
       gap={gap}
       {...flexProps}
@@ -32,6 +32,6 @@ export const BadgeList = memo(function BadgeList({
           {type}
         </Badge>
       ))}
-    </FlexGroup>
+    </Flex>
   );
 });

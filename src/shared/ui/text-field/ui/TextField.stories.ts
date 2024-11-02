@@ -8,7 +8,7 @@ import { TextField } from './TextField';
 const meta = {
   title: 'shared/TextField',
   component: TextField,
-  decorators: [ThemeDecorator(Theme.LIGHT)],
+
   parameters: {
     layout: 'padded',
   },
@@ -26,7 +26,6 @@ Dark.decorators = [ThemeDecorator(Theme.DARK)];
 export const Light: Story = {
   args: {},
 };
-Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const WitchError: Story = {
   args: {

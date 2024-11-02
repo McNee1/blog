@@ -1,20 +1,19 @@
 import { useEffect } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 
-import { classNames, useAppDispatch, useAppSelector, useTheme } from '@/shared/lib';
+import { useAppDispatch, useAppSelector } from '@/shared/lib';
 import { Preloader } from '@/shared/ui';
 
 import { fetchUser, getUserIsLoading } from '@/entities';
 
-import { routerConfig } from './router';
+import { withTheme } from './providers';
+import { useRouter } from './router';
 
-export const App = () => {
-  const { theme } = useTheme();
-
+const App = () => {
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(getUserIsLoading);
 
-  const router = createBrowserRouter(routerConfig);
+  const router = useRouter();
 
   useEffect(() => {
     void dispatch(fetchUser());
@@ -24,9 +23,7 @@ export const App = () => {
     return <Preloader height='full' />;
   }
 
-  return (
-    <div className={classNames('app', theme)}>
-      <RouterProvider router={router} />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 };
+
+export const ThemedApp = withTheme(App);

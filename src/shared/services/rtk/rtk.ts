@@ -1,4 +1,3 @@
-// Or from '@reduxjs/toolkit/query' if not using the auto-generated hooks
 import { USER_LC_KEY } from '@/shared/constants';
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';

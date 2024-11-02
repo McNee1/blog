@@ -1,7 +1,7 @@
 import styles from './SmArticle.module.scss';
 
 import { getArticleDetailPath } from '@/shared/lib';
-import { AppLink, Card, DateView, FlexGroup, Typography, ViewCount } from '@/shared/ui';
+import { AppLink, Card, DateView, FlexRow, Typography, ViewCount } from '@/shared/ui';
 
 import { ArticleType, BadgeList } from '@/entities';
 
@@ -23,11 +23,10 @@ export const SmArticle = ({ article }: SmArticleProps) => {
           {article.title}
         </AppLink>
 
-        <Typography text={article.subtitle} />
+        <Typography content={article.subtitle} />
       </div>
-      <FlexGroup
+      <FlexRow
         className={styles.card_footer}
-        direction='row'
         gap='gap20'
       >
         <ViewCount views={article.views} />
@@ -35,7 +34,7 @@ export const SmArticle = ({ article }: SmArticleProps) => {
           options={{ dateStyle: 'medium' }}
           date={article.createdAt}
         />
-      </FlexGroup>
+      </FlexRow>
     </Card>
   );
 };

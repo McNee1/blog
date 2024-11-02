@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './ProfileForm.module.scss';
 
 import { classNames } from '@/shared/lib';
-import { CustomSelect, FlexGroup, Label, TextError, TextField } from '@/shared/ui';
+import { CustomSelect, FlexRow, Label, TextError, TextField } from '@/shared/ui';
 
 import { countries } from '@/entities';
 
@@ -19,22 +19,22 @@ interface ProfileFormProps {
   readonly: boolean;
 }
 
-const getClassError = (error: string | undefined) =>
+const getErrorClass = (error: string | undefined) =>
   error ? styles.input_error : styles.input_wrap;
 
-const ProfileFormComponent = ({
+export const ProfileForm = memo(function ProfileForm({
   inputErrors,
   readonly,
   onBlur,
   onChangeInput,
   onChangeSelect,
   profileData,
-}: ProfileFormProps) => {
+}: ProfileFormProps) {
   const { t } = useTranslation('profile');
 
   return (
     <>
-      <div className={classNames(getClassError(inputErrors?.username))}>
+      <div className={classNames(getErrorClass(inputErrors?.username))}>
         <TextField
           data-testid='ProfileForm.UserName'
           label={t(inputNames.USERNAME)}
@@ -52,7 +52,7 @@ const ProfileFormComponent = ({
           name={inputNames.USERNAME}
         />
       </div>
-      <div className={classNames(getClassError(inputErrors?.firstName))}>
+      <div className={classNames(getErrorClass(inputErrors?.firstName))}>
         <TextField
           data-testid='ProfileForm.FirstName'
           label={t(inputNames.FIRST_NAME)}
@@ -66,12 +66,12 @@ const ProfileFormComponent = ({
 
         <TextError
           data-testid='ProfileForm.FirstNameError'
-          error={inputErrors?.firstName}
-          name={inputNames.FIRST_NAME}
+          error={t(inputErrors?.firstName ?? '')}
+          name={t(inputNames.FIRST_NAME ?? '')}
         />
       </div>
       <div
-        className={classNames(styles.input_wrap, getClassError(profileData?.lastName))}
+        className={classNames(styles.input_wrap, getErrorClass(profileData?.lastName))}
       >
         <TextField
           data-testid='ProfileForm.LastName'
@@ -85,11 +85,11 @@ const ProfileFormComponent = ({
         />
         <TextError
           data-testid='ProfileForm.LastNameError'
-          error={inputErrors?.lastName}
-          name={inputNames.LAST_NAME}
+          error={t(inputErrors?.lastName ?? '')}
+          name={t(inputNames.LAST_NAME ?? '')}
         />
       </div>
-      <div className={classNames(getClassError(inputErrors?.email))}>
+      <div className={classNames(getErrorClass(inputErrors?.email))}>
         <TextField
           data-testid='ProfileForm.Email'
           label={t(inputNames.EMAIL)}
@@ -102,13 +102,12 @@ const ProfileFormComponent = ({
         />
         <TextError
           data-testid='ProfileForm.EmailError'
-          error={inputErrors?.email}
-          name={inputNames.EMAIL}
+          error={t(inputErrors?.email ?? '')}
+          name={t(inputNames.EMAIL ?? '')}
         />
       </div>
-      <FlexGroup
-        className={classNames(getClassError(inputErrors?.age ?? inputErrors?.avatar))}
-        direction='row'
+      <FlexRow
+        className={classNames(getErrorClass(inputErrors?.age ?? inputErrors?.avatar))}
         gap='gap10'
       >
         <div className={styles.age_input}>
@@ -125,8 +124,8 @@ const ProfileFormComponent = ({
           />
           <TextError
             data-testid='ProfileForm.AgeError'
-            error={inputErrors?.age}
-            name={inputNames.AGE}
+            error={t(inputErrors?.age ?? '')}
+            name={t(inputNames.AGE ?? '')}
           />
         </div>
         <div className={styles.avatar_input}>
@@ -142,15 +141,12 @@ const ProfileFormComponent = ({
           />
           <TextError
             data-testid='ProfileForm.AvatarError'
-            error={inputErrors?.avatar}
-            name={inputNames.AVATAR}
+            error={t(inputErrors?.avatar ?? '')}
+            name={t(inputNames.AVATAR ?? '')}
           />
         </div>
-      </FlexGroup>
-      <FlexGroup
-        direction='row'
-        gap='gap10'
-      >
+      </FlexRow>
+      <FlexRow gap='gap10'>
         <div className={styles.select}>
           <Label label='Select country' />
           <CustomSelect
@@ -175,13 +171,11 @@ const ProfileFormComponent = ({
           />
           <TextError
             data-testid='ProfileForm.CityError'
-            error={inputErrors?.city}
-            name={inputNames.CITY}
+            error={t(inputErrors?.city ?? '')}
+            name={t(inputNames.CITY ?? '')}
           />
         </div>
-      </FlexGroup>
+      </FlexRow>
     </>
   );
-};
-
-export const ProfileForm = memo(ProfileFormComponent);
+});
