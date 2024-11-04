@@ -7,6 +7,9 @@ import { Reaction } from './Reaction';
 const meta = {
   title: 'shared/Reaction',
   component: Reaction,
+  parameters: {
+    layout: 'centered',
+  },
 } satisfies Meta<typeof Reaction>;
 
 type Story = StoryObj<typeof meta>;

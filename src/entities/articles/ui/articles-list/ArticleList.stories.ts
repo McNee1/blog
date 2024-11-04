@@ -118,6 +118,7 @@ export const LightTile: Story = {
     isLoading: false,
   },
 };
+LightTile.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const DarkTile: Story = {
   args: {
@@ -147,3 +148,4 @@ export const LightCard: Story = {
     isLoading: false,
   },
 };
+LightCard.decorators = [ThemeDecorator(Theme.DARK)];

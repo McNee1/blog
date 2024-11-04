@@ -15,13 +15,14 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Light: Story = {
   args: {
     avatar: mockAvatar,
     alignItems: 'center',
     children: 'children content',
   },
 };
+Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark: Story = {
   args: { avatar: mockAvatar, alignItems: 'center', children: 'children content' },

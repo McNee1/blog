@@ -1,18 +1,7 @@
-import styles from './UsersList.module.scss';
+import { Card, FlexCol, FlexRow, Skeleton, Typography } from '@/shared/ui';
 
-import { getProfilePath } from '@/shared/lib';
-import {
-  AppButton,
-  AppLink,
-  Card,
-  FlexCol,
-  FlexRow,
-  Skeleton,
-  Typography,
-} from '@/shared/ui';
-
-import { Role, User, UserCard } from '@/entities';
-import { ChangeRole } from '@/features';
+import { Role, User } from '@/entities';
+import { UserControl } from '@/widgets';
 
 interface UsersListProps {
   disabled?: boolean;
@@ -64,45 +53,16 @@ export const UsersList = ({
   }
 
   return (
-    <>
+    <FlexCol gap='gap10'>
       {users?.map((user) => (
-        <UserCard
-          className={styles.user_card}
-          avatar={user.avatar}
+        <UserControl
+          onOpenDeleteModal={onOpenDeleteModal}
+          onChangeRole={onChangeRole}
+          disabled={disabled}
           key={user.id}
-          round='sm'
-        >
-          <FlexRow
-            alignItems='center'
-            justify='between'
-            maxWidth
-          >
-            <FlexCol
-              space={{ marginLeft: 'ml10' }}
-              className={styles.user_info}
-            >
-              <AppLink to={getProfilePath(user.id)}>{user.username}</AppLink>
-              <span>{user.email}</span>
-            </FlexCol>
-
-            <ChangeRole
-              onChangeRole={(role) => onChangeRole(user.id, role)}
-              className={styles.select_role}
-              userRole={user.role}
-            />
-            <AppButton
-              onClick={() => onOpenDeleteModal(user.id)}
-              dataTestId='UsersList.Btn_modal'
-              disabled={disabled}
-              variant='red'
-              round='sm'
-              size='md'
-            >
-              Delete account
-            </AppButton>
-          </FlexRow>
-        </UserCard>
+          user={user}
+        />
       ))}
-    </>
+    </FlexCol>
   );
 };

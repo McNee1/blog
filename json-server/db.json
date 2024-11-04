@@ -435,7 +435,7 @@
       "role": "moderator",
       "avatar": "https://avatars.mds.yandex.net/get-shedevrum/11425623/img_b741a033f00f11eeb7f0ba0d8cad0506/orig",
       "jsonSetting": {
-        "theme": "dark",
+        "theme": "light",
         "foo": "22"
       }
     },

@@ -82,12 +82,13 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Base: Story = {
+export const Light: Story = {
   args: {
     isLoading: false,
     data: MOCK_CODE,
   },
 };
+Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Loading: Story = {
   args: {

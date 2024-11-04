@@ -14,8 +14,12 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: { height: 'full' },
+};
 
-export const Dark: Story = {};
+export const Dark: Story = {
+  args: { height: 'full' },
+};
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

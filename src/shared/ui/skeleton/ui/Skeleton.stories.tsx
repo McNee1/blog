@@ -33,6 +33,7 @@ export const Light: Story = {
     height: '100px',
   },
 };
+Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Circle: Story = {
   args: {

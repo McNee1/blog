@@ -1,4 +1,4 @@
-import cls from './space.module.scss';
+import cls from './Space.module.scss';
 
 import {
   MarginButtonType,

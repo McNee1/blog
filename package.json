@@ -89,6 +89,7 @@
     "react-inlinesvg": "^4.1.0",
     "sass": "^1.69.5",
     "storybook": "^8.0.9",
+    "storybook-addon-mock": "^5.0.0",
     "stylelint": "^15.11.0",
     "stylelint-config-clean-order": "^5.2.0",
     "stylelint-config-recommended-scss": "^13.1.0",

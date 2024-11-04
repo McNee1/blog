@@ -17,6 +17,7 @@ export const ArticleDetailRecommendation = () => {
   if (!recommendedArticles) {
     return null;
   }
+
   return (
     <div className={styles.recommended}>
       <Typography

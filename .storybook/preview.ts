@@ -3,14 +3,10 @@ import { Preview } from '@storybook/react';
 import RouterDecorator from '../src/shared/config/storybook/RouterDecorator';
 
 import StyleDecorator from '../src/shared/config/storybook/StyleDecorator';
-import { ThemeDecorator } from '../src/shared/config/storybook/ThemeDecorator';
-import { Theme } from '../src/shared/constants/theme';
 
 const preview: Preview = {
   parameters: {
-    actions: {
-      argTypesRegex: '^on.*',
-    },
+    actions: {},
 
     controls: {
       matchers: {
@@ -18,8 +14,8 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    decorators: [RouterDecorator, ThemeDecorator(Theme.LIGHT), StyleDecorator],
   },
+  decorators: [RouterDecorator, StyleDecorator],
 };
 
 export default preview;

@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import StoreDecorator from '@/shared/config/storybook/StoreDecorator';
 
+import { fn } from '@storybook/test';
+
 import LoginForm from './LoginForm';
 
 const meta = {
@@ -18,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 export default meta;
 
 export const Base: Story = {
-  args: { onClose: () => '', className: '' },
+  args: { onClose: () => fn() },
 };
 Base.decorators = [
   StoreDecorator({
@@ -33,7 +35,7 @@ Base.decorators = [
 ];
 
 export const Error: Story = {
-  args: { onClose: () => '', className: '' },
+  args: { onClose: () => fn() },
 };
 Error.decorators = [
   StoreDecorator({
@@ -48,7 +50,7 @@ Error.decorators = [
 ];
 
 export const Loading: Story = {
-  args: { onClose: () => '', className: '' },
+  args: { onClose: () => fn() },
 };
 Loading.decorators = [
   StoreDecorator({

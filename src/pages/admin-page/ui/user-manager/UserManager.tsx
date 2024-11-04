@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import { AsyncSliceManager, useAppDispatch, useAppSelector } from '@/shared/lib';
-import { FlexCol } from '@/shared/ui';
 
 import { Role } from '@/entities';
 
@@ -84,23 +83,21 @@ export const UserManager = () => {
 
   return (
     <AsyncSliceManager reducers={initialReducer}>
-      <FlexCol dataTestId='UserManager'>
-        <UsersList
-          onOpenDeleteModal={handleOpenDeleteModal}
-          onChangeRole={handleChangeRole}
-          isLoading={isLoading}
-          disabled={disabled}
-          error={error}
-          users={users}
-        />
+      <UsersList
+        onOpenDeleteModal={handleOpenDeleteModal}
+        onChangeRole={handleChangeRole}
+        isLoading={isLoading}
+        disabled={disabled}
+        error={error}
+        users={users}
+      />
 
-        <UserModal
-          onDeleteUser={handleDeleteUser}
-          onCloseModal={handleCloseModal}
-          action={modalState.action}
-          isOpen={modalState.isOpen}
-        />
-      </FlexCol>
+      <UserModal
+        onDeleteUser={handleDeleteUser}
+        onCloseModal={handleCloseModal}
+        action={modalState.action}
+        isOpen={modalState.isOpen}
+      />
     </AsyncSliceManager>
   );
 };

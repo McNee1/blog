@@ -4,6 +4,8 @@ import avatar from '@/shared/assets/storybook/mock_avatar.jpg';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/constants';
 
+import { fn } from '@storybook/test';
+
 import { ProfileCard } from './ProfileCard';
 
 const MOCK_PROFILE = {
@@ -21,18 +23,17 @@ const MOCK_PROFILE = {
 
 const args = {
   avatar: avatar,
-  editProfile: () => false,
+  editProfile: fn(),
   email: 'string',
 
   error: null,
   inputErrors: null,
   isLoading: false,
 
-  onChangeInput: () => false,
-  onChangeSelect: () => false,
+  onChangeInput: fn(),
+  onChangeSelect: fn(),
   profileData: MOCK_PROFILE,
   readonly: true,
-  username: 'string',
 };
 
 const meta = {
@@ -47,6 +48,7 @@ type Story = StoryObj<typeof meta>;
 export const Light: Story = {
   args: args,
 };
+Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark: Story = {
   args: args,

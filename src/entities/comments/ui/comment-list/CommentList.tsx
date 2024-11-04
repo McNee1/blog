@@ -21,7 +21,7 @@ export const CommentList = memo(function CommentList({
     return <CommentSkeleton />;
   }
 
-  if (!error) {
+  if (error) {
     return (
       <Typography
         variant='error'

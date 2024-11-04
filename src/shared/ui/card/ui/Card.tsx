@@ -23,7 +23,7 @@ interface CardProps extends TestProps {
 export const Card = ({
   children,
   className,
-  overflow = 'hidden',
+  overflow = 'visible',
   as: Tag = 'div',
   shadow = true,
   dataTestId,

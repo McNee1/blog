@@ -35,6 +35,7 @@ export const Light: Story = {
     comment: MOCK_CODE,
   },
 };
+Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark: Story = {
   args: {

@@ -153,6 +153,7 @@ export const LoadLight: Story = {
     isLoading: true,
   },
 };
+LoadLight.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const LoadDark: Story = {
   args: {
@@ -179,3 +180,4 @@ export const ErrorLight: Story = {
     isLoading: false,
   },
 };
+ErrorLight.decorators = [ThemeDecorator(Theme.LIGHT)];
